@@ -167,6 +167,33 @@ padding-left:20px;
 color:var(--muted);
 }
 
+/* Modern Tech Bars */
+.tech-skill{
+margin-bottom:28px;
+}
+
+.tech-skill span{
+display:flex;
+justify-content:space-between;
+font-size:14px;
+margin-bottom:6px;
+}
+
+.tech-bar{
+height:10px;
+background:#1f2937;
+border-radius:20px;
+overflow:hidden;
+}
+
+.tech-fill{
+height:100%;
+width:0;
+background:linear-gradient(90deg,var(--accent),#60a5fa);
+border-radius:20px;
+transition:2s;
+}
+
 footer{
 text-align:center;
 padding:40px 0;
@@ -183,7 +210,8 @@ color:var(--muted);
 <div>
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
+<a href="#projects">Work</a>
+<a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
 <span class="toggle" onclick="toggleTheme()">Toggle Theme</span>
 </div>
@@ -192,13 +220,12 @@ color:var(--muted);
 
 <section class="hero container">
 <h1>
-Senior <span class="gradient">Backend Engineer</span>
+Senior <span class="gradient">Software Engineer</span>
 </h1>
 
 <p>
-Backend-focused engineer with 5+ years of experience designing scalable distributed systems and high-performance microservices.
-Strong foundation in data structures, algorithms, concurrency, and system design.
-Experienced in building fault-tolerant, cloud-native systems handling high request throughput with production reliability.
+Backend-focused engineer with 5+ years of experience building scalable distributed systems.
+Strong foundation in algorithms, concurrency, system design, and cloud-native architecture.
 </p>
 
 <a href="Mrityunjay_CV.pdf" class="btn primary" download>Download Resume</a>
@@ -211,7 +238,7 @@ Experienced in building fault-tolerant, cloud-native systems handling high reque
 </div>
 <div class="metric">
 <h3 class="counter" data-target="20">0</h3>
-<p>% API Latency Reduced</p>
+<p>% Latency Reduced</p>
 </div>
 <div class="metric">
 <h3 class="counter" data-target="30">0</h3>
@@ -219,70 +246,74 @@ Experienced in building fault-tolerant, cloud-native systems handling high reque
 </div>
 <div class="metric">
 <h3 class="counter" data-target="98">0</h3>
-<p>% Production Stability</p>
+<p>% Stability</p>
 </div>
-</div>
-</section>
-
-<section id="about" class="container">
-<h2 class="section-title">About Me</h2>
-<div class="card">
-Currently working at Accenture delivering enterprise-scale backend systems in the insurance domain.
-Designed microservices architecture using Spring Boot following clean architecture principles.
-Hands-on experience in multithreading, asynchronous processing, caching strategies, distributed logging, and container orchestration.
-Focused on writing maintainable code, improving system performance, and ensuring high availability in production environments.
-</div>
-</section>
-
-<section id="experience" class="container">
-<h2 class="section-title">Professional Experience</h2>
-<div class="card">
-<h3>Software Engineer — Accenture (2021–Present)</h3>
-<ul>
-<li>Designed and implemented scalable REST APIs serving thousands of daily requests.</li>
-<li>Improved API response time by 20% through optimized indexing and caching strategies.</li>
-<li>Reduced infrastructure bottlenecks by implementing asynchronous processing.</li>
-<li>Optimized CI/CD pipelines improving deployment speed by 30%.</li>
-<li>Containerized services using Docker and deployed on Kubernetes clusters.</li>
-<li>Integrated centralized monitoring dashboards using Splunk.</li>
-<li>Collaborated across cross-functional teams delivering stable production releases.</li>
-</ul>
 </div>
 </section>
 
 <section id="projects" class="container">
-<h2 class="section-title">Engineering Projects</h2>
+<h2 class="section-title">Selected System Design & Backend Work</h2>
 
 <div class="projects">
 
 <div class="card">
-<h3>Scalable Distributed Notification System</h3>
-<p>Designed a distributed system to handle real-time notifications with fault tolerance and retry mechanisms.</p>
+<h3>High-Scale Policy Processing Platform</h3>
+<p>Designed microservices architecture handling thousands of daily insurance transactions.</p>
 <ul>
-<li>Implemented asynchronous message processing.</li>
-<li>Designed retry & backoff strategies.</li>
-<li>Ensured horizontal scalability.</li>
+<li>API Gateway + service discovery pattern</li>
+<li>Database-per-service architecture</li>
+<li>Caching & async processing reducing latency</li>
+<li>Kubernetes-based horizontal scaling</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>High-Throughput API Gateway Framework</h3>
-<p>Built centralized gateway handling authentication, rate limiting, and request routing.</p>
+<h3>Distributed Transaction Reconciliation Engine</h3>
+<p>Engineered backend service ensuring data consistency across multiple systems.</p>
 <ul>
-<li>JWT-based authentication.</li>
-<li>Request validation & rate limiting.</li>
-<li>Optimized routing logic reducing latency.</li>
+<li>Idempotent processing logic</li>
+<li>Retry & backoff strategies</li>
+<li>Fault-tolerant workflow design</li>
+<li>Improved reconciliation reliability</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Cloud-Native Microservices Platform</h3>
-<p>Designed microservices deployed via Kubernetes ensuring reliability and resilience.</p>
+<h3>Cloud-Native Observability Framework</h3>
+<p>Built monitoring and logging pipelines improving SLA compliance.</p>
 <ul>
-<li>Database-per-service architecture.</li>
-<li>Circuit breaker implementation.</li>
-<li>Observability integration for production monitoring.</li>
+<li>Centralized structured logging</li>
+<li>Real-time error tracking dashboards</li>
+<li>Container health monitoring</li>
+<li>Incident detection automation</li>
 </ul>
+</div>
+
+</div>
+</section>
+
+<section id="skills" class="container">
+<h2 class="section-title">Core Technical Expertise</h2>
+<div class="card">
+
+<div class="tech-skill">
+<span>Java / Spring Boot <strong>90%</strong></span>
+<div class="tech-bar"><div class="tech-fill" data-width="90%"></div></div>
+</div>
+
+<div class="tech-skill">
+<span>Microservices & System Design <strong>85%</strong></span>
+<div class="tech-bar"><div class="tech-fill" data-width="85%"></div></div>
+</div>
+
+<div class="tech-skill">
+<span>Cloud & DevOps (Azure, Kubernetes) <strong>80%</strong></span>
+<div class="tech-bar"><div class="tech-fill" data-width="80%"></div></div>
+</div>
+
+<div class="tech-skill">
+<span>Performance Optimization <strong>85%</strong></span>
+<div class="tech-bar"><div class="tech-fill" data-width="85%"></div></div>
 </div>
 
 </div>
@@ -307,19 +338,26 @@ document.body.classList.toggle("light");
 }
 
 const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-const updateCount = () => {
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
-const increment = target / 200;
-if(count < target){
-counter.innerText = Math.ceil(count + increment);
-setTimeout(updateCount, 10);
+counters.forEach(counter=>{
+const updateCount=()=>{
+const target=+counter.getAttribute('data-target');
+const count=+counter.innerText;
+const increment=target/200;
+if(count<target){
+counter.innerText=Math.ceil(count+increment);
+setTimeout(updateCount,10);
 }else{
-counter.innerText = target;
+counter.innerText=target;
 }
 };
 updateCount();
+});
+
+const bars=document.querySelectorAll('.tech-fill');
+bars.forEach(bar=>{
+setTimeout(()=>{
+bar.style.width=bar.getAttribute('data-width');
+},500);
 });
 </script>
 
