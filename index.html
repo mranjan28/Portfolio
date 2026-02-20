@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mrityunjay Ranjan | Senior Java Developer</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- React CDN -->
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#0f172a;color:#f1f5f9;overflow-x:hidden;}
 canvas{position:fixed;top:0;left:0;z-index:-1;}
 
-header{display:flex;justify-content:space-between;padding:20px 8%;position:fixed;width:100%;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);}
+header{
+display:flex;justify-content:space-between;
+padding:20px 8%;position:fixed;width:100%;
+background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);
+}
+
 nav a{color:#38bdf8;margin-left:20px;text-decoration:none;}
 
 section{padding:120px 10%;}
 .hero{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
 .hero h2{font-size:42px;}
 .accent{color:#38bdf8;}
-.btn{padding:10px 20px;background:#38bdf8;color:#fff;border:none;border-radius:25px;margin-top:15px;cursor:pointer;}
 
-.card{background:#1e293b;padding:25px;border-radius:15px;margin-bottom:20px;}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.btn{
+padding:10px 20px;
+background:#38bdf8;
+color:#fff;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin-top:15px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
 
 input,textarea{
-width:100%;padding:10px;margin-top:10px;
-border-radius:8px;border:none;
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:none;
 }
 
 footer{text-align:center;padding:20px;background:#1e293b;}
@@ -43,126 +61,96 @@ footer{text-align:center;padding:20px;background:#1e293b;}
 </head>
 
 <body>
-<div id="root"></div>
 
-<script type="text/babel">
+<canvas id="particles"></canvas>
 
-emailjs.init("YOUR_PUBLIC_KEY"); // <-- Replace
-
-function TypingText() {
-  const text = "Senior Java Developer | Microservices | Cloud";
-  const [displayed, setDisplayed] = React.useState("");
-
-  React.useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayed(text.slice(0, i));
-      i++;
-      if (i > text.length) clearInterval(interval);
-    }, 80);
-    return () => clearInterval(interval);
-  }, []);
-
-  return <h2>{displayed}<span className="accent">|</span></h2>;
-}
-
-function ContactForm(){
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID",  // replace
-      "YOUR_TEMPLATE_ID", // replace
-      e.target
-    ).then(()=>alert("Message Sent Successfully"));
-  }
-
-  return(
-    <form onSubmit={sendEmail}>
-      <input name="name" placeholder="Your Name" required/>
-      <input name="email" type="email" placeholder="Your Email" required/>
-      <textarea name="message" rows="5" placeholder="Your Message"></textarea>
-      <button className="btn">Send Message</button>
-    </form>
-  )
-}
-
-function App(){
-return(
-<>
 <header>
-  <h3>Mrityunjay Ranjan</h3>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#architecture">Architecture</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<h3>Mrityunjay Ranjan</h3>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#architecture">Architecture</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<section className="hero">
-  <div>
-    <TypingText/>
-    <p>5 Years Experience in Java, Spring Boot, Kubernetes & Azure.</p>
-  </div>
+<section class="hero">
+<div>
+<h2 id="typing"></h2>
+<p>5 Years Experience in Java, Spring Boot, Kubernetes & Azure.</p>
+<a href="Mrityunjay_CV.pdf" class="btn" download>Download Resume</a>
+</div>
 </section>
 
 <section id="about">
-  <h2 className="accent">About</h2>
-  <div className="card">
-    Software Engineer at Accenture improving performance by 15%, reducing API latency by 20% and optimizing CI/CD by 30%.
-  </div>
+<h2 class="accent">About</h2>
+<div class="card">
+Software Engineer at Accenture improving performance by 15%, reducing API latency by 20% and optimizing CI/CD by 30%.
+</div>
 </section>
 
 <section id="skills">
-  <h2 className="accent">Skills</h2>
-  <div className="card">
-    Java, Spring Boot, Microservices, Kubernetes, Docker, Azure, DevOps
-  </div>
+<h2 class="accent">Skills</h2>
+<div class="card">
+Java, Spring Boot, Microservices, Kubernetes, Docker, Azure DevOps, Splunk
+</div>
 </section>
 
 <section id="architecture">
-  <h2 className="accent">System Design Architecture</h2>
-  <div className="card">
-    Microservices Architecture:
-    <ul>
-      <li>API Gateway</li>
-      <li>Service Discovery</li>
-      <li>Database per Service</li>
-      <li>Centralized Logging (Splunk)</li>
-      <li>CI/CD with Azure DevOps</li>
-    </ul>
-  </div>
+<h2 class="accent">System Design Architecture</h2>
+<div class="card">
+<ul>
+<li>API Gateway Pattern</li>
+<li>Service Discovery</li>
+<li>Database Per Service</li>
+<li>Centralized Logging (Splunk)</li>
+<li>CI/CD using Azure DevOps</li>
+</ul>
+</div>
 </section>
 
 <section id="contact">
-  <h2 className="accent">Recruiter Contact</h2>
-  <div className="card">
-    <ContactForm/>
-  </div>
+<h2 class="accent">Recruiter Contact</h2>
+<div class="card">
+<form action="https://formspree.io/f/your-form-id" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="5" placeholder="Your Message"></textarea>
+<button class="btn">Send Message</button>
+</form>
+</div>
 </section>
 
 <footer>
 © 2026 Mrityunjay Ranjan | Senior Java Developer
 </footer>
-</>
-)
-}
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
-
-</script>
-
-<!-- PARTICLES BACKGROUND -->
 <script>
-const canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
+// Typing animation
+const text = "Senior Java Developer | Microservices | Cloud";
+let i = 0;
+function typing(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing, 70);
+}
+}
+typing();
+
+// Particles background
+const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-for(let i=0;i<100;i++){
-particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
 }
 
 function animate(){
@@ -172,7 +160,7 @@ ctx.beginPath();
 ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
 ctx.fillStyle="#38bdf8";
 ctx.fill();
-p.y+=0.5;
+p.y+=0.4;
 if(p.y>canvas.height) p.y=0;
 });
 requestAnimationFrame(animate);
