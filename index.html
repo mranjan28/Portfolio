@@ -3,231 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mrityunjay Ranjan | Senior Java Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Mrityunjay Ranjan | Software Engineer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
     <style>
         :root {
-            --primary: #38bdf8;
-            --bg: #020617;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --text-main: #f1f5f9;
-            --text-dim: #94a3b8;
+            --bg-main: #121212;
+            --bg-card: #18181b;
+            --bg-card-hover: #27272a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #27272a;
+            --accent-gradient: linear-gradient(90deg, #38bdf8, #818cf8);
+            --btn-teal: #14b8a6;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
         
-        /* Particle Background */
-        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; border-bottom: 1px solid var(--border-color); }
+        .section-title { font-size: 2rem; font-weight: 600; margin-bottom: 40px; text-align: center; }
 
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; position: fixed; width: 100%;
-            background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); z-index: 1000;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        /* Header */
+        header { 
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color); padding: 15px 0;
         }
-
-        nav a { color: var(--text-main); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
-
-        section { padding: 120px 10% 60px; max-width: 1400px; margin: 0 auto; }
-        .accent { color: var(--primary); }
-
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-weight: 700; font-size: 1.2rem; }
+        nav { display: flex; gap: 25px; align-items: center; font-size: 0.9rem; font-weight: 500; }
+        nav a:hover { color: #38bdf8; }
+        .resume-btn { border: 1px solid var(--border-color); padding: 6px 16px; border-radius: 6px; }
+        
         /* Hero Section */
-        .hero { min-height: 90vh; display: flex; align-items: center; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 10px; }
-        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin-bottom: 30px; }
-
-        .btn {
-            display: inline-block; padding: 12px 32px; background: var(--primary);
-            color: #fff; border-radius: 50px; text-decoration: none;
-            font-weight: 600; transition: 0.3s; border: 1px solid var(--primary);
+        .hero { display: flex; justify-content: space-between; align-items: center; padding-top: 150px; border-bottom: none; }
+        .hero-text { flex: 1; padding-right: 50px; }
+        .hero-title { font-size: 3rem; font-weight: 700; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+        .hero-desc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px; max-width: 600px; }
+        
+        .hero-image-container { flex: 0.4; display: flex; flex-direction: column; align-items: center; }
+        .hero-image { 
+            width: 300px; height: 300px; border-radius: 16px; background: var(--bg-card); 
+            border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.1); position: relative;
         }
-        .btn:hover { background: transparent; color: var(--primary); transform: translateY(-3px); }
+        /* Corner Glowing Dots mimic */
+        .hero-image::before { content:''; position:absolute; top:-5px; right:-5px; width:10px; height:10px; background:#818cf8; border-radius:50%; }
+        .hero-image::after { content:''; position:absolute; bottom:-5px; left:-5px; width:10px; height:10px; background:#ef4444; border-radius:50%; }
+        
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons i { background: var(--bg-card); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; transition: 0.3s; }
+        .social-icons i:hover { background: var(--bg-card-hover); }
 
-        /* Card Styling */
-        .card {
-            background: var(--card-bg); padding: 35px; border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
-            margin-bottom: 30px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card:hover { border-color: var(--primary); transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        /* Experience Timeline */
+        .timeline { position: relative; padding-left: 30px; border-left: 2px solid var(--border-color); margin-top: 40px; }
+        .timeline-item { position: relative; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .timeline-dot { position: absolute; left: -36px; top: 30px; width: 10px; height: 10px; border-radius: 50%; background: #38bdf8; border: 2px solid var(--bg-main); }
+        .timeline-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .role-title { font-size: 1.2rem; font-weight: 600; }
+        .company { color: #14b8a6; font-size: 0.9rem; font-weight: 500; }
+        .date-badge { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted); }
+        .timeline-item ul { padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
+        .timeline-item ul li { margin-bottom: 8px; }
+
+        /* Projects Grid */
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .project-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; }
+        .project-card::before { content:''; position:absolute; top:-5px; right:-5px; width:12px; height:12px; background:var(--accent-gradient); border-radius:50%; }
+        .project-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .project-title { font-size: 1.2rem; font-weight: 600; }
+        .project-period { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; }
+        .project-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tech-tags span { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-muted); }
 
         /* Skills Grid */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
-        .skill-item {
-            background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 10px; border-radius: 12px; text-align: center; font-size: 0.85rem; font-weight: 500;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .skill-category { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; }
+        .skill-category::before { content:''; position:absolute; top:-5px; right:-5px; width:10px; height:10px; background:#818cf8; border-radius:50%; }
+        .skill-category-title { font-size: 1.1rem; font-weight: 500; color: #f472b6; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .skill-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; }
+        .skill-icon-box { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .skill-icon-box i { font-size: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; transition: 0.3s; }
+        .skill-icon-box i:hover { border-color: var(--btn-teal); color: var(--btn-teal); }
+        .skill-icon-box span { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* Experience & Certs */
-        .meta-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; }
-        .meta-info h3 { font-size: 1.5rem; color: var(--primary); }
-        .location-date { color: var(--text-dim); font-size: 0.85rem; }
+        /* Education & Certifications */
+        .edu-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 15px; }
+        .edu-title { font-weight: 600; margin-bottom: 5px; }
+        .edu-school { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px; }
+        .edu-date { font-size: 0.8rem; color: #14b8a6; }
+
+        .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .cert-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; text-align: center; }
+        .cert-card i { font-size: 2.5rem; color: #f59e0b; margin-bottom: 15px; }
+        .cert-card a { display: inline-block; margin-top: 15px; color: var(--btn-teal); font-size: 0.9rem; font-weight: 500; }
+
+        /* Contact Section */
+        .contact-wrap { display: flex; justify-content: space-between; gap: 50px; }
+        .contact-info { flex: 1; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: var(--text-muted); }
+        .contact-item i { color: var(--btn-teal); font-size: 1.2rem; }
         
-        ul { list-style: none; margin-top: 15px; }
-        ul li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #cbd5e1; font-size: 0.95rem; }
-        ul li::before { content: "→"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        .contact-form { flex: 1; background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .contact-form label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 5px; }
+        .contact-form input, .contact-form textarea { width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); color: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; }
+        .submit-btn { width: 100%; background: var(--btn-teal); color: #000; font-weight: 600; border: none; padding: 12px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { opacity: 0.9; }
 
-        footer { text-align: center; padding: 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-dim); }
-
-        @media (max-width: 768px) {
-            header { padding: 15px 5%; }
-            nav { display: none; }
-            section { padding: 100px 5% 40px; }
-        }
+        /* Footer */
+        footer { border-top: 1px solid var(--border-color); padding: 40px 0; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-content { display: flex; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-social { display: flex; gap: 15px; font-size: 1.2rem; }
+        .footer-bottom { text-align: center; margin-top: 40px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<canvas id="particles"></canvas>
-
-<header>
-    <h3>MR.</h3>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <div>
-        <h1 id="typing"></h1>
-        <p>Results-driven Software Engineer with 3.10 years of experience in Java & Cloud Ecosystems at Accenture.</p>
-        <a href="Mrityunjay_CV.pdf" class="btn" download>Download Resume</a>
-    </div>
-</section>
-
-<section id="about">
-    <h2 class="accent" style="margin-bottom: 20px;">01. About Me</h2>
-    <div class="card">
-        <p>I am a Software Engineer based in Patna, India, specializing in web application development and Enterprise Application Integration. My core focus is on building high-quality, scalable backend solutions using Java and Spring Boot. I thrive in dynamic roles where I can commit to delivering exceptional code quality and driving performance improvements.</p>
-    </div>
-</section>
-
-<section id="experience">
-    <h2 class="accent" style="margin-bottom: 20px;">02. Work Experience</h2>
-    <div class="card">
-        <div class="meta-info">
-            <h3>Software Engineer</h3>
-            <span class="location-date">03/2021 — Present | Accenture, Bengaluru</span>
+    <header>
+        <div class="header-content">
+            <div class="logo">Mrityunjay Ranjan</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+                <a href="Mrityunjay_CV.pdf" class="resume-btn" download>Resume</a>
+                <i class="fa-solid fa-sun" style="cursor: pointer;"></i>
+            </nav>
         </div>
-        <ul>
-            <li>Developed and maintained Java-based web applications, achieving a 15% improvement in overall performance.</li>
-            <li>Conducted API design and implemented RESTful services, resulting in a 20% reduction in response time.</li>
-            <li>Managed and mentored a development team, implementing best practices that led to a 25% increase in code efficiency.</li>
-            <li>Collaborated with QA to design and implement test cases, achieving a 98% defect-free application.</li>
-            <li>Optimized development and deployment processes by 30% using Azure DevOps, Docker, Kubernetes, and GitLab.</li>
-            <li>Proactively addressed 100% of user feedback promptly, resolving 95% of reported bugs.</li>
-        </ul>
+    </header>
+
+    <div class="container">
+        <section id="about" class="hero">
+            <div class="hero-text">
+                <h1 class="hero-title">Software Engineer</h1>
+                <p class="hero-desc">I build scalable, high-performance applications using Java, Spring Boot, Microservices, and Cloud ecosystems.</p>
+                <p class="hero-desc">From crafting robust RESTful APIs to enterprise application integration and optimizing CI/CD workflows, I deliver quality code that drives real impact.</p>
+                <p class="hero-desc">Passionate about solving complex challenges in fast-paced, collaborative environments. Ready to build something exceptional together.</p>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image">
+                    <i class="fa-solid fa-user-astronaut" style="font-size: 5rem; color: #38bdf8;"></i>
+                </div>
+                <div class="social-icons">
+                    <a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/ranjan-mrityunjay" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div>
+                            <div class="role-title">Software Engineer</div>
+                            <div class="company">Accenture, Bengaluru</div>
+                        </div>
+                        <div class="date-badge">March 2021 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Developed and maintained Java-based web applications with a focus on quality, achieving a 15% improvement in overall performance.</li>
+                        <li>Conducted API design and implemented RESTful services, resulting in a 20% reduction in response time.</li>
+                        <li>Managed and mentored a development team, implementing best practices that led to a 25% increase in code efficiency.</li>
+                        <li>Collaborated with QA to design and implement test cases, achieving a 98% defect-free application.</li>
+                        <li>Demonstrated expertise in DevOps practices, optimizing development and deployment processes by 30% using tools like Postman, Splunk, GitLab, and Maven.</li>
+                        <li>Proactively provided technical support, addressing 100% of user feedback promptly, and resolving 95% of reported bugs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">IRNSS System</div>
+                        <span class="date-badge" style="font-size: 0.7rem; padding: 2px 8px;">Details</span>
+                    </div>
+                    <div class="project-period">Period: Aug 2019 - Jan 2020</div>
+                    <div class="project-desc">Worked on the Indian Regional Navigation Satellite System project focusing on core technical implementations.</div>
+                    <div class="tech-tags">
+                        <span>Java</span> <span>Data Structures</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Microservices Migration</div>
+                        <span class="date-badge" style="font-size: 0.7rem; padding: 2px 8px;">Details</span>
+                    </div>
+                    <div class="project-period">Period: 2022 - Present</div>
+                    <div class="project-desc">Migrated legacy monolithic architecture to distributed Spring Boot Microservices, improving application scalability.</div>
+                    <div class="tech-tags">
+                        <span>Spring Boot</span> <span>Microservices</span> <span>Azure</span>
+                    </div>
+                </div>
+                 <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">CI/CD Pipeline Optimization</div>
+                        <span class="date-badge" style="font-size: 0.7rem; padding: 2px 8px;">Details</span>
+                    </div>
+                    <div class="project-period">Period: 2023 - 2024</div>
+                    <div class="project-desc">Architected and deployed streamlined automated pipelines utilizing GitLab and Docker.</div>
+                    <div class="tech-tags">
+                        <span>GitLab</span> <span>Docker</span> <span>Splunk</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3 class="skill-category-title" style="color: #38bdf8;">Programming Languages & DB</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-box"><i class="devicon-java-plain colored"></i><span>Java 8</span></div>
+                        <div class="skill-icon-box"><i class="devicon-azuresqldatabase-plain colored"></i><span>SQL</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title" style="color: #f472b6;">Backend Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-box"><i class="devicon-spring-plain colored"></i><span>Spring Boot</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-leaf" style="color:#6db33f;"></i><span>Hibernate</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-network-wired"></i><span>Microservices</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-server"></i><span>REST API</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-shield-halved"></i><span>Spring Security</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title" style="color: #34d399;">Cloud & DevOps</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-box"><i class="devicon-azure-plain colored"></i><span>Azure DevOps</span></div>
+                        <div class="skill-icon-box"><i class="devicon-kubernetes-plain colored"></i><span>Kubernetes</span></div>
+                        <div class="skill-icon-box"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
+                        <div class="skill-icon-box"><i class="devicon-gitlab-plain colored"></i><span>GitLab</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title" style="color: #a78bfa;">Developer Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-box"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-rocket" style="color:#ff6c37;"></i><span>Postman</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Splunk</span></div>
+                        <div class="skill-icon-box"><i class="fa-solid fa-feather"></i><span>Maven</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-card">
+                <div class="edu-title">B.Tech in Electronics & Communication Engineering</div>
+                <div class="edu-school">Dr. B. C Roy Engineering College, Durgapur, West Bengal</div>
+                <div class="edu-date">August 2016 - July 2020</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-title">Class XII</div>
+                <div class="edu-school">Doon Public School, Patna, Bihar</div>
+                <div class="edu-date">April 2014 - May 2015</div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Recognized achievements in the field of technology.</p>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="devicon-azure-plain colored"></i>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Microsoft Azure Fundamentals AZ-900</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Issued By: Microsoft<br>June 2023 - Present</p>
+                    <a href="#">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <i class="fa-solid fa-database" style="color: #0089d6;"></i>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Microsoft Azure Data Fundamentals DP-900</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Issued By: Microsoft<br>June 2023 - Present</p>
+                    <a href="#">View Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 10px;">Get In Touch</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem;">Feel free to contact me for any work or suggestions below.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>mrityunjay.ranjan28@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>linkedin.com/in/ranjan-mrityunjay</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(+91) 7001541822</span>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your name" required>
+                        
+                        <label>Email</label>
+                        <input type="email" placeholder="Your email" required>
+                        
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Your message" required></textarea>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-</section>
 
-<section id="skills">
-    <h2 class="accent" style="margin-bottom: 20px;">03. Technical Arsenal</h2>
-    <div class="card">
-        <div class="skills-container">
-            <div class="skill-item">Java 8 / J2EE</div>
-            <div class="skill-item">Spring Boot</div>
-            <div class="skill-item">Microservices</div>
-            <div class="skill-item">Spring Data JPA</div>
-            <div class="skill-item">Spring Security</div>
-            <div class="skill-item">Hibernate</div>
-            <div class="skill-item">RESTful API</div>
-            <div class="skill-item">Azure DevOps</div>
-            <div class="skill-item">Kubernetes</div>
-            <div class="skill-item">Docker</div>
-            <div class="skill-item">Splunk / GitLab</div>
-            <div class="skill-item">Data Structures</div>
-            <div class="skill-item">Algorithms</div>
-            <div class="skill-item">SQL</div>
-            <div class="skill-item">Maven / Postman</div>
+    <footer>
+        <div class="footer-content">
+            <div style="max-width: 400px;">
+                <h3 style="color: #fff; margin-bottom: 10px;">Mrityunjay Ranjan</h3>
+                <p>Software Engineer with a passion for creating innovative, scalable, and high-performance solutions.</p>
+            </div>
+            
+            <div>
+                <h4 style="color: #fff; margin-bottom: 15px;">Links</h4>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="color: #fff; margin-bottom: 15px;">Connect</h4>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/ranjan-mrityunjay"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-
-<section id="certifications">
-    <h2 class="accent" style="margin-bottom: 20px;">04. Certifications</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-        <div class="card" style="margin-bottom: 0;">
-            <h3>Azure Fundamentals (AZ-900)</h3>
-            <p style="font-size: 0.9rem; margin-top: 10px;">Foundational expertise in cloud concepts, security, and Azure architecture.</p>
+        <div class="footer-bottom">
+            © 2026 Mrityunjay Ranjan. All rights reserved.
         </div>
-        <div class="card" style="margin-bottom: 0;">
-            <h3>Azure Data Fundamentals (DP-900)</h3>
-            <p style="font-size: 0.9rem; margin-top: 10px;">Specialized in Azure SQL Database and Data Lake Storage solutions.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2 class="accent" style="margin-bottom: 20px;">05. Get In Touch</h2>
-    <div class="card" style="text-align: center;">
-        <p>Currently seeking new opportunities to build impactful software.</p>
-        <div style="margin: 20px 0; font-weight: 600;">
-            <p class="accent">mrityunjay.ranjan28@gmail.com</p>
-            <p>(+91) 7001541822</p>
-        </div>
-        <a href="mailto:mrityunjay.ranjan28@gmail.com" class="btn">Say Hello</a>
-    </div>
-</section>
-
-<footer>
-    Designed & Built by Mrityunjay Ranjan | © 2026
-</footer>
-
-<script>
-    // Typing Animation logic
-    const text = "Mrityunjay Ranjan.";
-    let idx = 0;
-    const typing = () => {
-        if (idx < text.length) {
-            document.getElementById("typing").innerHTML += text.charAt(idx);
-            idx++;
-            setTimeout(typing, 100);
-        }
-    };
-    typing();
-
-    // Particle background logic
-    const canvas = document.getElementById("particles");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-
-    const init = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        particles = [];
-        for (let i = 0; i < 80; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2,
-                speedY: Math.random() * 0.5 + 0.1
-            });
-        }
-    };
-
-    const draw = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(56, 189, 248, 0.3)";
-        particles.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
-            p.y -= p.speedY;
-            if (p.y < 0) p.y = canvas.height;
-        });
-        requestAnimationFrame(draw);
-    };
-
-    window.addEventListener('resize', init);
-    init();
-    draw();
-</script>
+    </footer>
 
 </body>
 </html>
