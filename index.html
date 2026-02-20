@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrityunjay Ranjan | Software Engineer</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
@@ -29,6 +29,7 @@
             --orange: #f97316;
             
             --gradient-text: linear-gradient(90deg, #22d3ee, #818cf8, #f472b6);
+            --gradient-hover: linear-gradient(90deg, #818cf8, #f472b6);
             --gradient-line: linear-gradient(180deg, #22d3ee, #818cf8, #f472b6, #f97316);
             --gradient-divider: linear-gradient(90deg, rgba(34,211,238,0.5), rgba(129,140,248,0.5), rgba(244,114,182,0.5));
         }
@@ -38,11 +39,12 @@
         body { 
             background-color: var(--bg-main); 
             color: var(--text-main); 
-            line-height: 1.6; 
-            font-size: 15px; /* Perfect sleek base size */
+            line-height: 1.7; 
+            font-size: 15px; 
             overflow-x: hidden; 
         }
 
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-main); }
         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
@@ -53,25 +55,23 @@
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
 
-        /* REVERTED TO PREFERRED INDENTATION (1280px) */
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        /* WIDER CONTAINER FOR LEFT INDENTATION */
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 6%; }
         section { padding: 90px 0; }
-        
-        /* Font weight 500 (sleek) instead of 700/800 */
-        .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 50px; color: #fff; letter-spacing: -0.5px; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 50px; color: #fff; letter-spacing: -0.5px; }
 
         /* HEADER & NAVIGATION */
         header { 
             position: fixed; width: 100%; top: 0; z-index: 1000;
             background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color); padding: 18px 0;
+            border-bottom: 1px solid var(--border-color); padding: 15px 0;
             transition: all 0.3s ease;
         }
-        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-        .logo { font-weight: 500; font-size: 1.15rem; color: #fff; letter-spacing: -0.5px; cursor: pointer; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1440px; margin: 0 auto; padding: 0 6%; }
+        .logo { font-weight: 700; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px; cursor: pointer; }
         .logo:hover { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        nav { display: flex; gap: 32px; align-items: center; font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+        nav { display: flex; gap: 24px; align-items: center; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
         
         nav a { position: relative; padding-bottom: 4px; }
         nav a::after {
@@ -83,132 +83,152 @@
         nav a:hover::after { width: 100%; }
         
         .resume-btn { 
-            border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 6px; 
-            color: var(--text-muted); font-weight: 400; transition: all 0.3s ease; background: transparent;
+            border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 6px; 
+            color: var(--text-muted); font-weight: 500; transition: all 0.3s ease; background: transparent;
         }
         .resume-btn:hover { background: rgba(255,255,255,0.05); border-color: #fff; color: #fff; }
-        .theme-icon { border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: 0.3s; color: var(--text-muted); }
+        .theme-icon { border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 6px; cursor: pointer; transition: 0.3s; color: var(--text-muted); }
         .theme-icon:hover { background: rgba(255,255,255,0.05); color: #fff; border-color: #fff; }
 
         /* HERO SECTION */
-        .hero { display: flex; justify-content: space-between; align-items: center; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; gap: 50px; }
-        .hero-text { flex: 1.2; padding-right: 20px; }
+        .hero { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding-top: 140px; /* Reduced and fixed top spacing */
+            padding-bottom: 50px; 
+            gap: 80px; 
+        }
         
-        /* Sleek 500 weight for Hero Title */
+        .hero-text { flex: 1.1; max-width: 650px; }
+        
         .hero-title { 
-            font-size: clamp(2.6rem, 5vw, 3.5rem); 
-            font-weight: 500; 
+            font-size: 3rem; font-weight: 800; 
             background: var(--gradient-text); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             margin-bottom: 20px;
-            display: flex; align-items: center; min-height: 70px;
+            display: flex; align-items: center; min-height: 60px;
             letter-spacing: -1px;
-            line-height: 1.1;
+            line-height: 1.2;
         }
         
-        .cursor { font-weight: 300; color: var(--pink); -webkit-text-fill-color: var(--pink); animation: blink 0.8s infinite; margin-left: 2px; }
+        .cursor { font-weight: 400; color: var(--pink); -webkit-text-fill-color: var(--pink); animation: blink 0.8s infinite; margin-left: 4px; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .hero-desc { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 25px; max-width: 600px; line-height: 1.8; }
+        .hero-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.8; }
         
-        .hero-img-container { flex: 0.8; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .hero-img-container { flex: 0.9; display: flex; flex-direction: column; align-items: center; position: relative; }
         
         .hero-img { 
             width: 320px; height: 320px; background: #27272a; border-radius: 20px; 
             border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center;
             transition: all 0.5s ease; position: relative; z-index: 1;
         }
-        .hero-img:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(129, 140, 248, 0.2);
-            border-color: rgba(129, 140, 248, 0.4);
+        
+        /* New CSS specifically for the Ghibli/Art image */
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 19px; /* Fits perfectly inside the 1px border */
+            pointer-events: none;
         }
-        .hero-img::before { content:''; position:absolute; top:-6px; right:40px; width:10px; height:10px; background:var(--purple); border-radius:50%; box-shadow: 0 0 10px var(--purple); }
-        .hero-img::after { content:''; position:absolute; bottom:50px; left:40px; width:10px; height:10px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; }
+
+        .hero-img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(129, 140, 248, 0.3);
+            border-color: rgba(129, 140, 248, 0.5);
+        }
+        .hero-img::before { content:''; position:absolute; top:-6px; right:40px; width:12px; height:12px; background:var(--purple); border-radius:50%; box-shadow: 0 0 10px var(--purple); }
+        .hero-img::after { content:''; position:absolute; bottom:50px; left:40px; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; }
         
         .social-bar { display: flex; gap: 15px; margin-top: 30px; }
         .social-bar a { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
-            width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; 
-            border-radius: 8px; font-size: 1.1rem; color: var(--text-muted); transition: all 0.3s ease;
+            width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; 
+            border-radius: 10px; font-size: 1.1rem; color: var(--text-muted); transition: all 0.3s ease;
         }
-        .social-bar a:hover { color: #fff; background: rgba(129, 140, 248, 0.1); border-color: var(--purple); transform: translateY(-3px); }
+        .social-bar a:hover { 
+            color: #fff; background: rgba(129, 140, 248, 0.1); 
+            border-color: var(--purple); transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(129, 140, 248, 0.2);
+        }
 
         /* EXPERIENCE TIMELINE */
-        .timeline-container { position: relative; padding-left: 35px; margin-top: 40px; }
+        .timeline-container { position: relative; padding-left: 35px; margin-top: 30px; }
         .timeline-line { position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--gradient-line); border-radius: 2px; }
         
         .timeline-item { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative;
+            border-radius: 14px; padding: 30px; margin-bottom: 30px; position: relative;
             transition: all 0.3s ease;
         }
-        .timeline-item:hover { border-color: var(--border-hover); transform: translateX(8px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .timeline-item:hover { border-color: var(--border-hover); transform: translateX(10px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
         
         .dot-1 { position: absolute; left: -41px; top: 35px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); border: 2px solid var(--bg-main); z-index: 2; box-shadow: 0 0 10px var(--cyan); }
         .corner-dot-orange { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
 
         .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
-        .timeline-title { font-size: 1.1rem; font-weight: 500; color: #fff; letter-spacing: -0.3px; }
-        .timeline-company { font-size: 0.9rem; color: var(--teal); margin-top: 4px; font-weight: 400; }
-        .timeline-date { font-size: 0.8rem; color: var(--text-muted); background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-weight: 300; }
+        .timeline-title { font-size: 1.15rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+        .timeline-company { font-size: 0.9rem; color: var(--teal); margin-top: 4px; font-weight: 600; }
+        .timeline-date { font-size: 0.75rem; color: var(--text-muted); background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-weight: 500; }
         
         .timeline-list { padding-left: 20px; }
-        .timeline-list li { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 12px; position: relative; line-height: 1.7; transition: 0.2s;}
+        .timeline-list li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; position: relative; line-height: 1.7; }
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
-        .timeline-list li:hover { color: #d4d4d8; } 
+        .timeline-list li:hover { color: #e2e8f0; } 
 
         /* PROJECTS */
         .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .project-card { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column;
+            border-radius: 14px; padding: 25px; position: relative; display: flex; flex-direction: column;
             transition: all 0.3s ease;
         }
-        .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); }
+        .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.2); }
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
         
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .project-title { font-size: 1.05rem; font-weight: 500; color: #fff; letter-spacing: -0.3px; }
-        .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 400; }
+        .project-title { font-size: 1.1rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+        .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 500; }
         
-        .project-period { font-size: 0.8rem; color: #fff; font-weight: 400; margin-bottom: 15px; }
-        .project-period span { color: var(--text-muted); }
+        .project-period { font-size: 0.8rem; color: #fff; font-weight: 600; margin-bottom: 15px; }
+        .project-period span { color: var(--text-muted); font-weight: 400; }
         
-        .project-desc { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
+        .project-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
         .project-desc li { margin-bottom: 8px; list-style-type: disc; }
         
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .tech-tags span { 
             background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); 
             padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted);
-            transition: 0.3s; font-weight: 300;
+            transition: 0.3s;
         }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
         
         .project-links { display: flex; gap: 10px; }
         .btn-link { 
             display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.03); 
-            border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 6px; 
-            font-size: 0.8rem; color: #fff; font-weight: 400; transition: 0.3s;
+            border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 8px; 
+            font-size: 0.8rem; color: #fff; font-weight: 500; transition: 0.3s;
         }
-        .btn-link:hover { background: var(--text-main); color: #000; }
+        .btn-link:hover { background: var(--text-main); color: var(--bg-main); }
 
         /* SKILLS SECTION */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .skill-card { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; position: relative;
+            border-radius: 14px; padding: 25px; position: relative;
             transition: all 0.3s ease;
         }
         .skill-card:hover { border-color: var(--border-hover); box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5); }
         .corner-dot-purple { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
         
-        .skill-header { font-size: 1rem; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.3px; }
+        .skill-header { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.5px; }
         .c-cyan { color: var(--cyan); }
         .c-pink { color: var(--pink); }
-        .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 25px; border-radius: 2px; }
+        .skill-divider { height: 2px; width: 100%; background: var(--gradient-divider); margin-bottom: 25px; border-radius: 2px; }
         
         .skill-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         
@@ -216,7 +236,7 @@
         .skill-icon { 
             width: 55px; height: 55px; background: rgba(255,255,255,0.02); 
             border: 1px solid var(--border-color); border-radius: 12px; display: flex; 
-            justify-content: center; align-items: center; font-size: 2rem; 
+            justify-content: center; align-items: center; font-size: 2.2rem; 
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
         .skill-icon img { width: 30px; height: 30px; object-fit: contain; transition: all 0.3s ease; } 
@@ -224,42 +244,42 @@
         .skill-item:hover .skill-icon { 
             border-color: var(--cyan); 
             transform: translateY(-4px) scale(1.05); 
-            box-shadow: 0 10px 20px -5px rgba(34, 211, 238, 0.15); 
+            box-shadow: 0 10px 20px -5px rgba(34, 211, 238, 0.2); 
             background: rgba(34, 211, 238, 0.05);
         }
         .skill-item:hover .skill-icon i { transform: scale(1.1); }
         .skill-item:hover .skill-icon img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
-        .skill-label { font-size: 0.75rem; font-weight: 300; color: var(--text-muted); transition: 0.3s; }
+        .skill-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); transition: 0.3s; }
         .skill-item:hover .skill-label { color: #fff; }
 
         /* EDUCATION */
         .edu-card { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; margin-bottom: 15px;
+            border-radius: 14px; padding: 25px; margin-bottom: 15px;
             transition: all 0.3s ease;
         }
         .edu-card:hover { border-color: var(--purple); transform: translateX(5px); }
-        .edu-title { font-weight: 500; font-size: 1rem; color: #fff; margin-bottom: 4px; letter-spacing: -0.3px; }
-        .edu-school { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; margin-bottom: 6px; }
-        .edu-date { font-size: 0.8rem; color: var(--teal); font-weight: 400; }
+        .edu-title { font-weight: 700; font-size: 1rem; color: #fff; margin-bottom: 4px; letter-spacing: -0.5px; }
+        .edu-school { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 6px; font-weight: 500; }
+        .edu-date { font-size: 0.8rem; color: var(--teal); font-weight: 600; }
 
         /* CERTIFICATIONS */
-        .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 40px; }
+        .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px; }
         .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .cert-card { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 30px 20px; text-align: center;
+            border-radius: 14px; padding: 30px 20px; text-align: center;
             transition: all 0.4s ease;
         }
         .cert-card:hover { transform: translateY(-6px); border-color: #0089d6; box-shadow: 0 15px 30px -10px rgba(0, 137, 214, 0.15); }
-        .cert-card i { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
-        .cert-card:hover i { transform: scale(1.05); }
-        .cert-title { font-size: 0.9rem; font-weight: 500; color: #fff; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; }
-        .cert-issuer { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; margin-bottom: 4px; }
-        .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 300; }
+        .cert-card i { font-size: 2.8rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
+        .cert-card:hover i { transform: scale(1.1); }
+        .cert-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; }
+        .cert-issuer { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
+        .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 500; }
         .cert-link { 
-            display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; 
-            padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px;
+            display: inline-block; color: var(--teal); font-size: 0.85rem; font-weight: 600; 
+            padding: 6px 14px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 6px;
             background: rgba(20, 184, 166, 0.05); transition: 0.3s;
         }
         .cert-link:hover { background: var(--teal); color: #000; }
@@ -267,50 +287,47 @@
         /* CONTACT */
         .contact-wrap { display: flex; gap: 40px; }
         .contact-info { flex: 1; padding-right: 20px;}
-        .contact-info h3 { font-size: 1.2rem; font-weight: 500; color: #fff; margin-bottom: 12px; letter-spacing: -0.3px; }
-        .contact-info p { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 30px; }
-        .c-item { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; color: #fff; font-size: 0.85rem; font-weight: 300; transition: 0.3s; cursor: pointer; }
-        .c-item i { color: var(--teal); font-size: 1rem; padding: 10px; background: rgba(20, 184, 166, 0.1); border-radius: 6px; transition: 0.3s; }
-        .c-item:hover i { background: var(--teal); color: #000; transform: scale(1.05); }
+        .contact-info h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .contact-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; }
+        .c-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: #fff; font-size: 0.9rem; font-weight: 500; transition: 0.3s; cursor: pointer; }
+        .c-item i { color: var(--teal); font-size: 1.1rem; padding: 10px; background: rgba(20, 184, 166, 0.1); border-radius: 8px; transition: 0.3s; }
+        .c-item:hover i { background: var(--teal); color: #000; transform: scale(1.1); }
         .c-item:hover { color: var(--cyan); }
         
-        .contact-form { flex: 1.5; background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .contact-form { flex: 1.5; background: var(--bg-card); padding: 30px; border-radius: 14px; border: 1px solid var(--border-color); }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: 400; color: #fff; margin-bottom: 8px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
         .form-group input, .form-group textarea { 
             width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); 
-            color: #fff; padding: 12px 16px; border-radius: 6px; outline: none; transition: 0.3s; font-size: 0.85rem;
-            font-family: 'Inter', sans-serif;
+            color: #fff; padding: 12px 16px; border-radius: 8px; outline: none; transition: 0.3s; font-size: 0.9rem;
         }
         .form-group input:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.1); }
         .submit-btn { 
-            width: 100%; background: var(--teal); color: #000; font-weight: 500; font-size: 0.9rem;
-            border: none; padding: 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; 
+            width: 100%; background: var(--teal); color: #000; font-weight: 700; font-size: 0.95rem;
+            border: none; padding: 12px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; 
         }
         .submit-btn:hover { background: #0f9688; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(20, 184, 166, 0.3); }
 
         /* FOOTER */
         footer { padding: 40px 0 30px; border-top: 1px solid var(--border-color); margin-top: 50px; }
-        .footer-content { display: flex; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        .footer-content { display: flex; justify-content: space-between; max-width: 1440px; margin: 0 auto; padding: 0 6%; }
         .f-col-1 { max-width: 350px; }
-        .f-col-1 h4 { color: #fff; font-size: 1rem; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.3px; }
-        .f-col-1 p { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; line-height: 1.7; }
+        .f-col-1 h4 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .f-col-1 p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; }
         
-        .f-col-2 h4, .f-col-3 h4 { color: #fff; font-size: 1rem; font-weight: 500; margin-bottom: 15px; letter-spacing: -0.3px;}
-        .f-links { display: flex; flex-direction: column; gap: 10px; color: var(--text-muted); font-size: 0.85rem; font-weight: 300; }
-        .f-links a:hover { color: #fff; padding-left: 3px; }
+        .f-col-2 h4, .f-col-3 h4 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -0.5px;}
+        .f-links { display: flex; flex-direction: column; gap: 10px; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+        .f-links a:hover { color: #fff; padding-left: 5px; }
         
         .f-socials { display: flex; gap: 15px; font-size: 1.2rem; color: var(--text-muted); }
         .f-socials a:hover { color: #fff; transform: translateY(-3px); }
         
-        .copyright { text-align: center; margin-top: 50px; font-size: 0.8rem; color: var(--text-darker); border-top: 1px solid var(--border-color); padding-top: 20px; max-width: 1280px; margin-left: auto; margin-right: auto; font-weight: 300; }
+        .copyright { text-align: center; margin-top: 50px; font-size: 0.8rem; color: var(--text-darker); border-top: 1px solid var(--border-color); padding-top: 20px; max-width: 1440px; margin-left: auto; margin-right: auto; }
 
         @media (max-width: 900px) {
             .hero, .contact-wrap { flex-direction: column; }
-            .hero-text { padding-right: 0; }
             .hero-img-container { order: -1; margin-bottom: 40px; }
             .projects-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
-            .timeline-container { padding-left: 20px; }
             nav { display: none; }
         }
     </style>
@@ -343,19 +360,20 @@
                     <span id="typewriter"></span><span class="cursor">|</span>
                 </h1>
                 
-                <p class="hero-desc">I build scalable, high-performance applications using Java, Spring Boot, Microservices, and robust Cloud architecture.</p>
-                <p class="hero-desc">From crafting enterprise integrations to designing resilient backend APIs and automated CI/CD workflows, I deliver quality code that drives real impact.</p>
+                [cite_start]<p class="hero-desc">I build scalable, high-performance applications using Java, Spring Boot, Microservices, and robust Cloud architecture. [cite: 3]</p>
+                [cite_start]<p class="hero-desc">From crafting enterprise integrations to designing resilient backend APIs and automated CI/CD workflows, I deliver quality code that drives real impact. [cite: 32, 33, 37]</p>
                 <p class="hero-desc">Passionate about solving complex challenges in fast-paced, collaborative environments. Ready to build something exceptional together.</p>
             </div>
             <div class="hero-img-container">
+                
                 <div class="hero-img">
-                    <i class="fa-solid fa-user-astronaut" style="font-size: 6.5rem; color: var(--purple);"></i>
+                    <img src="https://i.pinimg.com/originals/4e/c1/f0/4ec1f08bd6e27ab6f6d1912a7a40eb76.jpg" alt="Developer Ghibli Art">
                 </div>
+                
                 <div class="social-bar">
-                    <a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://linkedin.com/in/ranjan-mrityunjay" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    [cite_start]<a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a> [cite: 5]
+                    [cite_start]<a href="https://linkedin.com/in/ranjan-mrityunjay" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a> [cite: 8]
                     <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
         </section>
@@ -370,17 +388,17 @@
                     <div class="corner-dot-orange"></div>
                     <div class="timeline-header">
                         <div>
-                            <div class="timeline-title">Software Engineer</div>
-                            <div class="timeline-company">Accenture, Bengaluru</div>
+                            [cite_start]<div class="timeline-title">Software Engineer [cite: 9]</div>
+                            [cite_start]<div class="timeline-company">Accenture, Bengaluru [cite: 10, 18]</div>
                         </div>
-                        <div class="timeline-date">March 2021 - Present</div>
+                        [cite_start]<div class="timeline-date">March 2021 - Present [cite: 11]</div>
                     </div>
                     <ul class="timeline-list">
-                        <li><span>Developed and maintained Java-based web applications with a focus on quality, achieving a 15% improvement in overall performance.</span></li>
-                        <li><span>Conducted API design and implemented RESTful services, resulting in a 20% reduction in response time.</span></li>
-                        <li><span>Managed and mentored a development team, implementing best practices that led to a 25% increase in code efficiency.</span></li>
-                        <li><span>Demonstrated expertise in DevOps practices, optimizing deployment processes by 30% using Postman, Splunk, GitLab, and Maven.</span></li>
-                        <li><span>Proactively provided technical support, addressing 100% of user feedback and resolving 95% of reported bugs.</span></li>
+                        [cite_start]<li><span>Developed and maintained Java-based web applications with a focus on quality, achieving a 15% improvement in overall performance. [cite: 32]</span></li>
+                        [cite_start]<li><span>Conducted API design and implemented RESTful services, resulting in a 20% reduction in response time. [cite: 33]</span></li>
+                        [cite_start]<li><span>Managed and mentored a development team, implementing best practices that led to a 25% increase in code efficiency. [cite: 34]</span></li>
+                        [cite_start]<li><span>Demonstrated expertise in DevOps practices, optimizing deployment processes by 30% using Postman, Splunk, GitLab, and Maven. [cite: 37]</span></li>
+                        [cite_start]<li><span>Proactively provided technical support, addressing 100% of user feedback and resolving 95% of reported bugs. [cite: 36]</span></li>
                     </ul>
                 </div>
                 
@@ -394,16 +412,16 @@
                 <div class="project-card">
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
-                        <div class="project-title">IRNSS System</div>
+                        [cite_start]<div class="project-title">IRNSS System [cite: 49]</div>
                         <div class="btn-details">Details</div>
                     </div>
-                    <div class="project-period">Period: <span>Aug 2019 - Jan 2020</span></div>
+                    [cite_start]<div class="project-period">Period: <span>Aug 2019 - Jan 2020 [cite: 49]</span></div>
                     <ul class="project-desc">
-                        <li><span>Worked on the Indian Regional Navigation Satellite System focusing on core backend integration.</span></li>
+                        [cite_start]<li><span>Worked on the Indian Regional Navigation Satellite System focusing on core backend integration. [cite: 49]</span></li>
                         <li><span>Implemented robust data structure algorithms for precise tracking metrics.</span></li>
                     </ul>
                     <div class="tech-tags">
-                        <span>Java</span> <span>Data Structures</span> <span>Algorithms</span>
+                        [cite_start]<span>Java [cite: 15][cite_start]</span> <span>Data Structures [cite: 17][cite_start]</span> <span>Algorithms [cite: 19]</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn-link"><i class="fa-brands fa-github"></i> View Code</a>
@@ -419,10 +437,10 @@
                     <div class="project-period">Period: <span>Mar 2022 - Present</span></div>
                     <ul class="project-desc">
                         <li><span>Architected scalable microservices using Spring Boot and Hibernate.</span></li>
-                        <li><span>Reduced API latency by 20% via optimized REST endpoints.</span></li>
+                        [cite_start]<li><span>Reduced API latency by 20% via optimized REST endpoints. [cite: 33]</span></li>
                     </ul>
                     <div class="tech-tags">
-                        <span>Spring Boot</span> <span>Hibernate</span> <span>REST API</span>
+                        [cite_start]<span>Spring Boot [cite: 20][cite_start]</span> <span>Hibernate [cite: 22][cite_start]</span> <span>REST API [cite: 25]</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn-link"><i class="fa-brands fa-github"></i> View Code</a>
@@ -442,7 +460,7 @@
                         <li><span>Integrated Splunk for centralized real-time logging and alerting.</span></li>
                     </ul>
                     <div class="tech-tags">
-                        <span>Azure DevOps</span> <span>Docker</span> <span>Kubernetes</span> <span>Splunk</span>
+                        [cite_start]<span>Azure DevOps [cite: 27][cite_start]</span> <span>Docker [cite: 29][cite_start]</span> <span>Kubernetes [cite: 28][cite_start]</span> <span>Splunk [cite: 31]</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn-link"><i class="fa-brands fa-github"></i> View Code</a>
@@ -463,11 +481,11 @@
                     <div class="skill-items">
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-java-plain colored"></i></div>
-                            <div class="skill-label">Java</div>
+                            [cite_start]<div class="skill-label">Java [cite: 15]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-mysql-plain colored"></i></div>
-                            <div class="skill-label">SQL</div>
+                            [cite_start]<div class="skill-label">SQL [cite: 26]</div>
                         </div>
                     </div>
                 </div>
@@ -483,23 +501,23 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
-                            <div class="skill-label">Spring Boot</div>
+                            [cite_start]<div class="skill-label">Spring Boot [cite: 20]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-hibernate-plain colored"></i></div>
-                            <div class="skill-label">Hibernate</div>
+                            [cite_start]<div class="skill-label">Hibernate [cite: 22]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="fa-solid fa-server" style="color: #6db33f;"></i></div>
-                            <div class="skill-label">REST API</div>
+                            [cite_start]<div class="skill-label">REST API [cite: 25]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="fa-solid fa-network-wired" style="color: #14b8a6;"></i></div>
-                            <div class="skill-label">Microservices</div>
+                            [cite_start]<div class="skill-label">Microservices [cite: 21]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="fa-solid fa-shield-halved" style="color: #3b82f6;"></i></div>
-                            <div class="skill-label">Spring Security</div>
+                            [cite_start]<div class="skill-label">Spring Security [cite: 24]</div>
                         </div>
                     </div>
                 </div>
@@ -511,19 +529,19 @@
                     <div class="skill-items">
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-azure-plain colored"></i></div>
-                            <div class="skill-label">Azure DevOps</div>
+                            [cite_start]<div class="skill-label">Azure DevOps [cite: 27]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-docker-plain colored"></i></div>
-                            <div class="skill-label">Docker</div>
+                            [cite_start]<div class="skill-label">Docker [cite: 29]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-kubernetes-plain colored"></i></div>
-                            <div class="skill-label">Kubernetes</div>
+                            [cite_start]<div class="skill-label">Kubernetes [cite: 28]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/splunk/splunk-icon.svg" alt="Splunk"></div>
-                            <div class="skill-label">Splunk</div>
+                            [cite_start]<div class="skill-label">Splunk [cite: 31]</div>
                         </div>
                     </div>
                 </div>
@@ -543,15 +561,15 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-gitlab-plain colored"></i></div>
-                            <div class="skill-label">GitLab</div>
+                            [cite_start]<div class="skill-label">GitLab [cite: 31]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="Maven"></div>
-                            <div class="skill-label">Maven</div>
+                            [cite_start]<div class="skill-label">Maven [cite: 31]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman"></div>
-                            <div class="skill-label">Postman</div>
+                            [cite_start]<div class="skill-label">Postman [cite: 30]</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-intellij-plain colored"></i></div>
@@ -566,14 +584,14 @@
         <section id="education">
             <h2 class="section-title">Education</h2>
             <div class="edu-card">
-                <div class="edu-title">B.Tech in Electronics & Communication Engineering</div>
-                <div class="edu-school">Dr. B. C Roy Engineering College, Durgapur</div>
-                <div class="edu-date">08/2016 - 07/2020</div>
+                [cite_start]<div class="edu-title">B.Tech in Electronics & Communication Engineering [cite: 39, 41]</div>
+                <div class="edu-school">Dr. [cite_start]B. C Roy Engineering College, Durgapur [cite: 40]</div>
+                [cite_start]<div class="edu-date">08/2016 - 07/2020 [cite: 43]</div>
             </div>
             <div class="edu-card">
-                <div class="edu-title">Class XII</div>
-                <div class="edu-school">Doon Public School, Patna</div>
-                <div class="edu-date">04/2014 - 05/2015</div>
+                [cite_start]<div class="edu-title">Class XII [cite: 44]</div>
+                [cite_start]<div class="edu-school">Doon Public School, Patna [cite: 45]</div>
+                [cite_start]<div class="edu-date">04/2014 - 05/2015 [cite: 46]</div>
             </div>
         </section>
 
@@ -585,17 +603,17 @@
                 
                 <div class="cert-card">
                     <i class="devicon-azure-plain colored"></i>
-                    <div class="cert-title">Microsoft Azure Fundamentals AZ-900</div>
+                    [cite_start]<div class="cert-title">Microsoft Azure Fundamentals AZ-900 [cite: 51]</div>
                     <div class="cert-issuer">Issued By: Microsoft</div>
-                    <div class="cert-date">Jun 2023</div>
+                    [cite_start]<div class="cert-date">Jun 2023 [cite: 52]</div>
                     <a href="#" class="cert-link">View Certificate</a>
                 </div>
 
                 <div class="cert-card">
                     <i class="devicon-azure-plain colored"></i>
-                    <div class="cert-title">Microsoft Azure Data Fundamentals DP-900</div>
+                    [cite_start]<div class="cert-title">Microsoft Azure Data Fundamentals DP-900 [cite: 55]</div>
                     <div class="cert-issuer">Issued By: Microsoft</div>
-                    <div class="cert-date">Jun 2023</div>
+                    [cite_start]<div class="cert-date">Jun 2023 [cite: 55]</div>
                     <a href="#" class="cert-link">View Certificate</a>
                 </div>
 
@@ -619,13 +637,13 @@
                     <p>Feel free to contact me for any work or suggestions below.</p>
                     
                     <div class="c-item">
-                        <i class="fa-solid fa-envelope"></i> mrityunjay.ranjan28@gmail.com
+                        [cite_start]<i class="fa-solid fa-envelope"></i> mrityunjay.ranjan28@gmail.com [cite: 5]
                     </div>
                     <div class="c-item">
-                        <i class="fa-brands fa-linkedin"></i> linkedin.com/in/ranjan-mrityunjay
+                        [cite_start]<i class="fa-brands fa-linkedin"></i> linkedin.com/in/ranjan-mrityunjay [cite: 8]
                     </div>
                     <div class="c-item">
-                        <i class="fa-solid fa-phone"></i> (+91) 7001541822
+                        [cite_start]<i class="fa-solid fa-phone"></i> (+91) 7001541822 [cite: 6]
                     </div>
                 </div>
 
@@ -656,8 +674,8 @@
         <div class="footer-content">
             
             <div class="f-col-1">
-                <h4>Mrityunjay Ranjan</h4>
-                <p>Software Engineer with a passion for creating innovative, scalable, and high-performance solutions.</p>
+                [cite_start]<h4>Mrityunjay Ranjan [cite: 1]</h4>
+                [cite_start]<p>Software Engineer with a passion for creating innovative, scalable, and high-performance solutions. [cite: 2]</p>
             </div>
             
             <div class="f-col-2">
