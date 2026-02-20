@@ -6,56 +6,76 @@
     <title>Mrityunjay Ranjan | Senior Java Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #38bdf8;
+            --bg: #020617;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #0f172a; color: #f1f5f9; overflow-x: hidden; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        /* Particle Background */
         canvas { position: fixed; top: 0; left: 0; z-index: -1; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%; position: fixed; width: 100%;
-            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); z-index: 100;
+            background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); z-index: 1000;
             border-bottom: 1px solid rgba(56, 189, 248, 0.1);
         }
 
-        nav a { color: #f1f5f9; margin-left: 25px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: #38bdf8; }
+        nav a { color: var(--text-main); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
 
-        section { padding: 100px 10%; }
-        .hero { min-height: 80vh; display: flex; align-items: center; }
-        .hero h2 { font-size: 3.5rem; line-height: 1.2; }
-        .accent { color: #38bdf8; }
-        .hero p { font-size: 1.2rem; color: #94a3b8; margin: 20px 0; }
+        section { padding: 120px 10% 60px; max-width: 1400px; margin: 0 auto; }
+        .accent { color: var(--primary); }
+
+        /* Hero Section */
+        .hero { min-height: 90vh; display: flex; align-items: center; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 10px; }
+        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin-bottom: 30px; }
 
         .btn {
-            display: inline-block; padding: 12px 28px; background: #38bdf8;
-            color: #fff; border: none; border-radius: 30px;
-            text-decoration: none; font-weight: 600; transition: 0.3s;
+            display: inline-block; padding: 12px 32px; background: var(--primary);
+            color: #fff; border-radius: 50px; text-decoration: none;
+            font-weight: 600; transition: 0.3s; border: 1px solid var(--primary);
         }
-        .btn:hover { background: #0ea5e9; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
+        .btn:hover { background: transparent; color: var(--primary); transform: translateY(-3px); }
 
+        /* Card Styling */
         .card {
-            background: rgba(30, 41, 59, 0.6); padding: 30px; border-radius: 15px;
-            margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px); transition: 0.3s;
+            background: var(--card-bg); padding: 35px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            margin-bottom: 30px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .card:hover { border-color: #38bdf8; transform: translateY(-5px); }
+        .card:hover { border-color: var(--primary); transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .skill-tag { 
-            background: rgba(56, 189, 248, 0.1); color: #38bdf8; 
-            padding: 8px 15px; border-radius: 8px; text-align: center; 
-            font-size: 0.85rem; border: 1px solid rgba(56, 189, 248, 0.2);
+        /* Skills Grid */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
+        .skill-item {
+            background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 10px; border-radius: 12px; text-align: center; font-size: 0.85rem; font-weight: 500;
         }
 
-        .experience-header { display: flex; justify-content: space-between; margin-bottom: 15px; flex-wrap: wrap; }
-        .experience-header h3 { color: #38bdf8; }
-        .date { color: #94a3b8; font-size: 0.9rem; }
+        /* Experience & Certs */
+        .meta-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; }
+        .meta-info h3 { font-size: 1.5rem; color: var(--primary); }
+        .location-date { color: var(--text-dim); font-size: 0.85rem; }
+        
+        ul { list-style: none; margin-top: 15px; }
+        ul li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #cbd5e1; font-size: 0.95rem; }
+        ul li::before { content: "→"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
 
-        ul { list-style: none; }
-        ul li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #cbd5e1; }
-        ul li::before { content: '▹'; position: absolute; left: 0; color: #38bdf8; }
+        footer { text-align: center; padding: 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-dim); }
 
-        footer { text-align: center; padding: 40px; background: #0f172a; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; }
+            section { padding: 100px 5% 40px; }
+        }
     </style>
 </head>
 <body>
@@ -63,140 +83,150 @@
 <canvas id="particles"></canvas>
 
 <header>
-    <h3 class="accent">Mrityunjay Ranjan</h3>
+    <h3>MR.</h3>
     <nav>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#certificates">Certifications</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
     <div>
-        <h2 id="typing"></h2>
-        <p>Results-driven Software Engineer with 3.10 years of experience in Java, Spring Boot, and Cloud Integration.</p>
-        <a href="Mrityunjay_CV.pdf" class="btn" download>Download CV</a>
+        <h1 id="typing"></h1>
+        <p>Results-driven Software Engineer with 3.10 years of experience in Java & Cloud Ecosystems at Accenture.</p>
+        <a href="Mrityunjay_CV.pdf" class="btn" download>Download Resume</a>
     </div>
 </section>
 
 <section id="about">
-    <h2 class="accent">About Me</h2>
+    <h2 class="accent" style="margin-bottom: 20px;">01. About Me</h2>
     <div class="card">
-        <p>Based in Patna, India, I specialize in web application development and Enterprise Application Integration[cite: 3, 7]. Currently at <strong>Accenture</strong>, I focus on delivering high-quality, scalable solutions that drive measurable business impact[cite: 3, 10].</p>
+        <p>I am a Software Engineer based in Patna, India, specializing in web application development and Enterprise Application Integration. My core focus is on building high-quality, scalable backend solutions using Java and Spring Boot. I thrive in dynamic roles where I can commit to delivering exceptional code quality and driving performance improvements.</p>
     </div>
 </section>
 
 <section id="experience">
-    <h2 class="accent">Professional Experience</h2>
+    <h2 class="accent" style="margin-bottom: 20px;">02. Work Experience</h2>
     <div class="card">
-        <div class="experience-header">
-            <h3>Software Engineer | Accenture</h3>
-            <span class="date">03/2021 - Present (Bengaluru)</span>
+        <div class="meta-info">
+            <h3>Software Engineer</h3>
+            <span class="location-date">03/2021 — Present | Accenture, Bengaluru</span>
         </div>
         <ul>
-            <li>Achieved a 15% improvement in overall performance by developing and maintaining Java-based web applications[cite: 32].</li>
-            <li>Reduced API response times by 20% through efficient RESTful service implementation and design[cite: 33].</li>
-            <li>Optimized development and deployment processes by 30% utilizing DevOps practices with Azure DevOps, Docker, and Kubernetes[cite: 27, 28, 29, 37].</li>
-            <li>Collaborated with QA teams to achieve a 98% defect-free application rate[cite: 35].</li>
-            <li>Increased code efficiency by 25% through team mentorship and implementation of development best practices[cite: 34].</li>
+            <li>Developed and maintained Java-based web applications, achieving a 15% improvement in overall performance.</li>
+            <li>Conducted API design and implemented RESTful services, resulting in a 20% reduction in response time.</li>
+            <li>Managed and mentored a development team, implementing best practices that led to a 25% increase in code efficiency.</li>
+            <li>Collaborated with QA to design and implement test cases, achieving a 98% defect-free application.</li>
+            <li>Optimized development and deployment processes by 30% using Azure DevOps, Docker, Kubernetes, and GitLab.</li>
+            <li>Proactively addressed 100% of user feedback promptly, resolving 95% of reported bugs.</li>
         </ul>
     </div>
 </section>
 
 <section id="skills">
-    <h2 class="accent">Technical Skills</h2>
+    <h2 class="accent" style="margin-bottom: 20px;">03. Technical Arsenal</h2>
     <div class="card">
-        <div class="skills-grid">
-            <div class="skill-tag">Java 8 / J2EE</div>
-            <div class="skill-tag">Spring Boot</div>
-            <div class="skill-tag">Microservices</div>
-            <div class="skill-tag">Hibernate / JPA</div>
-            <div class="skill-tag">RESTful APIs</div>
-            <div class="skill-tag">SQL</div>
-            <div class="skill-tag">Docker & Kubernetes</div>
-            <div class="skill-tag">Azure DevOps</div>
-            <div class="skill-tag">Splunk & GitLab</div>
-            <div class="skill-tag">Maven</div>
-            <div class="skill-tag">Data Structures</div>
-            <div class="skill-tag">Algorithms</div>
+        <div class="skills-container">
+            <div class="skill-item">Java 8 / J2EE</div>
+            <div class="skill-item">Spring Boot</div>
+            <div class="skill-item">Microservices</div>
+            <div class="skill-item">Spring Data JPA</div>
+            <div class="skill-item">Spring Security</div>
+            <div class="skill-item">Hibernate</div>
+            <div class="skill-item">RESTful API</div>
+            <div class="skill-item">Azure DevOps</div>
+            <div class="skill-item">Kubernetes</div>
+            <div class="skill-item">Docker</div>
+            <div class="skill-item">Splunk / GitLab</div>
+            <div class="skill-item">Data Structures</div>
+            <div class="skill-item">Algorithms</div>
+            <div class="skill-item">SQL</div>
+            <div class="skill-item">Maven / Postman</div>
         </div>
     </div>
 </section>
 
-<section id="certificates">
-    <h2 class="accent">Certifications</h2>
-    <div class="card">
-        <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
-        <p>Foundational expertise in cloud concepts, Azure architecture, and security[cite: 51, 53].</p>
-    </div>
-    <div class="card">
-        <h3>Microsoft Certified: Azure Data Fundamentals (DP-900)</h3>
-        <p>Specialized knowledge in Azure cloud data services, SQL Database, and Data Lake Storage[cite: 55, 57].</p>
+<section id="certifications">
+    <h2 class="accent" style="margin-bottom: 20px;">04. Certifications</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div class="card" style="margin-bottom: 0;">
+            <h3>Azure Fundamentals (AZ-900)</h3>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Foundational expertise in cloud concepts, security, and Azure architecture.</p>
+        </div>
+        <div class="card" style="margin-bottom: 0;">
+            <h3>Azure Data Fundamentals (DP-900)</h3>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Specialized in Azure SQL Database and Data Lake Storage solutions.</p>
+        </div>
     </div>
 </section>
 
 <section id="contact">
-    <h2 class="accent">Contact</h2>
-    <div class="card">
-        <p>Email: mrityunjay.ranjan28@gmail.com [cite: 5]</p>
-        <p>Phone: (+91) 7001541822 [cite: 6]</p>
-        <p>LinkedIn: linkedin.com/in/ranjan-mrityunjay [cite: 8]</p>
+    <h2 class="accent" style="margin-bottom: 20px;">05. Get In Touch</h2>
+    <div class="card" style="text-align: center;">
+        <p>Currently seeking new opportunities to build impactful software.</p>
+        <div style="margin: 20px 0; font-weight: 600;">
+            <p class="accent">mrityunjay.ranjan28@gmail.com</p>
+            <p>(+91) 7001541822</p>
+        </div>
+        <a href="mailto:mrityunjay.ranjan28@gmail.com" class="btn">Say Hello</a>
     </div>
 </section>
 
 <footer>
-    © 2026 Mrityunjay Ranjan | Senior Java Developer | Accenture
+    Designed & Built by Mrityunjay Ranjan | © 2026
 </footer>
 
 <script>
-    // Typing animation
-    const text = "Software Engineer | Java | Spring Boot | Cloud";
-    let i = 0;
-    function typing() {
-        if (i < text.length) {
-            document.getElementById("typing").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, 80);
+    // Typing Animation logic
+    const text = "Mrityunjay Ranjan.";
+    let idx = 0;
+    const typing = () => {
+        if (idx < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(idx);
+            idx++;
+            setTimeout(typing, 100);
         }
-    }
+    };
     typing();
 
-    // Particles background logic
+    // Particle background logic
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
     let particles = [];
-    for(let i=0; i<100; i++){
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 2 + 1,
-            d: Math.random() * 0.5 + 0.2
-        });
-    }
 
-    function animate(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(56, 189, 248, 0.5)";
-        particles.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fill();
-            p.y += p.d;
-            if(p.y > canvas.height) p.y = 0;
-        });
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    window.addEventListener('resize', () => {
+    const init = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-    });
+        particles = [];
+        for (let i = 0; i < 80; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speedY: Math.random() * 0.5 + 0.1
+            });
+        }
+    };
+
+    const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(56, 189, 248, 0.3)";
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+            p.y -= p.speedY;
+            if (p.y < 0) p.y = canvas.height;
+        });
+        requestAnimationFrame(draw);
+    };
+
+    window.addEventListener('resize', init);
+    init();
+    draw();
 </script>
 
 </body>
