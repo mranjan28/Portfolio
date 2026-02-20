@@ -46,7 +46,7 @@ padding:0 24px;
 }
 
 section{
-padding:120px 0;
+padding:110px 0;
 }
 
 header{
@@ -65,7 +65,7 @@ padding:18px 0;
 }
 
 .nav a{
-margin-left:28px;
+margin-left:22px;
 text-decoration:none;
 color:var(--accent);
 font-size:14px;
@@ -80,14 +80,15 @@ color:var(--accent);
 font-size:13px;
 }
 
+/* Hero */
 .hero{
-padding-top:180px;
+padding-top:170px;
 }
 
 .hero h1{
-font-size:56px;
+font-size:48px;
 font-weight:700;
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
 .gradient{
@@ -97,18 +98,18 @@ background:linear-gradient(90deg,var(--accent),#60a5fa);
 }
 
 .hero p{
-max-width:750px;
+max-width:720px;
 color:var(--muted);
-font-size:18px;
-margin-bottom:40px;
+font-size:17px;
+margin-bottom:30px;
 }
 
 .btn{
-padding:14px 28px;
+padding:12px 26px;
 border-radius:30px;
 font-weight:600;
 font-size:14px;
-margin-right:18px;
+margin-right:15px;
 text-decoration:none;
 }
 
@@ -122,54 +123,29 @@ border:1px solid var(--accent);
 color:var(--accent);
 }
 
-.metrics{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-margin-top:60px;
-}
-
-.metric{
-background:var(--card);
-padding:32px;
-border-radius:20px;
-text-align:center;
-}
-
-.metric h3{
-font-size:40px;
-color:var(--accent);
-margin-bottom:8px;
-}
-
 .section-title{
-font-size:32px;
-margin-bottom:40px;
+font-size:28px;
+margin-bottom:35px;
 font-weight:600;
 }
 
 .card{
 background:var(--card);
-padding:40px;
-border-radius:24px;
-margin-bottom:40px;
+padding:35px;
+border-radius:20px;
+margin-bottom:30px;
 }
 
+/* Projects */
 .projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+gap:25px;
 }
 
-ul{
-margin-top:15px;
-padding-left:20px;
-color:var(--muted);
-}
-
-/* Modern Tech Bars */
+/* Tech Bars */
 .tech-skill{
-margin-bottom:28px;
+margin-bottom:24px;
 }
 
 .tech-skill span{
@@ -180,7 +156,7 @@ margin-bottom:6px;
 }
 
 .tech-bar{
-height:10px;
+height:8px;
 background:#1f2937;
 border-radius:20px;
 overflow:hidden;
@@ -192,6 +168,12 @@ width:0;
 background:linear-gradient(90deg,var(--accent),#60a5fa);
 border-radius:20px;
 transition:2s;
+}
+
+ul{
+margin-top:12px;
+padding-left:20px;
+color:var(--muted);
 }
 
 footer{
@@ -212,6 +194,7 @@ color:var(--muted);
 <a href="#experience">Experience</a>
 <a href="#projects">Work</a>
 <a href="#skills">Skills</a>
+<a href="#certifications">Certifications</a>
 <a href="#contact">Contact</a>
 <span class="toggle" onclick="toggleTheme()">Toggle Theme</span>
 </div>
@@ -220,72 +203,76 @@ color:var(--muted);
 
 <section class="hero container">
 <h1>
-Senior <span class="gradient">Software Engineer</span>
+Software <span class="gradient">Engineer</span>
 </h1>
 
 <p>
-Backend-focused engineer with 5+ years of experience building scalable distributed systems.
-Strong foundation in algorithms, concurrency, system design, and cloud-native architecture.
+Backend-focused Software Engineer with 5 years of experience developing scalable microservices and REST APIs.
+Hands-on experience with Java, Spring Boot, Docker, Kubernetes and Azure.
+Strong interest in system design, performance optimization, and building reliable production systems.
 </p>
 
 <a href="Mrityunjay_CV.pdf" class="btn primary" download>Download Resume</a>
 <a href="#contact" class="btn secondary">Contact Me</a>
+</section>
 
-<div class="metrics">
-<div class="metric">
-<h3 class="counter" data-target="5">0</h3>
-<p>Years Experience</p>
+<section id="about" class="container">
+<h2 class="section-title">About Me</h2>
+<div class="card">
+Currently working at Accenture in the insurance domain, building backend services for enterprise applications.
+Experienced in developing and maintaining microservices, handling production issues, optimizing database queries,
+and supporting CI/CD pipelines. Passionate about writing clean code and improving system performance.
 </div>
-<div class="metric">
-<h3 class="counter" data-target="20">0</h3>
-<p>% Latency Reduced</p>
-</div>
-<div class="metric">
-<h3 class="counter" data-target="30">0</h3>
-<p>% CI/CD Optimized</p>
-</div>
-<div class="metric">
-<h3 class="counter" data-target="98">0</h3>
-<p>% Stability</p>
-</div>
+</section>
+
+<section id="experience" class="container">
+<h2 class="section-title">Professional Experience</h2>
+<div class="card">
+<h3>Software Engineer — Accenture (2021–Present)</h3>
+<ul>
+<li>Develop and maintain Spring Boot-based microservices.</li>
+<li>Design RESTful APIs with proper validation and exception handling.</li>
+<li>Improve API response time by optimizing SQL queries.</li>
+<li>Support CI/CD pipelines using Azure DevOps.</li>
+<li>Containerize applications using Docker and deploy on Kubernetes.</li>
+<li>Handle production issues and perform root cause analysis.</li>
+<li>Collaborate with QA and business teams for smooth releases.</li>
+</ul>
 </div>
 </section>
 
 <section id="projects" class="container">
-<h2 class="section-title">Selected System Design & Backend Work</h2>
+<h2 class="section-title">Selected Backend Work</h2>
 
 <div class="projects">
 
 <div class="card">
-<h3>High-Scale Policy Processing Platform</h3>
-<p>Designed microservices architecture handling thousands of daily insurance transactions.</p>
+<h3>Policy Management Microservices</h3>
+<p>Built backend services for policy lifecycle management.</p>
 <ul>
-<li>API Gateway + service discovery pattern</li>
-<li>Database-per-service architecture</li>
-<li>Caching & async processing reducing latency</li>
-<li>Kubernetes-based horizontal scaling</li>
+<li>Spring Boot REST APIs</li>
+<li>Database-per-service pattern</li>
+<li>Improved API latency</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Distributed Transaction Reconciliation Engine</h3>
-<p>Engineered backend service ensuring data consistency across multiple systems.</p>
+<h3>Transaction Reconciliation Module</h3>
+<p>Implemented reliable backend processing for transaction validation.</p>
 <ul>
-<li>Idempotent processing logic</li>
-<li>Retry & backoff strategies</li>
-<li>Fault-tolerant workflow design</li>
-<li>Improved reconciliation reliability</li>
+<li>Retry & validation logic</li>
+<li>Error handling mechanisms</li>
+<li>Improved data consistency</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Cloud-Native Observability Framework</h3>
-<p>Built monitoring and logging pipelines improving SLA compliance.</p>
+<h3>Monitoring & Logging Integration</h3>
+<p>Integrated centralized logging and monitoring.</p>
 <ul>
-<li>Centralized structured logging</li>
-<li>Real-time error tracking dashboards</li>
-<li>Container health monitoring</li>
-<li>Incident detection automation</li>
+<li>Structured logs</li>
+<li>Splunk dashboards</li>
+<li>Improved production visibility</li>
 </ul>
 </div>
 
@@ -293,7 +280,7 @@ Strong foundation in algorithms, concurrency, system design, and cloud-native ar
 </section>
 
 <section id="skills" class="container">
-<h2 class="section-title">Core Technical Expertise</h2>
+<h2 class="section-title">Technical Skills</h2>
 <div class="card">
 
 <div class="tech-skill">
@@ -302,20 +289,30 @@ Strong foundation in algorithms, concurrency, system design, and cloud-native ar
 </div>
 
 <div class="tech-skill">
-<span>Microservices & System Design <strong>85%</strong></span>
+<span>Microservices Architecture <strong>85%</strong></span>
 <div class="tech-bar"><div class="tech-fill" data-width="85%"></div></div>
 </div>
 
 <div class="tech-skill">
-<span>Cloud & DevOps (Azure, Kubernetes) <strong>80%</strong></span>
+<span>Docker & Kubernetes <strong>75%</strong></span>
+<div class="tech-bar"><div class="tech-fill" data-width="75%"></div></div>
+</div>
+
+<div class="tech-skill">
+<span>Azure & DevOps <strong>80%</strong></span>
 <div class="tech-bar"><div class="tech-fill" data-width="80%"></div></div>
 </div>
 
-<div class="tech-skill">
-<span>Performance Optimization <strong>85%</strong></span>
-<div class="tech-bar"><div class="tech-fill" data-width="85%"></div></div>
 </div>
+</section>
 
+<section id="certifications" class="container">
+<h2 class="section-title">Certifications</h2>
+<div class="card">
+<ul>
+<li><strong>Microsoft Azure Fundamentals (AZ-900)</strong></li>
+<li><strong>Microsoft Azure Data Fundamentals (DP-900)</strong></li>
+</ul>
 </div>
 </section>
 
@@ -336,22 +333,6 @@ GitHub: github.com/mranjan28
 function toggleTheme(){
 document.body.classList.toggle("light");
 }
-
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-const updateCount=()=>{
-const target=+counter.getAttribute('data-target');
-const count=+counter.innerText;
-const increment=target/200;
-if(count<target){
-counter.innerText=Math.ceil(count+increment);
-setTimeout(updateCount,10);
-}else{
-counter.innerText=target;
-}
-};
-updateCount();
-});
 
 const bars=document.querySelectorAll('.tech-fill');
 bars.forEach(bar=>{
