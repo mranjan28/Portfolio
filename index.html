@@ -1,293 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Mrityunjay Ranjan | Senior Java Developer</title>
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- React CDN -->
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <style>
-:root{
---bg:#0f172a;
---card:#1e293b;
---text:#f1f5f9;
---accent:#38bdf8;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0f172a;color:#f1f5f9;overflow-x:hidden;}
+canvas{position:fixed;top:0;left:0;z-index:-1;}
+
+header{display:flex;justify-content:space-between;padding:20px 8%;position:fixed;width:100%;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);}
+nav a{color:#38bdf8;margin-left:20px;text-decoration:none;}
+
+section{padding:120px 10%;}
+.hero{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+.hero h2{font-size:42px;}
+.accent{color:#38bdf8;}
+.btn{padding:10px 20px;background:#38bdf8;color:#fff;border:none;border-radius:25px;margin-top:15px;cursor:pointer;}
+
+.card{background:#1e293b;padding:25px;border-radius:15px;margin-bottom:20px;}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+
+input,textarea{
+width:100%;padding:10px;margin-top:10px;
+border-radius:8px;border:none;
 }
 
-.light-mode{
---bg:#f1f5f9;
---card:#ffffff;
---text:#0f172a;
---accent:#2563eb;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:var(--bg);
-color:var(--text);
-transition:0.4s;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-position:fixed;
-width:100%;
-background:rgba(0,0,0,0.3);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-header h1{
-font-size:18px;
-}
-
-nav a{
-color:var(--accent);
-margin-left:20px;
-text-decoration:none;
-font-weight:500;
-}
-
-.toggle{
-cursor:pointer;
-padding:8px 15px;
-border-radius:20px;
-background:var(--accent);
-color:#fff;
-font-size:12px;
-}
-
-section{
-padding:120px 10% 80px 10%;
-}
-
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-}
-
-.hero-text{
-max-width:600px;
-animation:fadeIn 1.2s ease;
-}
-
-.hero-text h2{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.hero-text span{
-color:var(--accent);
-}
-
-.btn{
-display:inline-block;
-padding:12px 25px;
-background:var(--accent);
-color:#fff;
-border-radius:25px;
-text-decoration:none;
-margin-right:15px;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-.hero-img img{
-width:260px;
-border-radius:50%;
-border:4px solid var(--accent);
-animation:float 4s ease-in-out infinite;
-}
-
-.card{
-background:var(--card);
-padding:30px;
-border-radius:20px;
-margin-bottom:25px;
-transition:0.4s;
-box-shadow:0 8px 25px rgba(0,0,0,0.2);
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.section-title{
-font-size:30px;
-margin-bottom:30px;
-color:var(--accent);
-}
-
-.skill{
-margin-bottom:15px;
-}
-
-.progress{
-background:#334155;
-border-radius:20px;
-overflow:hidden;
-}
-
-.progress-bar{
-height:10px;
-background:var(--accent);
-width:0;
-animation:load 2s forwards;
-}
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
-
-footer{
-text-align:center;
-padding:20px;
-background:var(--card);
-}
-
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
-100%{transform:translateY(0);}
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes load{
-to{width:100%;}
-}
-
-@media(max-width:900px){
-.hero{
-flex-direction:column;
-text-align:center;
-}
-.hero-img{
-margin-top:40px;
-}
-}
+footer{text-align:center;padding:20px;background:#1e293b;}
 </style>
 </head>
 
 <body>
+<div id="root"></div>
 
+<script type="text/babel">
+
+emailjs.init("YOUR_PUBLIC_KEY"); // <-- Replace
+
+function TypingText() {
+  const text = "Senior Java Developer | Microservices | Cloud";
+  const [displayed, setDisplayed] = React.useState("");
+
+  React.useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayed(text.slice(0, i));
+      i++;
+      if (i > text.length) clearInterval(interval);
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
+
+  return <h2>{displayed}<span className="accent">|</span></h2>;
+}
+
+function ContactForm(){
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",  // replace
+      "YOUR_TEMPLATE_ID", // replace
+      e.target
+    ).then(()=>alert("Message Sent Successfully"));
+  }
+
+  return(
+    <form onSubmit={sendEmail}>
+      <input name="name" placeholder="Your Name" required/>
+      <input name="email" type="email" placeholder="Your Email" required/>
+      <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+      <button className="btn">Send Message</button>
+    </form>
+  )
+}
+
+function App(){
+return(
+<>
 <header>
-<h1>Mrityunjay Ranjan</h1>
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-<span class="toggle" onclick="toggleMode()">Toggle Theme</span>
-</nav>
+  <h3>Mrityunjay Ranjan</h3>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<section class="hero">
-<div class="hero-text">
-<h2>Senior <span>Java Developer</span></h2>
-<p>5 Years of experience in Microservices, Enterprise Integration, Cloud & DevOps. Proven performance optimization and API design expertise.</p>
-<a href="#contact" class="btn">Hire Me</a>
-<a href="Mrityunjay_CV.pdf" class="btn" download>Download Resume</a>
-</div>
-
-<div class="hero-img">
-<img src="https://i.imgur.com/8Km9tLL.png" alt="Profile Photo">
-</div>
+<section className="hero">
+  <div>
+    <TypingText/>
+    <p>5 Years Experience in Java, Spring Boot, Kubernetes & Azure.</p>
+  </div>
 </section>
 
 <section id="about">
-<h2 class="section-title">About Me</h2>
-<div class="card">
-Software Engineer at Accenture with expertise in Java, Spring Boot, Microservices, Kubernetes and Azure Cloud.
-Improved system performance by 15%, reduced API response by 20%, increased efficiency by 25% and optimized DevOps by 30%.
-</div>
+  <h2 className="accent">About</h2>
+  <div className="card">
+    Software Engineer at Accenture improving performance by 15%, reducing API latency by 20% and optimizing CI/CD by 30%.
+  </div>
 </section>
 
 <section id="skills">
-<h2 class="section-title">Technical Skills</h2>
-
-<div class="card">
-<div class="skill">Java / Spring Boot
-<div class="progress"><div class="progress-bar" style="width:90%"></div></div>
-</div>
-
-<div class="skill">Microservices Architecture
-<div class="progress"><div class="progress-bar" style="width:85%"></div></div>
-</div>
-
-<div class="skill">Azure / DevOps
-<div class="progress"><div class="progress-bar" style="width:80%"></div></div>
-</div>
-
-<div class="skill">Kubernetes / Docker
-<div class="progress"><div class="progress-bar" style="width:75%"></div></div>
-</div>
-</div>
+  <h2 className="accent">Skills</h2>
+  <div className="card">
+    Java, Spring Boot, Microservices, Kubernetes, Docker, Azure, DevOps
+  </div>
 </section>
 
-<section id="projects">
-<h2 class="section-title">Projects</h2>
-
-<div class="projects">
-
-<div class="card">
-<h3>Enterprise Insurance Platform</h3>
-<p>Designed scalable microservices with REST APIs reducing response time by 20%.</p>
-</div>
-
-<div class="card">
-<h3>CI/CD Automation System</h3>
-<p>Optimized deployment pipeline improving delivery speed by 30%.</p>
-</div>
-
-<div class="card">
-<h3>Cloud Data Integration</h3>
-<p>Implemented Azure-based data solutions using SQL Database and Data Lake.</p>
-</div>
-
-</div>
+<section id="architecture">
+  <h2 className="accent">System Design Architecture</h2>
+  <div className="card">
+    Microservices Architecture:
+    <ul>
+      <li>API Gateway</li>
+      <li>Service Discovery</li>
+      <li>Database per Service</li>
+      <li>Centralized Logging (Splunk)</li>
+      <li>CI/CD with Azure DevOps</li>
+    </ul>
+  </div>
 </section>
 
 <section id="contact">
-<h2 class="section-title">Contact</h2>
-<div class="card">
-<p>Email: mrityunjay.ranjan28@gmail.com</p>
-<p>Phone: +91 7001541822</p>
-<p>Location: Patna, India</p>
-<p>LinkedIn: linkedin.com/in/ranjan-mrityunjay</p>
-<p>GitHub: github.com/mranjan28</p>
-</div>
+  <h2 className="accent">Recruiter Contact</h2>
+  <div className="card">
+    <ContactForm/>
+  </div>
 </section>
 
 <footer>
 © 2026 Mrityunjay Ranjan | Senior Java Developer
 </footer>
-
-<script>
-function toggleMode(){
-document.body.classList.toggle("light-mode");
+</>
+)
 }
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+
+<!-- PARTICLES BACKGROUND -->
+<script>
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<100;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#38bdf8";
+ctx.fill();
+p.y+=0.5;
+if(p.y>canvas.height) p.y=0;
+});
+requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
