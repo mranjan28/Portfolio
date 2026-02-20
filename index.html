@@ -35,7 +35,6 @@
 
         .container { max-width: 1440px; margin: 0 auto; padding: 0 4%; }
         section { padding: 90px 0; }
-        
         .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 60px; color: #94a3b8; letter-spacing: -0.5px; }
 
         header { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 18px 0; }
@@ -46,6 +45,10 @@
         nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: var(--gradient-text); transition: width 0.3s ease; border-radius: 2px; }
         nav a:hover { color: #fff; }
         nav a:hover::after { width: 100%; }
+        
+        .resume-btn { border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 6px; color: var(--text-muted); font-weight: 400; transition: 0.3s; background: transparent; }
+        .resume-btn:hover { background: rgba(255,255,255,0.05); border-color: #fff; color: #fff; }
+        .theme-icon { border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 6px; cursor: pointer; color: var(--text-muted); }
 
         .hero { display: flex; justify-content: space-between; align-items: center; min-height: 80vh; padding-top: 120px; gap: 50px; }
         .hero-text { flex: 1.2; padding-right: 20px; }
@@ -53,7 +56,7 @@
         .cursor { font-weight: 300; color: var(--pink); -webkit-text-fill-color: var(--pink); animation: blink 0.8s infinite; margin-left: 2px; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .hero-img-container { flex: 0.8; display: flex; flex-direction: column; align-items: center; position: relative; }
+        /* IMAGE WRAPPER GLOW */
         .hero-img-wrapper { position: relative; width: 320px; height: 320px; z-index: 1; }
         .hero-img-wrapper::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange)); border-radius: 20px; filter: blur(25px); opacity: 0; transition: 0.5s; z-index: -1; }
         .hero-img-wrapper:hover::before { opacity: 0.65; transform: translateY(-8px); }
@@ -63,45 +66,15 @@
         .hero-img::after { content:''; position:absolute; bottom:-6px; left:-6px; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; transition: 0.5s; }
         .hero-img-wrapper:hover .hero-img::before, .hero-img-wrapper:hover .hero-img::after { box-shadow: 0 0 20px 4px var(--purple); transform: scale(1.2); }
 
-        .social-bar { display: flex; gap: 15px; margin-top: 30px; }
-        .social-bar a { background: var(--bg-card); border: 1px solid var(--border-color); width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 8px; font-size: 1.1rem; color: var(--text-muted); transition: 0.3s; }
-        .social-bar a:hover { color: #fff; background: rgba(129, 140, 248, 0.1); border-color: var(--purple); transform: translateY(-3px); }
-
+        /* EXPERIENCE STRETCHED BOX & GLOW */
         .timeline-container { position: relative; padding-left: 35px; margin-top: 40px; width: 100%; }
         .timeline-line { position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--gradient-line); border-radius: 2px; }
-        
-        .timeline-item { 
-            background: var(--bg-card); 
-            border: 1px solid var(--border-color); 
-            border-radius: 12px; 
-            padding: 35px; 
-            margin-bottom: 30px; 
-            position: relative;
-            width: 100%;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 12px;
-            padding: 1.5px; 
-            background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
+        .timeline-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 35px; margin-bottom: 30px; position: relative; width: 100%; transition: 0.4s; z-index: 1; }
+        .timeline-item::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 12px; padding: 1.5px; background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.4s; }
         .timeline-item:hover { transform: translateY(-5px); background: #1c1c1f; }
         .timeline-item:hover::after { opacity: 1; }
         
-        .dot-1 { position: absolute; left: -41px; top: 35px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); border: 2px solid var(--bg-main); z-index: 2; box-shadow: 0 0 10px var(--cyan); }
-        .corner-dot-orange { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
-
+        .dot-1 { position: absolute; left: -41px; top: 35px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); border: 2px solid var(--bg-main); z-index: 2; }
         .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
         .timeline-title { font-size: 1.1rem; font-weight: 500; color: #fff; }
         .timeline-company { font-size: 0.9rem; color: var(--teal); }
@@ -110,10 +83,33 @@
         .timeline-list li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; position: relative; }
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
 
+        /* SKILLS & OTHERS */
+        .skills-grid, .projects-grid, .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .projects-grid, .cert-grid { grid-template-columns: repeat(3, 1fr); }
+        .skill-card, .project-card, .cert-card, .edu-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; transition: 0.3s; }
+        .skill-header { font-size: 1rem; font-weight: 500; margin-bottom: 15px; }
+        .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 20px; }
+        .skill-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; }
+        .skill-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 8px; }
+        .skill-icon img { width: 26px; height: 26px; }
+        .skill-label { font-size: 0.75rem; color: var(--text-muted); }
+
+        .cert-card i { font-size: 2.2rem; margin-bottom: 12px; color: var(--orange); }
+        .cert-title { font-size: 0.9rem; font-weight: 500; color: #fff; margin-bottom: 8px; }
+        .cert-link { color: var(--teal); font-size: 0.8rem; text-decoration: underline; }
+
+        .social-bar { display: flex; gap: 15px; margin-top: 30px; }
+        .social-bar a { background: var(--bg-card); border: 1px solid var(--border-color); width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 8px; font-size: 1.1rem; color: var(--text-muted); transition: 0.3s; }
+        .social-bar a:hover { color: #fff; background: rgba(129, 140, 248, 0.1); border-color: var(--purple); transform: translateY(-3px); }
+
+        .contact-wrap { display: flex; gap: 40px; }
+        .contact-form { flex: 1.5; background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .submit-btn { width: 100%; background: var(--teal); color: #000; font-weight: 500; border: none; padding: 12px; border-radius: 6px; cursor: pointer; }
+
         @media (max-width: 900px) {
-            .hero { flex-direction: column; }
+            .hero, .contact-wrap { flex-direction: column; }
             .hero-img-container { order: -1; margin-bottom: 40px; }
-            nav { display: none; }
+            .projects-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -125,14 +121,17 @@
             <nav>
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
                 <a href="#" class="resume-btn">Resume</a>
-                <div class="theme-icon"><i class="fa-solid fa-sun"></i></div>
             </nav>
         </div>
     </header>
 
     <div class="container">
+        
         <section id="about" class="hero">
             <div class="hero-text">
                 <h1 class="hero-title"><span id="typewriter"></span><span class="cursor">|</span></h1>
@@ -140,9 +139,7 @@
             </div>
             <div class="hero-img-container">
                 <div class="hero-img-wrapper">
-                    <div class="hero-img">
-                        <i class="fa-solid fa-code" style="font-size: 5rem; color: #3f3f46;"></i>
-                    </div>
+                    <div class="hero-img"><i class="fa-solid fa-code" style="font-size: 5rem; color: #3f3f46;"></i></div>
                 </div>
                 <div class="social-bar">
                     <a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
@@ -158,7 +155,6 @@
                 <div class="timeline-line"></div>
                 <div class="timeline-item">
                     <div class="dot-1"></div>
-                    <div class="corner-dot-orange"></div>
                     <div class="timeline-header">
                         <div>
                             <div class="timeline-title">Software Engineer</div>
@@ -167,13 +163,68 @@
                         <div class="timeline-date">March 2021 - Present</div>
                     </div>
                     <ul class="timeline-list">
-                        <li><span>Developed and maintained Java-based web applications with a focus on quality.</span></li>
-                        <li><span>Conducted API design and implemented RESTful services.</span></li>
-                        <li><span>Demonstrated expertise in DevOps practices using Splunk, GitLab, and Maven.</span></li>
+                        <li><span>Developed Java-based web applications with 15% performance improvement.</span></li>
+                        <li><span>Conducted API design resulting in 20% faster response times.</span></li>
+                        <li><span>Managed and mentored a team, increasing efficiency by 25%.</span></li>
+                        <li><span>Optimized DevOps processes using Maven, Splunk, and GitLab.</span></li>
                     </ul>
                 </div>
             </div>
         </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">IRNSS System</div>
+                    <div class="project-period">Aug 2019 - Jan 2020</div>
+                    <p class="project-desc">Backend integration for Indian Regional Navigation Satellite System.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-header">Backend</div>
+                    <div class="skill-divider"></div>
+                    <div class="skill-items">
+                        <div class="skill-item"><div class="skill-icon"><i class="devicon-java-plain colored"></i></div><div class="skill-label">Java</div></div>
+                        <div class="skill-item"><div class="skill-icon"><i class="devicon-spring-plain colored"></i></div><div class="skill-label">Spring Boot</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="devicon-azure-plain colored"></i>
+                    <div class="cert-title">Azure Fundamentals AZ-900</div>
+                    <div class="cert-date">Jun 2023</div>
+                    <a href="#" class="cert-link">Show credential</a>
+                </div>
+                <div class="cert-card">
+                    <i class="devicon-azure-plain colored"></i>
+                    <div class="cert-title">Azure Data Fundamentals DP-900</div>
+                    <div class="cert-date">Jun 2023</div>
+                    <a href="#" class="cert-link">Show credential</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-wrap">
+                <div class="contact-form">
+                    <input type="text" placeholder="Name" style="width:100%; margin-bottom:15px; padding:10px; background:#09090b; border:1px solid #27272a; color:white;">
+                    <button class="submit-btn">Send Message</button>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script>
