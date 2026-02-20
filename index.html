@@ -3,160 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mrityunjay Ranjan | Java Developer</title>
+<title>Mrityunjay Ranjan | Senior Java Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color:#f1f5f9;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:#f1f5f9;
 }
 
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    position:fixed;
-    width:100%;
-    background:rgba(15,23,42,0.7);
-    backdrop-filter:blur(10px);
-    z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:fixed;
+width:100%;
+background:rgba(15,23,42,0.8);
+backdrop-filter:blur(12px);
+z-index:1000;
 }
 
 header h1{
-    font-size:20px;
-    font-weight:600;
+font-size:20px;
+font-weight:600;
 }
 
 nav a{
-    color:#38bdf8;
-    margin-left:20px;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
+color:#38bdf8;
+margin-left:20px;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
 }
 
 nav a:hover{
-    color:#fff;
+color:#ffffff;
 }
 
 section{
-    padding:120px 10% 80px 10%;
-    min-height:100vh;
+padding:120px 10% 80px 10%;
+min-height:100vh;
 }
 
 .hero{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
 .hero-text{
-    max-width:600px;
-    animation:fadeIn 1.5s ease;
+max-width:600px;
+animation:fadeIn 1.2s ease;
 }
 
 .hero-text h2{
-    font-size:42px;
-    margin-bottom:20px;
+font-size:42px;
+margin-bottom:20px;
 }
 
 .hero-text span{
-    color:#38bdf8;
+color:#38bdf8;
 }
 
 .hero-text p{
-    margin-bottom:25px;
-    color:#cbd5e1;
+margin-bottom:25px;
+color:#cbd5e1;
 }
 
 .btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#38bdf8;
-    color:#0f172a;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
+display:inline-block;
+padding:12px 28px;
+background:#38bdf8;
+color:#0f172a;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
 .btn:hover{
-    transform:scale(1.05);
+transform:scale(1.05);
 }
 
 .hero-img img{
-    width:280px;
-    border-radius:50%;
-    border:4px solid #38bdf8;
-    animation:float 4s ease-in-out infinite;
+width:280px;
+border-radius:50%;
+border:4px solid #38bdf8;
+animation:float 4s ease-in-out infinite;
 }
 
 .card{
-    background:rgba(30,41,59,0.6);
-    padding:25px;
-    border-radius:20px;
-    backdrop-filter:blur(10px);
-    margin-bottom:20px;
-    transition:0.4s;
+background:rgba(30,41,59,0.6);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+margin-bottom:25px;
+transition:0.4s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-10px);
 }
 
 .skills span{
-    display:inline-block;
-    background:#334155;
-    padding:8px 15px;
-    margin:5px;
-    border-radius:20px;
-    font-size:14px;
+display:inline-block;
+background:#334155;
+padding:8px 15px;
+margin:6px;
+border-radius:20px;
+font-size:14px;
 }
 
 h2.section-title{
-    font-size:32px;
-    margin-bottom:30px;
-    color:#38bdf8;
+font-size:32px;
+margin-bottom:30px;
+color:#38bdf8;
+}
+
+ul{
+margin-top:15px;
+line-height:1.8;
 }
 
 footer{
-    text-align:center;
-    padding:20px;
-    background:#0f172a;
-    color:#94a3b8;
+text-align:center;
+padding:20px;
+background:#0f172a;
+color:#94a3b8;
 }
 
 @keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 @keyframes float{
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0px);}
+0%{transform:translateY(0px);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0px);}
 }
 
 @media(max-width:900px){
-    .hero{
-        flex-direction:column;
-        text-align:center;
-    }
-    .hero-img{
-        margin-top:40px;
-    }
+.hero{
+flex-direction:column;
+text-align:center;
+}
+.hero-img{
+margin-top:40px;
+}
 }
 </style>
 </head>
@@ -164,83 +169,101 @@ footer{
 <body>
 
 <header>
-    <h1>Mrityunjay Ranjan</h1>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<h1>Mrityunjay Ranjan</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#certifications">Certifications</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-    <div class="hero-text">
-        <h2>Hello, I'm <span>Java Backend Developer</span></h2>
-        <p>
-            3.5+ years of experience building scalable microservices-based enterprise
-            applications using Java, Spring Boot and REST APIs.
-        </p>
-        <a href="#contact" class="btn">Hire Me</a>
-    </div>
+<div class="hero-text">
+<h2>Hi, I'm <span>Senior Java Developer</span></h2>
+<p>
+Software Engineer with <strong>5 Years of Experience</strong> in Java, Microservices,
+Enterprise Integration and Cloud technologies. Proven track record of
+performance optimization, API design and DevOps automation.
+</p>
+<a href="#contact" class="btn">Contact Me</a>
+</div>
 
-    <div class="hero-img">
-        <!-- Replace image link below with your own photo -->
-        <img src="https://i.imgur.com/8Km9tLL.png" alt="Profile Picture">
-    </div>
+<div class="hero-img">
+<img src="https://i.imgur.com/8Km9tLL.png" alt="Profile Photo">
+</div>
 </section>
 
 <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-        Experienced Java Developer working at Accenture in insurance domain.
-        Strong expertise in Microservices Architecture, API development,
-        performance optimization and CI/CD pipelines using Azure DevOps.
-    </div>
+<h2 class="section-title">About Me</h2>
+<div class="card">
+Experienced Software Engineer at Accenture specializing in
+Java-based enterprise applications. Improved system performance by 15%,
+reduced API response time by 20%, increased code efficiency by 25%,
+and optimized DevOps pipelines by 30%. Strong expertise in
+Microservices, REST APIs, Kubernetes and Azure Cloud.
+</div>
 </section>
 
 <section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="card skills">
-        <span>Java 8</span>
-        <span>Spring Boot</span>
-        <span>Microservices</span>
-        <span>Spring MVC</span>
-        <span>Spring Data JPA</span>
-        <span>Hibernate</span>
-        <span>REST APIs</span>
-        <span>SQL</span>
-        <span>Azure DevOps</span>
-        <span>Git</span>
-        <span>Multithreading</span>
-    </div>
+<h2 class="section-title">Technical Skills</h2>
+<div class="card skills">
+<span>Java</span>
+<span>Java 8</span>
+<span>Spring Boot</span>
+<span>Microservices</span>
+<span>Spring Security</span>
+<span>Hibernate</span>
+<span>Spring Data JPA</span>
+<span>RESTful APIs</span>
+<span>SQL</span>
+<span>Azure DevOps</span>
+<span>Kubernetes</span>
+<span>Docker</span>
+<span>GitLab</span>
+<span>Maven</span>
+<span>Splunk</span>
+</div>
 </section>
 
 <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="card">
-        <h3>Java Developer – Accenture</h3>
-        <p>Sept 2021 – Present</p>
-        <ul>
-            <li>• Developed high-performance REST APIs</li>
-            <li>• Built microservices architecture for insurance systems</li>
-            <li>• Reduced API response time by 30%</li>
-            <li>• Managed CI/CD pipelines & production deployments</li>
-        </ul>
-    </div>
+<h2 class="section-title">Professional Experience</h2>
+<div class="card">
+<h3>Software Engineer – Accenture</h3>
+<p>March 2021 – Present | Bengaluru, India</p>
+<ul>
+<li>Developed and maintained Java-based enterprise applications</li>
+<li>Improved application performance by 15%</li>
+<li>Designed REST APIs reducing response time by 20%</li>
+<li>Led team improving code efficiency by 25%</li>
+<li>Achieved 98% defect-free deployments</li>
+<li>Optimized DevOps pipelines by 30%</li>
+</ul>
+</div>
+</section>
+
+<section id="certifications">
+<h2 class="section-title">Certifications</h2>
+<div class="card">
+Microsoft Azure Fundamentals (AZ-900)<br><br>
+Microsoft Azure Data Fundamentals (DP-900)
+</div>
 </section>
 
 <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card">
-        <p>Email: mrityunjay.ranjan28@gmail.com</p>
-        <p>Location: Patna, Bihar, India</p>
-        <p>LinkedIn: Add your link</p>
-        <p>GitHub: https://github.com/mranjan28</p>
-    </div>
+<h2 class="section-title">Contact</h2>
+<div class="card">
+<p>Email: mrityunjay.ranjan28@gmail.com</p>
+<p>Phone: +91 7001541822</p>
+<p>Location: Patna, India</p>
+<p>LinkedIn: linkedin.com/in/ranjan-mrityunjay</p>
+<p>GitHub: github.com/mranjan28</p>
+</div>
 </section>
 
 <footer>
-    © 2026 Mrityunjay Ranjan | Java Developer Portfolio
+© 2026 Mrityunjay Ranjan | Senior Java Developer Portfolio
 </footer>
 
 </body>
