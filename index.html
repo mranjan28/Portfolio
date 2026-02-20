@@ -8,224 +8,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:'Inter',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
+body{background:#0f172a;color:#e2e8f0;}
 
-body{
-background:#0f172a;
-color:#e2e8f0;
-overflow-x:hidden;
-}
-
-/* Premium Glow Background */
-.hero-bg{
-position:absolute;
-top:-200px;
-right:-200px;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#2563eb40,transparent 70%);
-filter:blur(100px);
-z-index:-1;
-}
-
-/* Header */
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:22px 8%;
-position:fixed;
-width:100%;
-background:rgba(15,23,42,0.8);
-backdrop-filter:blur(12px);
-z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:22px 8%;position:fixed;width:100%;
+background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);
 }
 
-header h1{
-font-weight:600;
-font-size:16px;
-letter-spacing:1px;
-}
+nav a{margin-left:30px;text-decoration:none;color:#60a5fa;font-size:14px;}
 
-nav a{
-margin-left:30px;
-text-decoration:none;
-color:#60a5fa;
-font-size:14px;
-transition:0.3s;
-}
+section{padding:140px 12%;max-width:1200px;margin:auto;}
 
-nav a:hover{
-color:#ffffff;
-}
-
-/* Sections */
-section{
-padding:140px 12%;
-max-width:1200px;
-margin:auto;
-}
-
-.hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-position:relative;
-}
-
-.hero h2{
-font-size:52px;
-font-weight:700;
-line-height:1.1;
-margin-bottom:20px;
-}
-
+.hero h2{font-size:52px;margin-bottom:20px;}
 .accent{
 background:linear-gradient(90deg,#3b82f6,#60a5fa);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.hero p{
-color:#94a3b8;
-max-width:600px;
-font-size:18px;
-margin-bottom:35px;
-line-height:1.6;
-}
+.hero p{color:#94a3b8;font-size:18px;line-height:1.7;margin-bottom:30px;}
 
 .btn{
-padding:14px 28px;
-border-radius:30px;
-text-decoration:none;
-font-size:14px;
-font-weight:600;
-margin-right:15px;
-transition:0.3s;
+padding:14px 28px;border-radius:30px;text-decoration:none;
+font-size:14px;font-weight:600;margin-right:15px;
 }
 
-.primary{
-background:#2563eb;
-color:#fff;
-}
+.primary{background:#2563eb;color:#fff;}
+.secondary{border:1px solid #2563eb;color:#60a5fa;}
 
-.primary:hover{
-background:#1e40af;
-}
+.section-title{font-size:32px;margin-bottom:50px;font-weight:600;}
 
-.secondary{
-border:1px solid #2563eb;
-color:#60a5fa;
-}
-
-.secondary:hover{
-background:#2563eb20;
-}
-
-/* Cards */
 .card{
-background:#1e293b;
-padding:40px;
-border-radius:20px;
-margin-bottom:40px;
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
+background:#1e293b;padding:40px;border-radius:20px;
+margin-bottom:40px;box-shadow:0 10px 40px rgba(0,0,0,0.3);
 }
 
-.card.show{
-opacity:1;
-transform:translateY(0);
+.stats{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;margin-top:40px;
 }
 
-.section-title{
-font-size:32px;
-margin-bottom:50px;
-font-weight:600;
+.stat{
+background:#1e293b;padding:30px;border-radius:20px;text-align:center;
 }
 
-.skill{
-margin-bottom:25px;
-}
+.stat h3{font-size:36px;color:#3b82f6;margin-bottom:10px;}
 
-.progress{
-background:#334155;
-height:8px;
-border-radius:20px;
-overflow:hidden;
-margin-top:8px;
-}
-
-.progress-bar{
-height:8px;
-width:0;
-background:linear-gradient(90deg,#3b82f6,#60a5fa);
-transition:2s;
-}
-
-/* Projects */
 .projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
-/* Animated Gradient Line */
-.line{
-height:2px;
-width:100%;
-background:linear-gradient(90deg,transparent,#3b82f6,transparent);
-animation:moveLine 3s linear infinite;
-margin:60px 0;
-}
+ul{line-height:1.8;color:#cbd5e1;margin-top:15px;}
 
-@keyframes moveLine{
-0%{background-position:-100%}
-100%{background-position:100%}
-}
-
-/* CTA Section */
-.cta{
-text-align:center;
-padding:100px 12%;
-background:linear-gradient(135deg,#1e3a8a,#0f172a);
-border-radius:30px;
-margin:100px 0;
-}
-
-.cta h2{
-font-size:36px;
-margin-bottom:20px;
-}
-
-.cta p{
-color:#cbd5e1;
-margin-bottom:30px;
-}
-
-/* Footer */
-footer{
-text-align:center;
-padding:30px;
-background:#0f172a;
-color:#64748b;
-margin-top:80px;
-}
-
-@media(max-width:900px){
-.hero{
-flex-direction:column;
-text-align:center;
-}
-}
+footer{text-align:center;padding:30px;background:#0f172a;color:#64748b;margin-top:80px;}
 </style>
 </head>
 
@@ -235,139 +73,123 @@ text-align:center;
 <h1>MRITYUNJAY RANJAN</h1>
 <nav>
 <a href="#about">About</a>
+<a href="#experience">Experience</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#architecture">Architecture</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
 <section class="hero">
-<div class="hero-bg"></div>
-
-<div>
-<h2>
-Senior <span class="accent">Java Engineer</span>
-</h2>
-
+<h2>Senior <span class="accent">Java Engineer</span></h2>
 <p>
-5 Years of experience designing scalable microservices, optimizing enterprise systems, and delivering high-performance cloud-native solutions.
+Software Engineer with 5 years of experience designing scalable enterprise applications and microservices architectures.
+Specialized in backend systems using Java, Spring Boot, Kubernetes and Azure Cloud.
+Strong focus on performance optimization, clean architecture, and production stability.
 </p>
-
 <a href="Mrityunjay_CV.pdf" class="btn primary" download>Download Resume</a>
 <a href="#contact" class="btn secondary">Hire Me</a>
+
+<div class="stats">
+<div class="stat">
+<h3>5+</h3>
+<p>Years Experience</p>
+</div>
+<div class="stat">
+<h3>20%</h3>
+<p>API Latency Reduction</p>
+</div>
+<div class="stat">
+<h3>30%</h3>
+<p>CI/CD Optimization</p>
+</div>
+<div class="stat">
+<h3>98%</h3>
+<p>Defect-Free Releases</p>
+</div>
 </div>
 </section>
 
-<div class="line"></div>
-
 <section id="about">
-<h2 class="section-title">About</h2>
+<h2 class="section-title">Professional Summary</h2>
 <div class="card">
-Software Engineer at Accenture with a proven track record of improving system performance by 15%, reducing API response time by 20%, increasing code efficiency by 25%, and optimizing CI/CD pipelines by 30%. Specialized in Java, Spring Boot, Kubernetes, and Azure.
+Experienced Software Engineer currently working at Accenture, delivering enterprise-grade backend solutions.
+Led development initiatives that improved system throughput and reduced operational costs.
+Experienced in mentoring junior engineers, conducting code reviews, and maintaining production stability.
+Strong expertise in distributed systems design, REST API development, and containerized deployments.
+</div>
+</section>
+
+<section id="experience">
+<h2 class="section-title">Professional Experience</h2>
+<div class="card">
+<h3>Software Engineer – Accenture (2021 – Present)</h3>
+<ul>
+<li>Designed and developed Java-based microservices for enterprise insurance systems.</li>
+<li>Improved overall application performance by 15% through optimized query handling and caching strategies.</li>
+<li>Reduced API response time by 20% by refactoring REST controllers and improving database indexing.</li>
+<li>Increased code efficiency by 25% by implementing design patterns and best coding practices.</li>
+<li>Optimized CI/CD pipelines by 30% using Azure DevOps automation workflows.</li>
+<li>Collaborated with QA teams achieving 98% defect-free releases in production.</li>
+<li>Containerized applications using Docker and deployed via Kubernetes clusters.</li>
+</ul>
 </div>
 </section>
 
 <section id="skills">
 <h2 class="section-title">Technical Expertise</h2>
 <div class="card">
-
-<div class="skill">Java / Spring Boot
-<div class="progress"><div class="progress-bar" data-width="90%"></div></div>
-</div>
-
-<div class="skill">Microservices Architecture
-<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-</div>
-
-<div class="skill">Azure / DevOps
-<div class="progress"><div class="progress-bar" data-width="80%"></div></div>
-</div>
-
-<div class="skill">Kubernetes / Docker
-<div class="progress"><div class="progress-bar" data-width="75%"></div></div>
-</div>
-
+Java, Java 8, Spring Boot, Spring Security, Microservices Architecture, RESTful APIs,
+Hibernate, Spring Data JPA, SQL, Azure DevOps, Kubernetes, Docker,
+Splunk, GitLab, Maven.
 </div>
 </section>
 
 <section id="projects">
-<h2 class="section-title">Selected Work</h2>
+<h2 class="section-title">Selected Projects</h2>
+
 <div class="projects">
 
 <div class="card">
 <h3>Enterprise Insurance Platform</h3>
-<p>Designed scalable REST APIs & microservices reducing response time by 20% and increasing throughput.</p>
+<p>
+Developed scalable backend microservices for policy issuance, claims management, and customer onboarding.
+Integrated third-party systems using REST APIs and implemented secure authentication flows.
+</p>
 </div>
 
 <div class="card">
-<h3>CI/CD Optimization Framework</h3>
-<p>Automated deployments and reduced release cycle time by 30% using Azure DevOps.</p>
+<h3>CI/CD Automation Framework</h3>
+<p>
+Designed deployment workflows using Azure DevOps pipelines.
+Reduced manual deployment errors and improved release stability across environments.
+</p>
 </div>
 
 <div class="card">
 <h3>Cloud Data Integration System</h3>
-<p>Implemented Azure SQL and Data Lake solutions improving data processing reliability.</p>
+<p>
+Implemented Azure-based data pipelines using SQL Database and Data Lake.
+Improved data processing reliability and system monitoring using Splunk dashboards.
+</p>
 </div>
 
 </div>
-</section>
-
-<section id="architecture">
-<h2 class="section-title">System Design Architecture</h2>
-<div class="card">
-• API Gateway Pattern  
-<br>• Service Discovery  
-<br>• Database per Service  
-<br>• Centralized Logging (Splunk)  
-<br>• Containerization (Docker & Kubernetes)  
-<br>• CI/CD via Azure DevOps  
-</div>
-</section>
-
-<section class="cta">
-<h2>Let’s Build Scalable Systems Together</h2>
-<p>If you're hiring a backend engineer who understands performance, architecture, and production systems — let's connect.</p>
-<a href="#contact" class="btn primary">Contact Me</a>
 </section>
 
 <section id="contact">
 <h2 class="section-title">Contact</h2>
 <div class="card">
-Email: mrityunjay.ranjan28@gmail.com  
-<br><br>
-LinkedIn: linkedin.com/in/ranjan-mrityunjay  
-<br><br>
-GitHub: github.com/mranjan28  
+<p>Email: mrityunjay.ranjan28@gmail.com</p>
+<p>Phone: +91 7001541822</p>
+<p>LinkedIn: linkedin.com/in/ranjan-mrityunjay</p>
+<p>GitHub: github.com/mranjan28</p>
 </div>
 </section>
 
 <footer>
 © 2026 Mrityunjay Ranjan | Senior Java Engineer
 </footer>
-
-<script>
-// Scroll reveal
-const cards = document.querySelectorAll(".card");
-window.addEventListener("scroll",()=>{
-cards.forEach(card=>{
-const rect = card.getBoundingClientRect();
-if(rect.top < window.innerHeight - 100){
-card.classList.add("show");
-}
-});
-});
-
-// Skill animation
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".progress-bar").forEach(bar=>{
-const rect = bar.getBoundingClientRect();
-if(rect.top < window.innerHeight){
-bar.style.width = bar.getAttribute("data-width");
-}
-});
-});
-</script>
 
 </body>
 </html>
