@@ -3,11 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mrityunjay Ranjan | Senior Backend Engineer</title>
+<title>Mrityunjay Ranjan | Software Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--bg:#0b1120;
+--card:#111827;
+--text:#e5e7eb;
+--muted:#94a3b8;
+--accent:#3b82f6;
+}
+
+.light{
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#111827;
+--muted:#475569;
+--accent:#2563eb;
+}
+
 *{
 margin:0;
 padding:0;
@@ -17,12 +33,12 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#0b1120;
-color:#e5e7eb;
+background:var(--bg);
+color:var(--text);
 line-height:1.7;
+transition:0.3s;
 }
 
-/* Layout */
 .container{
 max-width:1100px;
 margin:auto;
@@ -33,58 +49,62 @@ section{
 padding:120px 0;
 }
 
-/* Header */
 header{
 position:fixed;
 width:100%;
-background:rgba(11,17,32,0.85);
-backdrop-filter:blur(10px);
+background:var(--bg);
 z-index:1000;
+border-bottom:1px solid #1f2937;
 }
 
 .nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 0;
+padding:18px 0;
 }
 
 .nav a{
 margin-left:28px;
 text-decoration:none;
-color:#60a5fa;
+color:var(--accent);
 font-size:14px;
-font-weight:500;
 }
 
-/* Hero */
+.toggle{
+cursor:pointer;
+padding:6px 14px;
+border-radius:20px;
+border:1px solid var(--accent);
+color:var(--accent);
+font-size:13px;
+}
+
 .hero{
 padding-top:180px;
 }
 
 .hero h1{
-font-size:58px;
+font-size:56px;
 font-weight:700;
-line-height:1.1;
 margin-bottom:24px;
 }
 
-.gradient-text{
-background:linear-gradient(90deg,#3b82f6,#60a5fa);
+.gradient{
+background:linear-gradient(90deg,var(--accent),#60a5fa);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-max-width:700px;
-color:#94a3b8;
+max-width:750px;
+color:var(--muted);
 font-size:18px;
 margin-bottom:40px;
 }
 
-.buttons a{
-display:inline-block;
-padding:14px 30px;
+.btn{
+padding:14px 28px;
 border-radius:30px;
 font-weight:600;
 font-size:14px;
@@ -93,20 +113,15 @@ text-decoration:none;
 }
 
 .primary{
-background:#2563eb;
+background:var(--accent);
 color:#fff;
 }
 
 .secondary{
-border:1px solid #2563eb;
-color:#60a5fa;
+border:1px solid var(--accent);
+color:var(--accent);
 }
 
-.primary:hover{
-background:#1e40af;
-}
-
-/* Metrics */
 .metrics{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -115,7 +130,7 @@ margin-top:60px;
 }
 
 .metric{
-background:#111827;
+background:var(--card);
 padding:32px;
 border-radius:20px;
 text-align:center;
@@ -123,78 +138,39 @@ text-align:center;
 
 .metric h3{
 font-size:40px;
-color:#3b82f6;
+color:var(--accent);
 margin-bottom:8px;
 }
 
-/* Section Titles */
 .section-title{
 font-size:32px;
 margin-bottom:40px;
 font-weight:600;
 }
 
-/* Cards */
 .card{
-background:#111827;
+background:var(--card);
 padding:40px;
 border-radius:24px;
 margin-bottom:40px;
 }
 
-/* Project Grid */
 .projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
-.card h3{
-margin-bottom:16px;
-font-size:20px;
-}
-
 ul{
 margin-top:15px;
 padding-left:20px;
-color:#cbd5e1;
-}
-
-/* Tech Icons */
-.tech-icons{
-display:flex;
-flex-wrap:wrap;
-gap:24px;
-margin-top:20px;
-}
-
-.tech-icons img{
-width:50px;
-}
-
-/* CTA */
-.cta{
-text-align:center;
-background:linear-gradient(135deg,#1e3a8a,#0b1120);
-padding:100px 20px;
-border-radius:40px;
-margin-top:100px;
-}
-
-.cta h2{
-font-size:36px;
-margin-bottom:20px;
-}
-
-.cta p{
-color:#cbd5e1;
-margin-bottom:30px;
+color:var(--muted);
 }
 
 footer{
 text-align:center;
 padding:40px 0;
-color:#64748b;
+color:var(--muted);
 }
 </style>
 </head>
@@ -208,27 +184,25 @@ color:#64748b;
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
+<span class="toggle" onclick="toggleTheme()">Toggle Theme</span>
 </div>
 </div>
 </header>
 
 <section class="hero container">
 <h1>
-Senior <span class="gradient-text">Backend Engineer</span>
+Senior <span class="gradient">Backend Engineer</span>
 </h1>
 
 <p>
-Software Engineer with 5+ years of experience designing scalable distributed systems and high-performance microservices.
-Specialized in Java, Spring Boot, Kubernetes and Azure Cloud.
-Focused on system reliability, performance optimization, and clean architecture.
+Backend-focused engineer with 5+ years of experience designing scalable distributed systems and high-performance microservices.
+Strong foundation in data structures, algorithms, concurrency, and system design.
+Experienced in building fault-tolerant, cloud-native systems handling high request throughput with production reliability.
 </p>
 
-<div class="buttons">
-<a href="Mrityunjay_CV.pdf" class="primary" download>Download Resume</a>
-<a href="#contact" class="secondary">Contact Me</a>
-</div>
+<a href="Mrityunjay_CV.pdf" class="btn primary" download>Download Resume</a>
+<a href="#contact" class="btn secondary">Contact Me</a>
 
 <div class="metrics">
 <div class="metric">
@@ -245,7 +219,7 @@ Focused on system reliability, performance optimization, and clean architecture.
 </div>
 <div class="metric">
 <h3 class="counter" data-target="98">0</h3>
-<p>% Deployment Stability</p>
+<p>% Production Stability</p>
 </div>
 </div>
 </section>
@@ -253,9 +227,10 @@ Focused on system reliability, performance optimization, and clean architecture.
 <section id="about" class="container">
 <h2 class="section-title">About Me</h2>
 <div class="card">
-Currently working at Accenture delivering enterprise-scale backend solutions in the insurance domain.
-Experienced in designing microservices architectures, optimizing performance bottlenecks, and leading DevOps initiatives.
-Strong understanding of distributed systems, container orchestration, observability, and production-grade engineering.
+Currently working at Accenture delivering enterprise-scale backend systems in the insurance domain.
+Designed microservices architecture using Spring Boot following clean architecture principles.
+Hands-on experience in multithreading, asynchronous processing, caching strategies, distributed logging, and container orchestration.
+Focused on writing maintainable code, improving system performance, and ensuring high availability in production environments.
 </div>
 </section>
 
@@ -264,12 +239,13 @@ Strong understanding of distributed systems, container orchestration, observabil
 <div class="card">
 <h3>Software Engineer — Accenture (2021–Present)</h3>
 <ul>
-<li>Architected and developed scalable microservices using Spring Boot and RESTful APIs.</li>
-<li>Reduced API latency by 20% through query optimization and caching strategies.</li>
-<li>Improved overall system throughput by 15% through refactoring and performance tuning.</li>
-<li>Automated CI/CD pipelines improving deployment speed by 30%.</li>
-<li>Containerized services using Docker and orchestrated via Kubernetes.</li>
-<li>Integrated centralized monitoring using Splunk dashboards.</li>
+<li>Designed and implemented scalable REST APIs serving thousands of daily requests.</li>
+<li>Improved API response time by 20% through optimized indexing and caching strategies.</li>
+<li>Reduced infrastructure bottlenecks by implementing asynchronous processing.</li>
+<li>Optimized CI/CD pipelines improving deployment speed by 30%.</li>
+<li>Containerized services using Docker and deployed on Kubernetes clusters.</li>
+<li>Integrated centralized monitoring dashboards using Splunk.</li>
+<li>Collaborated across cross-functional teams delivering stable production releases.</li>
 </ul>
 </div>
 </section>
@@ -280,58 +256,36 @@ Strong understanding of distributed systems, container orchestration, observabil
 <div class="projects">
 
 <div class="card">
-<h3>Enterprise Insurance Microservices Platform</h3>
-<p>Designed a production-grade microservices ecosystem handling policy lifecycle and claims processing.</p>
+<h3>Scalable Distributed Notification System</h3>
+<p>Designed a distributed system to handle real-time notifications with fault tolerance and retry mechanisms.</p>
 <ul>
-<li>API Gateway + authentication layer</li>
-<li>Database-per-service architecture</li>
-<li>Horizontal scaling via Kubernetes</li>
+<li>Implemented asynchronous message processing.</li>
+<li>Designed retry & backoff strategies.</li>
+<li>Ensured horizontal scalability.</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Event-Driven Distributed System</h3>
-<p>Implemented asynchronous communication patterns ensuring resilience and fault tolerance.</p>
+<h3>High-Throughput API Gateway Framework</h3>
+<p>Built centralized gateway handling authentication, rate limiting, and request routing.</p>
 <ul>
-<li>Circuit breaker & retry logic</li>
-<li>High availability deployment strategy</li>
-<li>Reduced failure impact across services</li>
+<li>JWT-based authentication.</li>
+<li>Request validation & rate limiting.</li>
+<li>Optimized routing logic reducing latency.</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Cloud Observability Framework</h3>
-<p>Built monitoring and logging pipelines improving production stability and SLA compliance.</p>
+<h3>Cloud-Native Microservices Platform</h3>
+<p>Designed microservices deployed via Kubernetes ensuring reliability and resilience.</p>
 <ul>
-<li>Centralized logging via Splunk</li>
-<li>Container health monitoring</li>
-<li>Incident response optimization</li>
+<li>Database-per-service architecture.</li>
+<li>Circuit breaker implementation.</li>
+<li>Observability integration for production monitoring.</li>
 </ul>
 </div>
 
 </div>
-</section>
-
-<section id="skills" class="container">
-<h2 class="section-title">Tech Stack</h2>
-<div class="card">
-<div class="tech-icons">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-</div>
-</div>
-</section>
-
-<section class="container cta">
-<h2>Let’s Build Scalable Systems Together</h2>
-<p>
-If you're looking for a backend engineer who understands architecture, performance, and production reliability — let's connect.
-</p>
-<a href="#contact" class="primary">Get In Touch</a>
 </section>
 
 <section id="contact" class="container">
@@ -344,10 +298,14 @@ GitHub: github.com/mranjan28
 </section>
 
 <footer>
-© 2026 Mrityunjay Ranjan — Senior Backend Engineer
+© 2026 Mrityunjay Ranjan — Software Engineer
 </footer>
 
 <script>
+function toggleTheme(){
+document.body.classList.toggle("light");
+}
+
 const counters = document.querySelectorAll('.counter');
 counters.forEach(counter => {
 const updateCount = () => {
