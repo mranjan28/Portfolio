@@ -119,43 +119,35 @@
             z-index: 1;
         }
 
-        /* The Multi-Colored Glow Behind Image */
+        /* The Multi-Colored Glow Behind Box */
         .hero-img-wrapper::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange));
             border-radius: 20px;
-            filter: blur(20px);
+            filter: blur(25px);
             opacity: 0;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: -1;
         }
 
         .hero-img-wrapper:hover::before {
-            opacity: 0.5; /* Glowing aura */
-            transform: translateY(-8px) scale(1.04);
+            opacity: 0.65; /* Glowing aura active */
+            transform: translateY(-8px) scale(1.02);
         }
 
-        /* The Actual Image Box */
+        /* The Actual Box */
         .hero-img { 
-            width: 100%; height: 100%; background: #27272a; border-radius: 20px; 
+            width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; 
             border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2;
         }
-        
-        .hero-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 19px; 
-            pointer-events: none;
-        }
 
-        /* Hover Physics for the Image */
+        /* Hover Physics for the Box */
         .hero-img-wrapper:hover .hero-img {
             transform: translateY(-8px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         /* Corner Dots attached precisely to the border edges */
@@ -164,7 +156,6 @@
         
         .hero-img-wrapper:hover .hero-img::before { box-shadow: 0 0 20px 4px var(--purple); transform: scale(1.2); }
         .hero-img-wrapper:hover .hero-img::after { box-shadow: 0 0 20px 4px #ef4444; transform: scale(1.2); }
-
         
         .social-bar { display: flex; gap: 15px; margin-top: 30px; }
         .social-bar a { 
@@ -386,12 +377,11 @@
                 <p class="hero-desc">From crafting enterprise integrations to designing resilient backend APIs and automated CI/CD workflows, I deliver quality code that drives real impact.</p>
                 <p class="hero-desc">Passionate about solving complex challenges in fast-paced, collaborative environments. Ready to build something exceptional together.</p>
             </div>
-            
             <div class="hero-img-container">
                 
                 <div class="hero-img-wrapper">
                     <div class="hero-img">
-                        <img src="https://img.freepik.com/free-vector/programmer-working-web-development-code-engineer-programming-python-php-java-script-computer_90220-249.jpg" alt="Developer Illustration">
+                        <i class="fa-solid fa-code" style="font-size: 5rem; color: #3f3f46;"></i>
                     </div>
                 </div>
                 
@@ -401,7 +391,6 @@
                     <a href="#"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
-            
         </section>
 
         <section id="experience">
