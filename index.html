@@ -18,7 +18,7 @@
             --text-muted: #94a3b8;
             --text-darker: #64748b;
             
-            /* Accents from reference */
+            /* Accents */
             --teal: #14b8a6;
             --cyan: #22d3ee;
             --pink: #f472b6;
@@ -77,9 +77,7 @@
         .timeline-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; }
         
         .dot-1 { position: absolute; left: -34px; top: 35px; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); border: 2px solid var(--bg-main); z-index: 2; }
-        .dot-2 { position: absolute; left: -34px; top: 35px; width: 10px; height: 10px; border-radius: 50%; background: var(--purple); border: 2px solid var(--bg-main); z-index: 2; }
         
-        .corner-dot-purple { position: absolute; right: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--purple); }
         .corner-dot-orange { position: absolute; right: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); }
 
         .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
@@ -114,16 +112,21 @@
         .btn-link { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; color: #fff; }
         .btn-link:hover { background: rgba(255,255,255,0.05); }
 
-        /* SKILLS SECTION */
+        /* SKILLS SECTION (EXACT UPDATED LIST) */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; }
+        .corner-dot-purple { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); }
         .skill-header { font-size: 1.05rem; font-weight: 500; margin-bottom: 15px; }
         .c-cyan { color: var(--cyan); }
         .c-pink { color: var(--pink); }
         .skill-divider { height: 2px; width: 100%; background: var(--gradient-divider); margin-bottom: 25px; }
         
         .skill-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .skill-icon { width: 60px; height: 60px; margin: 0 auto 10px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 2rem; transition: 0.2s; }
+        .skill-icon { 
+            width: 60px; height: 60px; margin: 0 auto 10px; background: rgba(255,255,255,0.02); 
+            border: 1px solid var(--border-color); border-radius: 12px; display: flex; 
+            justify-content: center; align-items: center; font-size: 2.2rem; transition: 0.2s; 
+        }
         .skill-icon:hover { border-color: var(--text-muted); transform: translateY(-2px); }
         .skill-label { font-size: 0.75rem; color: var(--text-muted); }
 
@@ -132,7 +135,6 @@
         .edu-title { font-weight: 600; font-size: 1rem; color: #fff; margin-bottom: 4px; }
         .edu-school { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px; }
         .edu-date { font-size: 0.8rem; color: var(--teal); margin-bottom: 8px; }
-        .edu-score { font-size: 0.85rem; color: #fff; font-weight: 500; }
 
         /* CERTIFICATIONS */
         .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: -30px; margin-bottom: 40px; }
@@ -318,25 +320,13 @@
             <div class="skills-grid">
                 
                 <div class="skill-card">
-                    <div class="corner-dot-purple" style="top: -5px; right: -5px; width: 12px; height: 12px;"></div>
-                    <div class="skill-header"><span class="c-cyan">Programming</span> <span class="c-pink">& Core</span></div>
+                    <div class="corner-dot-purple"></div>
+                    <div class="skill-header"><span class="c-cyan">Programming</span> <span class="c-pink">Languages</span></div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
                         <div>
                             <div class="skill-icon"><i class="devicon-java-plain colored"></i></div>
-                            <div class="skill-label">Java 8</div>
-                        </div>
-                        <div>
-                            <div class="skill-icon"><i class="fa-solid fa-mug-hot" style="color: #f89820;"></i></div>
-                            <div class="skill-label">J2EE</div>
-                        </div>
-                        <div>
-                            <div class="skill-icon"><i class="fa-solid fa-diagram-project" style="color: #38bdf8;"></i></div>
-                            <div class="skill-label">Data Structures</div>
-                        </div>
-                        <div>
-                            <div class="skill-icon"><i class="fa-solid fa-microchip" style="color: #a78bfa;"></i></div>
-                            <div class="skill-label">Algorithms</div>
+                            <div class="skill-label">Java</div>
                         </div>
                         <div>
                             <div class="skill-icon"><i class="devicon-mysql-plain colored"></i></div>
@@ -346,39 +336,39 @@
                 </div>
 
                 <div class="skill-card">
-                    <div class="corner-dot-purple" style="top: -5px; right: -5px; width: 12px; height: 12px;"></div>
-                    <div class="skill-header"><span class="c-cyan">Backend</span> <span class="c-pink">Frameworks</span></div>
+                    <div class="corner-dot-purple"></div>
+                    <div class="skill-header"><span class="c-cyan">Backend</span> <span class="c-pink">Technologies</span></div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
                         <div>
                             <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
-                            <div class="skill-label">Spring Boot</div>
+                            <div class="skill-label">Spring</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="fa-solid fa-network-wired" style="color: #14b8a6;"></i></div>
-                            <div class="skill-label">Microservices</div>
+                            <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
+                            <div class="skill-label">Spring Boot</div>
                         </div>
                         <div>
                             <div class="skill-icon"><i class="devicon-hibernate-plain colored"></i></div>
                             <div class="skill-label">Hibernate</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="fa-solid fa-database" style="color: #f472b6;"></i></div>
-                            <div class="skill-label">Spring Data JPA</div>
+                            <div class="skill-icon"><i class="fa-solid fa-cube" style="color: #6db33f;"></i></div>
+                            <div class="skill-label">REST API</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="fa-solid fa-shield" style="color: #3b82f6;"></i></div>
+                            <div class="skill-icon"><i class="fa-solid fa-network-wired" style="color: #14b8a6;"></i></div>
+                            <div class="skill-label">Microservices</div>
+                        </div>
+                        <div>
+                            <div class="skill-icon"><i class="fa-solid fa-shield-halved" style="color: #3b82f6;"></i></div>
                             <div class="skill-label">Spring Security</div>
-                        </div>
-                        <div>
-                            <div class="skill-icon"><i class="fa-solid fa-server" style="color: #a855f7;"></i></div>
-                            <div class="skill-label">RESTful API</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-card">
-                    <div class="corner-dot-purple" style="top: -5px; right: -5px; width: 12px; height: 12px;"></div>
+                    <div class="corner-dot-purple"></div>
                     <div class="skill-header"><span class="c-cyan">Cloud</span> <span class="c-pink">& DevOps</span></div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
@@ -387,35 +377,43 @@
                             <div class="skill-label">Azure DevOps</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="devicon-kubernetes-plain colored"></i></div>
-                            <div class="skill-label">Kubernetes</div>
-                        </div>
-                        <div>
                             <div class="skill-icon"><i class="devicon-docker-plain colored"></i></div>
                             <div class="skill-label">Docker</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="fa-solid fa-chart-pie" style="color: #22d3ee;"></i></div>
+                            <div class="skill-icon"><i class="devicon-kubernetes-plain colored"></i></div>
+                            <div class="skill-label">Kubernetes</div>
+                        </div>
+                        <div>
+                            <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/splunk/splunk-icon.svg" style="width: 35px; height: 35px;" alt="Splunk"></div>
                             <div class="skill-label">Splunk</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-card">
-                    <div class="corner-dot-purple" style="top: -5px; right: -5px; width: 12px; height: 12px;"></div>
+                    <div class="corner-dot-purple"></div>
                     <div class="skill-header"><span class="c-cyan">Developer</span> <span class="c-pink">Tools</span></div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
+                        <div>
+                            <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
+                            <div class="skill-label">Git</div>
+                        </div>
+                        <div>
+                            <div class="skill-icon"><i class="devicon-github-original" style="color: #fff;"></i></div>
+                            <div class="skill-label">GitHub</div>
+                        </div>
                         <div>
                             <div class="skill-icon"><i class="devicon-gitlab-plain colored"></i></div>
                             <div class="skill-label">GitLab</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="fa-solid fa-feather-pointed" style="color: #e11d48;"></i></div>
+                            <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" style="width: 35px; height: 35px;" alt="Maven"></div>
                             <div class="skill-label">Maven</div>
                         </div>
                         <div>
-                            <div class="skill-icon"><i class="fa-solid fa-space-awesome" style="color: #f97316;"></i></div>
+                            <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" style="width: 35px; height: 35px;" alt="Postman"></div>
                             <div class="skill-label">Postman</div>
                         </div>
                         <div>
@@ -444,4 +442,111 @@
 
         <section id="certifications">
             <h2 class="section-title" style="margin-bottom: 5px;">Certifications</h2>
-            <div
+            <div class="cert-subtitle">Recognized achievements in the field of technology.</div>
+            
+            <div class="cert-grid">
+                
+                <div class="cert-card">
+                    <i class="devicon-azure-plain colored"></i>
+                    <div class="cert-title">Microsoft Azure Fundamentals AZ-900</div>
+                    <div class="cert-issuer">Issued By: Microsoft</div>
+                    <div class="cert-date">Jun 2023</div>
+                    <a href="#" class="cert-link">View Certificate</a>
+                </div>
+
+                <div class="cert-card">
+                    <i class="devicon-azure-plain colored"></i>
+                    <div class="cert-title">Microsoft Azure Data Fundamentals DP-900</div>
+                    <div class="cert-issuer">Issued By: Microsoft</div>
+                    <div class="cert-date">Jun 2023</div>
+                    <a href="#" class="cert-link">View Certificate</a>
+                </div>
+
+                <div class="cert-card">
+                    <i class="devicon-azure-plain colored"></i>
+                    <div class="cert-title">Microsoft Azure AI Fundamentals AI-900</div>
+                    <div class="cert-issuer">Issued By: Microsoft</div>
+                    <div class="cert-date">May 2023</div>
+                    <a href="#" class="cert-link">View Certificate</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-wrap">
+                
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to contact me for any work or suggestions below.</p>
+                    
+                    <div class="c-item">
+                        <i class="fa-solid fa-envelope"></i> mrityunjay.ranjan28@gmail.com
+                    </div>
+                    <div class="c-item">
+                        <i class="fa-brands fa-linkedin"></i> linkedin.com/in/ranjan-mrityunjay
+                    </div>
+                    <div class="c-item">
+                        <i class="fa-solid fa-phone"></i> (+91) 7001541822
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            
+            <div class="f-col-1">
+                <h4>Mrityunjay Ranjan</h4>
+                <p>Software Engineer with a passion for creating innovative, scalable, and high-performance solutions.</p>
+            </div>
+            
+            <div class="f-col-2">
+                <h4>Links</h4>
+                <div class="f-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                </div>
+            </div>
+
+            <div class="f-col-3">
+                <h4>Connect</h4>
+                <div class="f-socials">
+                    <a href="https://linkedin.com/in/ranjan-mrityunjay"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright">
+            © 2026 Mrityunjay Ranjan. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
