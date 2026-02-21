@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
     <style>
-        /* --- DARK MODE VARIABLES --- */
+        /* --- DARK MODE VARIABLES (DEFAULT) --- */
         :root, [data-theme="dark"] {
             --bg-main: #09090b; 
             --bg-card: #18181b; 
@@ -171,13 +171,13 @@
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 20px; 
-            align-items: stretch; /* Forces equal height */
+            align-items: stretch; /* Forces all 3 cards to be the exact same height */
         }
         .project-card { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
             border-radius: 12px; padding: 25px; position: relative; 
             display: flex; flex-direction: column; 
-            height: 100%; /* Makes container stretch */
+            height: 100%; 
             transition: all 0.3s ease; 
         }
         .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); background: var(--hover-bg); }
@@ -196,7 +196,7 @@
         .project-desc { color: var(--text-body); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; line-height: 1.6;}
         .project-desc li { margin-bottom: 8px; list-style-type: disc; }
         
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto; /* Pushes tags to the bottom */ }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto; }
         .tech-tags span { background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); transition: 0.3s; font-weight: 300; }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
         
@@ -212,7 +212,7 @@
         }
         .modal-content {
             background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px;
-            padding: 30px; width: 90%; max-width: 450px; /* Small Dialog Box Size */
+            padding: 30px; width: 90%; max-width: 500px; /* Small Dialog Size */
             position: relative; animation: modalFadeIn 0.3s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
         [data-theme="light"] .modal-content { box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
@@ -224,10 +224,10 @@
         .modal-body li { color: var(--text-body); font-size: 0.9rem; margin-bottom: 12px; line-height: 1.6; font-weight: 300;}
         .modal-body li::marker { color: var(--cyan); }
 
-        /* --- SKILLS SECTION (Original 4 Cards in 2 Columns) --- */
+        /* --- SKILLS SECTION --- */
         .skills-grid { 
             display: grid; 
-            grid-template-columns: repeat(2, 1fr); /* Fixed 2 Columns layout */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 25px; 
         }
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
@@ -247,8 +247,15 @@
         }
         
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 30px; opacity: 0.6; }
-        .skill-items-container { display: flex; flex-wrap: wrap; gap: 25px; justify-content: flex-start; }
-        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 85px; }
+        
+        /* INNER ICONS STRICT 2x3 GRID FIX */
+        .skill-items-container { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+            gap: 25px 10px; /* Vertical and Horizontal Gap */
+            justify-items: center;
+        }
+        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
         
         .skill-icon-box { 
             width: 75px; height: 75px; background: var(--bg-icon); border: 1px solid rgba(129, 140, 248, 0.1); 
@@ -621,7 +628,7 @@
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/splunk.svg" alt="Splunk" class="splunk-icon">
+                                <img src="https://logos-world.net/wp-content/uploads/2021/02/Splunk-Symbol.png" alt="Splunk" class="splunk-icon">
                             </div>
                             <div class="skill-label">Splunk</div>
                         </div>
