@@ -11,23 +11,18 @@
 
     <style>
         :root {
-            /* Exact Color Palette */
             --bg-main: #09090b; 
             --bg-card: #18181b; 
             --border-color: #27272a;
             --border-hover: #3f3f46;
-            
             --text-main: #f8fafc;
             --text-muted: #a1a1aa;
             --text-darker: #71717a;
-            
-            /* Signature Gradients & Accents */
             --teal: #14b8a6;
             --cyan: #22d3ee;
             --pink: #f472b6;
             --purple: #818cf8;
             --orange: #f97316;
-            
             --gradient-text: linear-gradient(90deg, #22d3ee, #818cf8, #f472b6);
             --gradient-line: linear-gradient(180deg, #22d3ee, #818cf8, #f472b6, #f97316);
             --gradient-divider: linear-gradient(90deg, rgba(34,211,238,0.5), rgba(129,140,248,0.5), rgba(244,114,182,0.5));
@@ -53,9 +48,10 @@
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
 
-        /* --- CONTAINER & HEADER ALIGNMENT FIX --- */
-        .container, .header-content { 
-            max-width: 1280px; 
+        /* EXACT RED LINE ALIGNMENT FIX */
+        /* Both Header content and Body container use this strict wrapper */
+        .wrapper { 
+            max-width: 1200px; 
             margin: 0 auto; 
             padding: 0 40px; 
             width: 100%;
@@ -73,33 +69,23 @@
         }
         
         .header-content { display: flex; justify-content: space-between; align-items: center; }
-        
         .logo { font-weight: 500; font-size: 1.15rem; color: #fff; letter-spacing: -0.5px; cursor: pointer; }
         .logo:hover { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
         nav { display: flex; gap: 32px; align-items: center; font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
-        
         nav a { position: relative; padding-bottom: 4px; }
-        nav a::after {
-            content: ''; position: absolute; width: 0; height: 2px; 
-            bottom: 0; left: 0; background: var(--gradient-text); 
-            transition: width 0.3s ease; border-radius: 2px;
-        }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background: var(--gradient-text); transition: width 0.3s ease; border-radius: 2px; }
         nav a:hover { color: #fff; }
         nav a:hover::after { width: 100%; }
         
-        .resume-btn { 
-            border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 6px; 
-            color: var(--text-muted); font-weight: 400; transition: all 0.3s ease; background: transparent;
-        }
+        .resume-btn { border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 6px; color: var(--text-muted); font-weight: 400; transition: all 0.3s ease; background: transparent; }
         .resume-btn:hover { background: rgba(255,255,255,0.05); border-color: #fff; color: #fff; }
         .theme-icon { border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: 0.3s; color: var(--text-muted); }
         .theme-icon:hover { background: rgba(255,255,255,0.05); color: #fff; border-color: #fff; }
 
         /* HERO SECTION */
         .hero { display: flex; justify-content: space-between; align-items: center; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; gap: 50px; }
-        
-        .hero-text { flex: 1.2; }
+        .hero-text { flex: 1.2; padding-right: 20px; }
         
         .hero-title { 
             font-size: clamp(2.6rem, 5vw, 3.5rem); 
@@ -121,72 +107,26 @@
         .hero-img-container { flex: 0.8; display: flex; flex-direction: column; align-items: center; position: relative; }
         
         /* HOVER GLOW EFFECT FOR EMPTY BOX */
-        .hero-img-wrapper {
-            position: relative;
-            width: 320px; height: 320px;
-            z-index: 1;
-        }
-
-        .hero-img-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange));
-            border-radius: 20px;
-            filter: blur(25px);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: -1;
-        }
-
-        .hero-img-wrapper:hover::before {
-            opacity: 0.65; 
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        .hero-img { 
-            width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; 
-            border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2;
-        }
-
-        .hero-img-wrapper:hover .hero-img {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
+        .hero-img-wrapper { position: relative; width: 320px; height: 320px; z-index: 1; }
+        .hero-img-wrapper::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange)); border-radius: 20px; filter: blur(25px); opacity: 0; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: -1; }
+        .hero-img-wrapper:hover::before { opacity: 0.65; transform: translateY(-8px) scale(1.02); }
+        .hero-img { width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2; }
+        .hero-img-wrapper:hover .hero-img { transform: translateY(-8px) scale(1.02); border-color: rgba(255, 255, 255, 0.2); }
         .hero-img::before { content:''; position:absolute; top:-6px; right:-6px; width:12px; height:12px; background:var(--purple); border-radius:50%; box-shadow: 0 0 10px var(--purple); transition: 0.5s; }
         .hero-img::after { content:''; position:absolute; bottom:-6px; left:-6px; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; transition: 0.5s; }
-        
         .hero-img-wrapper:hover .hero-img::before { box-shadow: 0 0 20px 4px var(--purple); transform: scale(1.2); }
         .hero-img-wrapper:hover .hero-img::after { box-shadow: 0 0 20px 4px #ef4444; transform: scale(1.2); }
         
         .social-bar { display: flex; gap: 15px; margin-top: 30px; }
-        .social-bar a { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; 
-            border-radius: 8px; font-size: 1.1rem; color: var(--text-muted); transition: all 0.3s ease;
-        }
+        .social-bar a { background: var(--bg-card); border: 1px solid var(--border-color); width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 8px; font-size: 1.1rem; color: var(--text-muted); transition: all 0.3s ease; }
         .social-bar a:hover { color: #fff; background: rgba(129, 140, 248, 0.1); border-color: var(--purple); transform: translateY(-3px); }
 
         /* EXPERIENCE TIMELINE */
-        .timeline-container { position: relative; padding-left: 35px; margin-top: 40px; }
+        .timeline-container { position: relative; padding-left: 35px; margin-top: 40px; width: 100%; }
         .timeline-line { position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--gradient-line); border-radius: 2px; }
         
-        .timeline-item { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative;
-            transition: all 0.3s ease; width: 100%; z-index: 1;
-        }
-        
-        .timeline-item::after {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 12px; padding: 1.5px; 
-            background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.4s ease;
-        }
-
+        .timeline-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; transition: all 0.3s ease; width: 100%; z-index: 1; }
+        .timeline-item::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 12px; padding: 1.5px; background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.4s ease; }
         .timeline-item:hover { transform: translateY(-5px); background: #1c1c1f; }
         .timeline-item:hover::after { opacity: 1; }
         
@@ -205,84 +145,53 @@
 
         /* PROJECTS */
         .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .project-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column;
-            transition: all 0.3s ease;
-        }
+        .project-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column; transition: all 0.3s ease; }
         .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); }
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
         
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .project-title { font-size: 1.05rem; font-weight: 500; color: #fff; letter-spacing: -0.3px; }
         .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 400; }
-        
         .project-period { font-size: 0.8rem; color: #fff; font-weight: 400; margin-bottom: 15px; }
         .project-period span { color: var(--text-muted); }
-        
         .project-desc { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
         .project-desc li { margin-bottom: 8px; list-style-type: disc; }
         
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .tech-tags span { 
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); 
-            padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted);
-            transition: 0.3s; font-weight: 300;
-        }
+        .tech-tags span { background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); transition: 0.3s; font-weight: 300; }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
         
         .project-links { display: flex; gap: 10px; }
-        .btn-link { 
-            display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.03); 
-            border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; 
-            font-size: 0.8rem; color: #fff; font-weight: 400; transition: 0.3s;
-        }
+        .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: #fff; font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-main); color: #000; }
 
-        /* SKILLS SECTION */
+        /* SKILLS SECTION (100% Matching the Screenshot exactly) */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .skill-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; position: relative;
-            transition: all 0.3s ease;
-        }
+        .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; transition: all 0.3s ease; }
         .skill-card:hover { border-color: var(--border-hover); box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5); }
         .corner-dot-purple { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
         
-        .skill-header { font-size: 1.05rem; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.5px; }
-        .c-cyan { color: var(--cyan); }
-        .c-pink { color: var(--pink); }
+        .skill-header { font-size: 1.05rem; font-weight: 500; margin-bottom: 15px; letter-spacing: -0.3px; display: flex; align-items: center; gap: 10px; color: #fff;}
+        .skill-header img { width: 22px; }
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 25px; border-radius: 2px; }
         
-        .skill-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        /* Changed Grid layout to 3 columns to fit 6 items beautifully */
+        .skill-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center; }
         
-        .skill-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-        .skill-icon { 
-            width: 55px; height: 55px; background: rgba(255,255,255,0.02); 
-            border: 1px solid var(--border-color); border-radius: 12px; display: flex; 
-            justify-content: center; align-items: center; font-size: 2.2rem; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        }
-        /* Updated img styles for new SVGs */
-        .skill-icon img { width: 32px; height: 32px; object-fit: contain; transition: all 0.3s ease; } 
+        .skill-item { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 10px; border-radius: 10px; transition: 0.3s;}
+        .skill-item:hover { background: rgba(255,255,255,0.02); transform: translateY(-3px); }
         
-        .skill-item:hover .skill-icon { 
-            border-color: var(--cyan); 
-            transform: translateY(-4px) scale(1.05); 
-            box-shadow: 0 10px 20px -5px rgba(34, 211, 238, 0.15); 
-            background: rgba(34, 211, 238, 0.05);
-        }
-        .skill-item:hover .skill-icon i { transform: scale(1.1); }
-        .skill-item:hover .skill-icon img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
-        .skill-label { font-size: 0.75rem; font-weight: 300; color: var(--text-muted); transition: 0.3s; }
+        .skill-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; transition: all 0.3s ease; }
+        .skill-icon img { width: 26px; height: 26px; object-fit: contain; transition: all 0.3s ease; } 
+        
+        .skill-item:hover .skill-icon { border-color: var(--cyan); box-shadow: 0 5px 15px -5px rgba(34, 211, 238, 0.2); background: rgba(34, 211, 238, 0.05); }
+        .skill-item:hover .skill-icon i, .skill-item:hover .skill-icon img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
+        
+        .skill-label { font-size: 0.75rem; font-weight: 400; color: var(--text-muted); transition: 0.3s; }
         .skill-item:hover .skill-label { color: #fff; }
 
         /* EDUCATION */
-        .edu-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
+        .edu-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 15px; transition: all 0.3s ease; }
         .edu-card:hover { border-color: var(--purple); transform: translateX(5px); }
         .edu-title { font-weight: 500; font-size: 1rem; color: #fff; margin-bottom: 4px; letter-spacing: -0.3px; }
         .edu-school { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; margin-bottom: 6px; }
@@ -291,22 +200,14 @@
         /* CERTIFICATIONS */
         .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 40px; }
         .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .cert-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 30px 20px; text-align: center;
-            transition: all 0.4s ease;
-        }
+        .cert-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 20px; text-align: center; transition: all 0.4s ease; }
         .cert-card:hover { transform: translateY(-6px); border-color: #0089d6; box-shadow: 0 15px 30px -10px rgba(0, 137, 214, 0.15); }
         .cert-card i { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
         .cert-card:hover i { transform: scale(1.05); }
         .cert-title { font-size: 0.9rem; font-weight: 500; color: #fff; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; }
         .cert-issuer { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; margin-bottom: 4px; }
         .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 300; }
-        .cert-link { 
-            display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; 
-            padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px;
-            background: rgba(20, 184, 166, 0.05); transition: 0.3s;
-        }
+        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; }
         .cert-link:hover { background: var(--teal); color: #000; }
 
         /* CONTACT */
@@ -322,16 +223,9 @@
         .contact-form { flex: 1.5; background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-size: 0.85rem; font-weight: 400; color: #fff; margin-bottom: 8px; }
-        .form-group input, .form-group textarea { 
-            width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); 
-            color: #fff; padding: 12px 16px; border-radius: 6px; outline: none; transition: 0.3s; font-size: 0.85rem;
-            font-family: 'Inter', sans-serif;
-        }
+        .form-group input, .form-group textarea { width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); color: #fff; padding: 12px 16px; border-radius: 6px; outline: none; transition: 0.3s; font-size: 0.85rem; font-family: 'Inter', sans-serif; }
         .form-group input:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.1); }
-        .submit-btn { 
-            width: 100%; background: var(--teal); color: #000; font-weight: 500; font-size: 0.9rem;
-            border: none; padding: 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; 
-        }
+        .submit-btn { width: 100%; background: var(--teal); color: #000; font-weight: 500; font-size: 0.9rem; border: none; padding: 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; }
         .submit-btn:hover { background: #0f9688; transform: translateY(-2px); }
 
         /* FOOTER */
@@ -340,18 +234,16 @@
         .f-col-1 { max-width: 350px; }
         .f-col-1 h4 { color: #fff; font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; }
         .f-col-1 p { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
-        
         .f-col-2 h4, .f-col-3 h4 { color: #fff; font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; }
         .f-links { display: flex; flex-direction: column; gap: 8px; color: var(--text-muted); font-size: 0.85rem; font-weight: 300; }
         .f-links a:hover { color: #fff; padding-left: 3px; }
-        
         .f-socials { display: flex; gap: 15px; font-size: 1.1rem; color: var(--text-muted); }
         .f-socials a:hover { color: #fff; transform: translateY(-2px); }
-        
-        .copyright { text-align: center; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; max-width: 1280px; margin-left: auto; margin-right: auto; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
 
         @media (max-width: 900px) {
             .hero, .contact-wrap { flex-direction: column; }
+            .hero-text { padding-right: 0; }
             .hero-img-container { order: -1; margin-bottom: 40px; }
             .projects-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
             .timeline-container { padding-left: 20px; }
@@ -362,7 +254,7 @@
 <body>
 
     <header>
-        <div class="header-content">
+        <div class="wrapper header-content">
             <div class="logo">Mrityunjay Ranjan</div>
             <nav>
                 <a href="#about">About</a>
@@ -378,28 +270,24 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="wrapper">
         
         <section id="about" class="hero">
             <div class="hero-text">
-                
                 <h1 class="hero-title">
                     <span id="typewriter"></span><span class="cursor">|</span>
                 </h1>
-                
                 <p class="hero-desc">I build scalable, high-performance applications using Java, Spring Boot, Microservices, and robust Cloud architecture.</p>
                 <p class="hero-desc">From crafting enterprise integrations to designing resilient backend APIs and automated CI/CD workflows, I deliver quality code that drives real impact.</p>
                 <p class="hero-desc">Passionate about solving complex challenges in fast-paced, collaborative environments. Ready to build something exceptional together.</p>
             </div>
             
             <div class="hero-img-container">
-                
                 <div class="hero-img-wrapper">
                     <div class="hero-img">
                         <i class="fa-solid fa-code" style="font-size: 5rem; color: #3f3f46;"></i>
                     </div>
                 </div>
-                
                 <div class="social-bar">
                     <a href="mailto:mrityunjay.ranjan28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://linkedin.com/in/ranjan-mrityunjay" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -506,7 +394,10 @@
                 
                 <div class="skill-card">
                     <div class="corner-dot-purple"></div>
-                    <div class="skill-header"><span class="c-cyan">Programming</span> <span class="c-pink">& Core</span></div>
+                    <div class="skill-header">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Core"> 
+                        <span>Core Programming</span>
+                    </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
                         <div class="skill-item">
@@ -514,51 +405,73 @@
                             <div class="skill-label">Java</div>
                         </div>
                         <div class="skill-item">
+                            <div class="skill-icon"><i class="devicon-java-plain colored"></i></div>
+                            <div class="skill-label">Java 8 Features</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fa-solid fa-mug-hot" style="color: #f89820;"></i></div>
+                            <div class="skill-label">J2EE</div>
+                        </div>
+                        <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-mysql-plain colored"></i></div>
                             <div class="skill-label">SQL</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fa-solid fa-diagram-project" style="color: #38bdf8;"></i></div>
+                            <div class="skill-label">Data Structures</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fa-solid fa-microchip" style="color: #a78bfa;"></i></div>
+                            <div class="skill-label">Algorithms</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-card">
                     <div class="corner-dot-purple"></div>
-                    <div class="skill-header"><span class="c-cyan">Backend</span> <span class="c-pink">Technologies</span></div>
+                    <div class="skill-header">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"> 
+                        <span>Spring Ecosystem</span>
+                    </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
-                            <div class="skill-label">Spring</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
                             <div class="skill-label">Spring Boot</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="Hibernate">
-                            </div>
-                            <div class="skill-label">Hibernate</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fa-solid fa-server" style="color: #6db33f;"></i></div>
-                            <div class="skill-label">REST API</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon"><i class="fa-solid fa-network-wired" style="color: #14b8a6;"></i></div>
                             <div class="skill-label">Microservices</div>
                         </div>
                         <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="Hibernate">
+                            </div>
+                            <div class="skill-label">Hibernate / JPA</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fa-solid fa-server" style="color: #6db33f;"></i></div>
+                            <div class="skill-label">RESTful APIs</div>
+                        </div>
+                        <div class="skill-item">
                             <div class="skill-icon"><i class="fa-solid fa-shield-halved" style="color: #3b82f6;"></i></div>
                             <div class="skill-label">Spring Security</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fa-solid fa-database" style="color: #f472b6;"></i></div>
+                            <div class="skill-label">Spring Data JPA</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-card">
                     <div class="corner-dot-purple"></div>
-                    <div class="skill-header"><span class="c-cyan">Cloud</span> <span class="c-pink">& DevOps</span></div>
+                    <div class="skill-header">
+                        <i class="fa-solid fa-cloud" style="color: #818cf8; font-size: 1.2rem;"></i> 
+                        <span>Cloud & DevOps</span>
+                    </div>
                     <div class="skill-divider"></div>
-                    <div class="skill-items">
+                    <div class="skill-items" style="grid-template-columns: repeat(3, 1fr);">
                         <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-azure-plain colored"></i></div>
                             <div class="skill-label">Azure DevOps</div>
@@ -572,6 +485,10 @@
                             <div class="skill-label">Kubernetes</div>
                         </div>
                         <div class="skill-item">
+                            <div class="skill-icon"><i class="fa-solid fa-arrows-spin" style="color: #22d3ee;"></i></div>
+                            <div class="skill-label">CI/CD Pipelines</div>
+                        </div>
+                        <div class="skill-item">
                             <div class="skill-icon">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/splunk/splunk-original-wordmark.svg" alt="Splunk">
                             </div>
@@ -582,26 +499,15 @@
 
                 <div class="skill-card">
                     <div class="corner-dot-purple"></div>
-                    <div class="skill-header"><span class="c-cyan">Developer</span> <span class="c-pink">Tools</span></div>
+                    <div class="skill-header">
+                        <i class="fa-solid fa-screwdriver-wrench" style="color: #f472b6; font-size: 1.2rem;"></i> 
+                        <span>Tools & Testing</span>
+                    </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
-                            <div class="skill-label">Git</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="devicon-github-original" style="color: #fff;"></i></div>
-                            <div class="skill-label">GitHub</div>
-                        </div>
-                        <div class="skill-item">
                             <div class="skill-icon"><i class="devicon-gitlab-plain colored"></i></div>
                             <div class="skill-label">GitLab</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="Maven">
-                            </div>
-                            <div class="skill-label">Maven</div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">
@@ -610,8 +516,22 @@
                             <div class="skill-label">Postman</div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><i class="devicon-intellij-plain colored"></i></div>
-                            <div class="skill-label">IntelliJ</div>
+                            <div class="skill-icon"><i class="fa-solid fa-flask" style="color: #818cf8;"></i></div>
+                            <div class="skill-label">SoapUI</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="Maven">
+                            </div>
+                            <div class="skill-label">Maven</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="devicon-mysql-plain colored"></i></div>
+                            <div class="skill-label">MySQL</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
+                            <div class="skill-label">Git</div>
                         </div>
                     </div>
                 </div>
@@ -709,7 +629,7 @@
     </div>
 
     <footer>
-        <div class="container footer-content">
+        <div class="wrapper footer-content">
             
             <div class="f-col-1">
                 <h4>Mrityunjay Ranjan</h4>
@@ -736,7 +656,7 @@
             </div>
 
         </div>
-        <div class="copyright">
+        <div class="wrapper copyright" style="max-width: 1200px; padding: 20px 40px 0;">
             © 2026 Mrityunjay Ranjan. All rights reserved.
         </div>
     </footer>
