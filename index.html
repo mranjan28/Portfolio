@@ -254,10 +254,9 @@
         .skill-box:hover .skill-icon-box i { transform: scale(1.1); }
         .skill-box:hover .skill-icon-box img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
 
-        .splunk-icon { width: 38px !important; height: 38px !important; filter: invert(0.85); transition: all 0.3s ease; }
-        [data-theme="light"] .splunk-icon { filter: invert(0.2); }
-        .skill-box:hover .skill-icon-box .splunk-icon { transform: scale(1.1); filter: invert(0.85) drop-shadow(0 0 5px rgba(34, 211, 238, 0.6)); }
-        [data-theme="light"] .skill-box:hover .skill-icon-box .splunk-icon { filter: invert(0.2) drop-shadow(0 0 5px rgba(34, 211, 238, 0.6)); }
+        /* PERFECT INLINE SVG SPLUNK ICON CSS */
+        .splunk-icon { width: 38px !important; height: 38px !important; fill: var(--text-main); transition: all 0.3s ease; }
+        .skill-box:hover .skill-icon-box .splunk-icon { transform: scale(1.1); fill: var(--cyan); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
         
         .skill-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-align: center; transition: 0.3s; line-height: 1.2;}
         .skill-box:hover .skill-label { color: var(--text-main); }
@@ -616,7 +615,9 @@
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box">
-                                <img src="https://logos-world.net/wp-content/uploads/2021/02/Splunk-Symbol.png" alt="Splunk" class="splunk-icon">
+                                <svg class="splunk-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.175 0a3.623 3.623 0 0 0-3.626 3.624c0 2.002 1.624 3.626 3.626 3.626a3.623 3.623 0 0 0 3.624-3.626A3.623 3.623 0 0 0 13.175 0zm-8.83 5.485a3.623 3.623 0 0 0-3.625 3.624c0 2.002 1.623 3.626 3.625 3.626 2.002 0 3.626-1.624 3.626-3.626a3.623 3.623 0 0 0-3.626-3.624zm14.545 1.586a3.623 3.623 0 0 0-3.624 3.626c0 2.002 1.623 3.626 3.624 3.626 2.003 0 3.626-1.624 3.626-3.626a3.623 3.623 0 0 0-3.626-3.626zM5.594 15.545a3.623 3.623 0 0 0-3.625 3.626c0 2.002 1.624 3.626 3.625 3.626a3.623 3.623 0 0 0 3.626-3.626 3.623 3.623 0 0 0-3.626-3.626zm12.396 1.485a3.623 3.623 0 0 0-3.626 3.626c0 2.002 1.624 3.626 3.626 3.626a3.623 3.623 0 0 0 3.624-3.626 3.623 3.623 0 0 0-3.624-3.626z"/>
+                                </svg>
                             </div>
                             <div class="skill-label">Splunk</div>
                         </div>
@@ -787,7 +788,7 @@
             </div>
 
         </div>
-        <div class="wrapper copyright">
+        <div class="wrapper copyright" style="max-width: 1200px; padding: 20px 40px 0;">
             © 2026 Mrityunjay Ranjan. All rights reserved.
         </div>
     </footer>
