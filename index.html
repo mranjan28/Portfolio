@@ -17,7 +17,7 @@
             --border-color: #27272a;
             --border-hover: #3f3f46;
             
-            /* --- TEXT COLORS UPDATED TO SOFT GREY --- */
+            /* Text Colors */
             --text-bright: #d1d5db; /* Soft grey replacing pure white */
             --text-main: #f8fafc;
             --text-muted: #9ca3af;
@@ -39,7 +39,7 @@
         
         body { 
             background-color: var(--bg-main); 
-            color: var(--text-bright); /* Applied global soft color */
+            color: var(--text-bright); 
             line-height: 1.6; 
             font-size: 15px; 
             overflow-x: hidden; 
@@ -112,13 +112,19 @@
         
         .hero-img-container { flex: 0.8; display: flex; flex-direction: column; align-items: center; position: relative; }
         
+        /* HOVER GLOW EFFECT FOR DP BOX */
         .hero-img-wrapper { position: relative; width: 320px; height: 320px; z-index: 1; }
         .hero-img-wrapper::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange)); border-radius: 20px; filter: blur(25px); opacity: 0; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: -1; }
         .hero-img-wrapper:hover::before { opacity: 0.65; transform: translateY(-8px) scale(1.02); }
-        .hero-img { width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2; }
+        .hero-img { width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2; overflow: hidden; }
+        
+        /* Ensures the portrait image fits perfectly in the square */
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 19px; pointer-events: none; transition: 0.5s; }
+
         .hero-img-wrapper:hover .hero-img { transform: translateY(-8px) scale(1.02); border-color: rgba(255, 255, 255, 0.2); }
-        .hero-img::before { content:''; position:absolute; top:-6px; right:-6px; width:12px; height:12px; background:var(--purple); border-radius:50%; box-shadow: 0 0 10px var(--purple); transition: 0.5s; }
-        .hero-img::after { content:''; position:absolute; bottom:-6px; left:-6px; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; transition: 0.5s; }
+        
+        .hero-img::before { content:''; position:absolute; top:-6px; right:-6px; width:12px; height:12px; background:var(--purple); border-radius:50%; box-shadow: 0 0 10px var(--purple); transition: 0.5s; z-index: 3;}
+        .hero-img::after { content:''; position:absolute; bottom:-6px; left:-6px; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; transition: 0.5s; z-index: 3;}
         .hero-img-wrapper:hover .hero-img::before { box-shadow: 0 0 20px 4px var(--purple); transform: scale(1.2); }
         .hero-img-wrapper:hover .hero-img::after { box-shadow: 0 0 20px 4px #ef4444; transform: scale(1.2); }
         
@@ -171,16 +177,10 @@
         .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: var(--text-bright); font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-bright); color: #000; }
 
-        /* --- NEW SKILLS SECTION (Matched exactly to screenshot layout) --- */
+        /* SKILLS SECTION */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
         
-        .skill-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 16px; padding: 30px; position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        /* Left cards get cyan dot, right cards get purple dot */
         .dot-cyan-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
         .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
         
@@ -189,31 +189,18 @@
         .c-pink { color: var(--pink); }
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 30px; opacity: 0.6; }
         
-        /* Items layout: Flex container wrapping boxes */
-        .skill-items-container { 
-            display: flex; flex-wrap: wrap; gap: 20px 25px; 
-            justify-content: flex-start;
-        }
+        .skill-items-container { display: flex; flex-wrap: wrap; gap: 20px 25px; justify-content: flex-start; }
+        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 75px; }
         
-        .skill-box { 
-            display: flex; flex-direction: column; align-items: center; gap: 10px; width: 75px; 
-        }
-        
-        /* The dark rounded square icon holder */
         .skill-icon-box { 
-            width: 65px; height: 65px; background: #1c1c1f; /* slightly lighter than card bg */
-            border: 1px solid rgba(255,255,255,0.03); border-radius: 14px; display: flex; 
-            justify-content: center; align-items: center; font-size: 2.2rem; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 65px; height: 65px; background: #1c1c1f; border: 1px solid rgba(255,255,255,0.03); 
+            border-radius: 14px; display: flex; justify-content: center; align-items: center; 
+            font-size: 2.2rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: inset 0 1px 2px rgba(255,255,255,0.02);
         }
         .skill-icon-box img { width: 34px; height: 34px; object-fit: contain; transition: all 0.3s ease; } 
         
-        .skill-box:hover .skill-icon-box { 
-            border-color: var(--border-hover); 
-            transform: translateY(-5px); 
-            background: rgba(255, 255, 255, 0.05);
-        }
+        .skill-box:hover .skill-icon-box { border-color: var(--border-hover); transform: translateY(-5px); background: rgba(255, 255, 255, 0.05); }
         .skill-box:hover .skill-icon-box i { transform: scale(1.1); }
         .skill-box:hover .skill-icon-box img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
         
@@ -315,7 +302,7 @@
             <div class="hero-img-container">
                 <div class="hero-img-wrapper">
                     <div class="hero-img">
-                        <i class="fa-solid fa-code" style="font-size: 5rem; color: #3f3f46;"></i>
+                        <img src="profile.jpg" alt="Developer Art">
                     </div>
                 </div>
                 <div class="social-bar">
@@ -330,6 +317,7 @@
             <h2 class="section-title">Work Experience</h2>
             <div class="timeline-container">
                 <div class="timeline-line"></div>
+                
                 <div class="timeline-item">
                     <div class="dot-1"></div>
                     <div class="corner-dot-orange"></div>
@@ -348,12 +336,14 @@
                         <li><span>Proactively provided technical support, addressing 100% of user feedback and resolving 95% of reported bugs.</span></li>
                     </ul>
                 </div>
+                
             </div>
         </section>
 
         <section id="projects">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
+                
                 <div class="project-card">
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
@@ -411,6 +401,7 @@
                         <a href="#" class="btn-link"><i class="fa-brands fa-github"></i> View Code</a>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -578,6 +569,7 @@
         <section id="certifications">
             <h2 class="section-title" style="margin-bottom: 10px;">Certifications</h2>
             <div class="cert-subtitle">Recognized achievements in the field of technology.</div>
+            
             <div class="cert-grid">
                 <div class="cert-card">
                     <i class="devicon-azure-plain colored"></i>
@@ -657,9 +649,7 @@
 
     <script>
         const words = ["Software Engineer", "Java Developer", "Backend Developer"];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        let wordIndex = 0, charIndex = 0, isDeleting = false;
         const typewriterElement = document.getElementById("typewriter");
 
         function type() {
@@ -689,6 +679,5 @@
             }
         });
     </script>
-
 </body>
 </html>
