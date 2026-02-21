@@ -236,7 +236,7 @@
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
         .skill-card:hover { background: var(--hover-bg); }
         .dot-cyan-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-        .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
+        .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); boxshadow: 0 0 10px var(--purple); }
         
         .skill-header { 
             font-size: 1.25rem; 
@@ -272,8 +272,8 @@
         .skill-box:hover .skill-icon-box i { transform: scale(1.1); }
         .skill-box:hover .skill-icon-box img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
 
-        /* PERFECT INLINE SVG SPLUNK ICON CSS */
-        .splunk-icon { width: 32px !important; height: 32px !important; color: var(--text-main); transition: all 0.3s ease; }
+        /* SPLUNK INLINE SVG CSS */
+        .splunk-icon { width: 38px !important; height: 38px !important; color: var(--text-main); transition: all 0.3s ease; }
         .skill-box:hover .skill-icon-box .splunk-icon { transform: scale(1.1); color: var(--cyan); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
         
         .skill-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-align: center; transition: 0.3s; line-height: 1.2;}
@@ -287,19 +287,19 @@
         .edu-date { font-size: 0.8rem; color: var(--teal); font-weight: 400; }
 
         /* CERTIFICATIONS */
-        .cert-subtitle { text-align: left; color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 30px; }
+        .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 40px; }
         .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .cert-card { display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 25px; transition: all 0.4s ease; }
+        .cert-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 20px; text-align: center; transition: all 0.4s ease; }
         .cert-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 15px 30px -10px rgba(34, 211, 238, 0.15); background: var(--hover-bg);}
         .cert-card i { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
         .cert-card:hover i { transform: scale(1.05); }
         .cert-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; color: var(--text-main); }
         .cert-issuer { font-size: 0.75rem; color: var(--text-body); font-weight: 300; margin-bottom: 4px; }
         .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 300; }
-        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; margin-top: auto;}
+        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; }
         .cert-link:hover { background: var(--teal); color: var(--bg-main); }
 
-        /* CONTACT ME SECTION */
+        /* CONTACT SECTION */
         .contact-wrap { display: flex; gap: 40px; align-items: flex-start; }
         
         .contact-info { flex: 1; padding-right: 20px; padding-top: 10px;}
@@ -372,7 +372,7 @@
                 <a href="#education">Education</a>
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
-                <a href="Mrityunjay_CV.pdf" class="resume-btn" download>Resume</a>
+                <a href="https://drive.google.com/file/d/14aRUJmZXmSKQuUzVLcpeod8nDy_2J0zO/view?usp=drive_link" class="resume-btn" target="_blank">Resume</a>
                 <button class="theme-icon" id="theme-toggle" aria-label="Toggle Theme">
                     <i class="fa-solid fa-sun"></i>
                 </button>
