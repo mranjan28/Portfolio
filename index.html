@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrityunjay Ranjan | Software Engineer</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
@@ -19,9 +19,11 @@
             --bg-icon: #1c1c1f;
             --hover-bg: #27272a;
             
-            --text-main: #ffffff;      /* Pure White for Headings/Titles */
-            --text-body: #d1d5db;      /* Soft Grey for Paragraphs */
-            --text-muted: #a1a1aa;     /* Darker Grey for small info */
+            /* The specific premium grey you requested for all formerly white text */
+            --text-main: #cbd5e1;      
+            
+            --text-body: #9ca3af;      
+            --text-muted: #71717a;     
             
             --teal: #14b8a6;
             --cyan: #22d3ee;
@@ -43,9 +45,9 @@
             --bg-icon: #f1f5f9;
             --hover-bg: #f1f5f9;
             
-            --text-main: #0f172a;      /* Dark Navy/Black for Headings */
-            --text-body: #334155;      /* Dark Grey for Paragraphs */
-            --text-muted: #64748b;     /* Medium Grey for small info */
+            --text-main: #0f172a; /* Dark navy for contrast in light mode */
+            --text-body: #475569;
+            --text-muted: #64748b;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -64,7 +66,7 @@
         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--purple); }
 
-        ::selection { background: rgba(129, 140, 248, 0.3); color: var(--text-main); }
+        ::selection { background: rgba(129, 140, 248, 0.3); color: #ffffff; }
 
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
@@ -73,6 +75,8 @@
         .wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; width: 100%; }
 
         section { padding: 90px 0; }
+        
+        /* Apply requested grey color to section titles */
         .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
 
         /* HEADER & NAVIGATION */
@@ -83,9 +87,7 @@
             transition: all 0.4s ease;
         }
         
-        [data-theme="light"] header {
-            background: rgba(248, 250, 252, 0.85);
-        }
+        [data-theme="light"] header { background: rgba(248, 250, 252, 0.85); }
 
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 500; font-size: 1.15rem; color: var(--text-main); letter-spacing: -0.5px; cursor: pointer; transition: color 0.4s ease;}
@@ -97,25 +99,12 @@
         nav a:hover { color: var(--text-main); }
         nav a:hover::after { width: 100%; }
         
-        /* THEME & RESUME BUTTONS (WITH COLOR FILL ON HOVER) */
-        .resume-btn { 
-            border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 6px; 
-            color: var(--text-main); font-weight: 500; transition: all 0.3s ease; background: transparent;
-        }
-        .resume-btn:hover { 
-            background-color: var(--purple); border-color: var(--purple); color: #ffffff !important; 
-            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(129, 140, 248, 0.4); 
-        }
+        /* BUTTONS */
+        .resume-btn { border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 6px; color: var(--text-main); font-weight: 500; transition: all 0.3s ease; background: transparent; }
+        .resume-btn:hover { background-color: var(--purple); border-color: var(--purple); color: #ffffff !important; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(129, 140, 248, 0.4); }
 
-        .theme-icon { 
-            border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 6px; 
-            cursor: pointer; transition: all 0.3s ease; color: var(--text-main); 
-            display: flex; align-items: center; justify-content: center; background: transparent;
-        }
-        .theme-icon:hover { 
-            background-color: var(--cyan); border-color: var(--cyan); color: #000000 !important; 
-            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(34, 211, 238, 0.4); 
-        }
+        .theme-icon { border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; color: var(--text-main); display: flex; align-items: center; justify-content: center; background: transparent; }
+        .theme-icon:hover { background-color: var(--cyan); border-color: var(--cyan); color: #000000 !important; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(34, 211, 238, 0.4); }
 
         /* HERO SECTION */
         .hero { display: flex; justify-content: space-between; align-items: center; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; gap: 50px; }
@@ -161,10 +150,12 @@
         .timeline-item:hover::after { opacity: 1; }
         .dot-1 { position: absolute; left: -41px; top: 35px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); border: 2px solid var(--bg-main); z-index: 2; box-shadow: 0 0 10px var(--cyan); transition: border-color 0.4s ease;}
         .corner-dot-orange { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
+        
         .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
         .timeline-title { font-size: 1.1rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         .timeline-company { font-size: 0.9rem; color: var(--teal); margin-top: 4px; font-weight: 400; }
         .timeline-date { font-size: 0.8rem; color: var(--text-muted); background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-weight: 300; }
+        
         .timeline-list { padding-left: 20px; }
         .timeline-list li { color: var(--text-body); font-size: 0.9rem; font-weight: 300; margin-bottom: 12px; position: relative; line-height: 1.7; transition: 0.2s;}
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
@@ -175,9 +166,11 @@
         .project-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column; transition: all 0.3s ease; }
         .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); background: var(--hover-bg); }
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
+        
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .project-title { font-size: 1.05rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 400; }
+        
         .project-period { font-size: 0.8rem; color: var(--text-main); font-weight: 400; margin-bottom: 15px; }
         .project-period span { color: var(--text-muted); }
         .project-desc { color: var(--text-body); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
@@ -185,18 +178,19 @@
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .tech-tags span { background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); transition: 0.3s; font-weight: 300; }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
+        
         .project-links { display: flex; gap: 10px; }
         .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: var(--text-main); font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-main); color: var(--bg-main); }
 
-        /* --- SKILLS SECTION (GRADIENT TEXT TITLES) --- */
+        /* SKILLS SECTION (With Gradient Headers) */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
         .skill-card:hover { background: var(--hover-bg); }
         .dot-cyan-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
         .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
         
-        /* SKILL HEADER GRADIENT APPLIED HERE */
+        /* The specific gradient you requested for Skill Sub-topics */
         .skill-header { 
             font-size: 1.25rem; 
             font-weight: 500; 
@@ -270,7 +264,7 @@
         .footer-content { display: flex; justify-content: space-between; }
         .f-col-1 { max-width: 350px; }
         .f-col-1 h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; color: var(--text-main); }
-        .f-col-1 p { color: var(--text-body); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
+        .f-col-1 p { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
         .f-col-2 h4, .f-col-3 h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; color: var(--text-main); }
         .f-links { display: flex; flex-direction: column; gap: 8px; color: var(--text-muted); font-size: 0.85rem; font-weight: 300; }
         .f-links a:hover { color: var(--text-main); padding-left: 3px; }
