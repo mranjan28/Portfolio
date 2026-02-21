@@ -77,7 +77,7 @@
 
         section { padding: 90px 0; }
         
-        .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
+        .section-title { font-size: 2rem; font-weight: 500; text-align: left; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
 
         /* HEADER & NAVIGATION */
         header { 
@@ -167,29 +167,73 @@
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
         .timeline-list li:hover { color: var(--text-main); } 
 
-        /* PROJECTS */
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .project-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column; transition: all 0.3s ease; }
+        /* --- PROJECTS SECTION (EQUAL HEIGHT CARDS) --- */
+        .projects-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            align-items: stretch; /* Forces equal height */
+        }
+        .project-card { 
+            background: var(--bg-card); border: 1px solid var(--border-color); 
+            border-radius: 12px; padding: 25px; position: relative; 
+            display: flex; flex-direction: column; 
+            height: 100%; /* Stretch inner container */
+            transition: all 0.3s ease; 
+        }
         .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); background: var(--hover-bg); }
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
         
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .project-title { font-size: 1.05rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
-        .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 400; }
+        
+        /* CLICKABLE DETAILS BUTTON */
+        .btn-details { 
+            font-size: 0.7rem; color: var(--text-main); background: rgba(129, 140, 248, 0.1); 
+            border: 1px solid rgba(129, 140, 248, 0.3); padding: 4px 10px; border-radius: 6px; 
+            font-weight: 500; cursor: pointer; transition: all 0.3s ease; user-select: none;
+        }
+        .btn-details:hover { background: var(--purple); color: #fff; border-color: var(--purple); transform: scale(1.05); }
         
         .project-period { font-size: 0.8rem; color: var(--text-main); font-weight: 400; margin-bottom: 15px; }
         .project-period span { color: var(--text-muted); }
         .project-desc { color: var(--text-body); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
         .project-desc li { margin-bottom: 8px; list-style-type: disc; }
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto;}
         .tech-tags span { background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); transition: 0.3s; font-weight: 300; }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
+        
         .project-links { display: flex; gap: 10px; }
         .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: var(--text-main); font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-main); color: var(--bg-main); }
 
-        /* SKILLS SECTION */
-        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        /* --- PROJECT MODAL/DIALOG BOX STYLES --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
+            align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px;
+            padding: 40px; width: 90%; max-width: 650px; position: relative;
+            animation: modalFadeIn 0.3s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+        [data-theme="light"] .modal-content { box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: 0.3s; }
+        .close-btn:hover { color: var(--pink); transform: scale(1.1); }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .modal-body ul { padding-left: 20px; margin-top: 15px;}
+        .modal-body li { color: var(--text-body); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.7; font-weight: 300;}
+        .modal-body li::marker { color: var(--cyan); }
+
+        /* --- SKILLS SECTION (Strictly 2 Columns, Inner items 3x2 Grid) --- */
+        .skills-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 25px; 
+        }
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
         .skill-card:hover { background: var(--hover-bg); }
         .dot-cyan-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
@@ -207,8 +251,15 @@
         }
         
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 30px; opacity: 0.6; }
-        .skill-items-container { display: flex; flex-wrap: wrap; gap: 25px; justify-content: flex-start; }
-        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 85px; }
+        
+        /* INNER ITEMS: STRICT 3 COLUMNS & 2 ROWS (2x3 Grid) */
+        .skill-items-container { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px 10px; 
+            justify-items: center;
+        }
+        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
         
         .skill-icon-box { 
             width: 75px; height: 75px; background: var(--bg-icon); border: 1px solid rgba(129, 140, 248, 0.1); 
@@ -238,19 +289,19 @@
         .edu-date { font-size: 0.8rem; color: var(--teal); font-weight: 400; }
 
         /* CERTIFICATIONS */
-        .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 40px; }
+        .cert-subtitle { text-align: left; color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 30px; }
         .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .cert-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 20px; text-align: center; transition: all 0.4s ease; }
+        .cert-card { display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 25px; transition: all 0.4s ease; }
         .cert-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 15px 30px -10px rgba(34, 211, 238, 0.15); background: var(--hover-bg);}
         .cert-card i { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
         .cert-card:hover i { transform: scale(1.05); }
         .cert-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; color: var(--text-main); }
         .cert-issuer { font-size: 0.75rem; color: var(--text-body); font-weight: 300; margin-bottom: 4px; }
         .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 300; }
-        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; }
+        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; margin-top: auto;}
         .cert-link:hover { background: var(--teal); color: var(--bg-main); }
 
-        /* CONTACT SECTION */
+        /* CONTACT ME SECTION */
         .contact-wrap { display: flex; gap: 40px; align-items: flex-start; }
         
         .contact-info { flex: 1; padding-right: 20px; padding-top: 10px;}
@@ -297,7 +348,7 @@
         .f-links a:hover { color: var(--text-main); padding-left: 3px; }
         .f-socials { display: flex; gap: 15px; font-size: 1.1rem; color: var(--text-muted); }
         .f-socials a:hover { color: var(--text-main); transform: translateY(-2px); }
-        .copyright { text-align: center; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .copyright { text-align: left; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
 
         @media (max-width: 900px) {
             .hero, .contact-wrap { flex-direction: column; }
@@ -392,13 +443,24 @@
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
                         <div class="project-title">IRNSS System</div>
-                        <div class="btn-details">Details</div>
+                        <div class="btn-details" onclick="openModal('IRNSS System', 'Aug 2019 - Jan 2020', 'details-1')">Details</div>
                     </div>
                     <div class="project-period">Period: <span>Aug 2019 - Jan 2020</span></div>
                     <ul class="project-desc">
                         <li><span>Worked on the Indian Regional Navigation Satellite System focusing on core backend integration.</span></li>
                         <li><span>Implemented robust data structure algorithms for precise tracking metrics.</span></li>
                     </ul>
+                    
+                    <template id="details-1">
+                        <ul>
+                            <li>Integrated core backend modules using Java to process satellite telemetry data in real-time.</li>
+                            <li>Optimized data structure algorithms, reducing spatial data querying time by 30%.</li>
+                            <li>Built multi-threaded applications to seamlessly handle high-throughput navigation streams.</li>
+                            <li>Implemented strict data validation and error-handling protocols ensuring precise system tracking.</li>
+                            <li>Collaborated closely with scientists and analysts to map functional requirements to robust code.</li>
+                        </ul>
+                    </template>
+
                     <div class="tech-tags">
                         <span>Java</span> <span>Data Structures</span> <span>Algorithms</span>
                     </div>
@@ -411,13 +473,24 @@
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
                         <div class="project-title">Enterprise Microservices</div>
-                        <div class="btn-details">Details</div>
+                        <div class="btn-details" onclick="openModal('Enterprise Microservices', 'Mar 2022 - Present', 'details-2')">Details</div>
                     </div>
                     <div class="project-period">Period: <span>Mar 2022 - Present</span></div>
                     <ul class="project-desc">
                         <li><span>Architected scalable microservices using Spring Boot and Hibernate.</span></li>
                         <li><span>Reduced API latency by 20% via optimized REST endpoints.</span></li>
                     </ul>
+
+                    <template id="details-2">
+                        <ul>
+                            <li>Architected and deployed 10+ scalable microservices using Spring Boot and Java.</li>
+                            <li>Designed efficient relational database schemas and complex queries using Hibernate/JPA.</li>
+                            <li>Reduced overall API latency by 20% by implementing caching and optimizing REST endpoints.</li>
+                            <li>Secured service-to-service communication using robust Spring Security and OAuth2 implementations.</li>
+                            <li>Achieved 99.9% uptime by building fault-tolerant services using Resilience4j circuit breakers.</li>
+                        </ul>
+                    </template>
+
                     <div class="tech-tags">
                         <span>Spring Boot</span> <span>Hibernate</span> <span>REST API</span>
                     </div>
@@ -431,13 +504,24 @@
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
                         <div class="project-title">DevOps Pipeline Optimization</div>
-                        <div class="btn-details">Details</div>
+                        <div class="btn-details" onclick="openModal('DevOps Pipeline Optimization', 'Jan 2023 - Present', 'details-3')">Details</div>
                     </div>
                     <div class="project-period">Period: <span>Jan 2023 - Present</span></div>
                     <ul class="project-desc">
                         <li><span>Automated deployment pipelines using Azure DevOps, Docker, and Kubernetes.</span></li>
                         <li><span>Integrated Splunk for centralized real-time logging and alerting.</span></li>
                     </ul>
+
+                    <template id="details-3">
+                        <ul>
+                            <li>Automated end-to-end CI/CD pipelines using Azure DevOps, reducing manual deployment time by 40%.</li>
+                            <li>Containerized legacy enterprise applications using Docker and orchestrated them securely with Kubernetes.</li>
+                            <li>Integrated Splunk for centralized logging, creating interactive dashboards for real-time application monitoring.</li>
+                            <li>Implemented infrastructure-as-code (IaC) principles to ensure reliable and repeatable environment provisioning.</li>
+                            <li>Set up automated unit and integration testing workflows triggering on every code commit.</li>
+                        </ul>
+                    </template>
+
                     <div class="tech-tags">
                         <span>Azure DevOps</span> <span>Docker</span> <span>Kubernetes</span> <span>Splunk</span>
                     </div>
@@ -448,6 +532,15 @@
 
             </div>
         </section>
+
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+                <h3 id="modal-title" style="font-size: 1.4rem; margin-bottom: 5px; color: var(--text-main);"></h3>
+                <div id="modal-period" style="font-size: 0.85rem; color: var(--teal); margin-bottom: 20px;"></div>
+                <div id="modal-body" class="modal-body"></div>
+            </div>
+        </div>
 
         <section id="skills">
             <h2 class="section-title">Technical Skills</h2>
@@ -542,7 +635,7 @@
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/splunk.svg" alt="Splunk" class="splunk-icon">
+                                <img src="https://logos-world.net/wp-content/uploads/2021/02/Splunk-Symbol.png" alt="Splunk" class="splunk-icon">
                             </div>
                             <div class="skill-label">Splunk</div>
                         </div>
@@ -635,7 +728,7 @@
             </div>
         </section>
 
-       <section id="contact">
+        <section id="contact">
             <h2 class="section-title">Contact Me</h2>
             <div class="contact-wrap">
                 
@@ -663,9 +756,7 @@
 
                 <div class="contact-form">
                     <form action="https://formsubmit.co/mrityunjay.ranjan28@gmail.com" method="POST">
-                        
                         <input type="hidden" name="_captcha" value="false">
-                        
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" name="name" placeholder="Your name" required>
@@ -715,7 +806,7 @@
             </div>
 
         </div>
-        <div class="wrapper copyright" style="max-width: 1200px; padding: 20px 40px 0;">
+        <div class="wrapper copyright">
             © 2026 Mrityunjay Ranjan. All rights reserved.
         </div>
     </footer>
@@ -754,13 +845,38 @@
             setTimeout(type, typeSpeed);
         }
 
+        // --- NEW DIALOG (MODAL) LOGIC ---
+        function openModal(title, period, contentId) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-period').innerHTML = 'Period: <span>' + period + '</span>';
+            
+            // Fetch content from the hidden template and inject into modal
+            const contentTemplate = document.getElementById(contentId);
+            document.getElementById('modal-body').innerHTML = contentTemplate.innerHTML;
+            
+            // Display modal
+            document.getElementById('project-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').style.display = 'none';
+        }
+
+        // Close modal if user clicks anywhere outside of it
+        window.onclick = function(event) {
+            let modal = document.getElementById('project-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             // Initialize Typewriter
             if(typewriterElement) {
                 setTimeout(type, 1000);
             }
 
-            // PERFECT LIGHT/DARK MODE TOGGLE LOGIC
+            // LIGHT/DARK MODE TOGGLE LOGIC
             const themeBtn = document.getElementById('theme-toggle');
             if(themeBtn) {
                 themeBtn.addEventListener('click', () => {
