@@ -77,7 +77,7 @@
 
         section { padding: 90px 0; }
         
-        .section-title { font-size: 2rem; font-weight: 500; text-align: left; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
+        .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
 
         /* HEADER & NAVIGATION */
         header { 
@@ -167,25 +167,44 @@
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
         .timeline-list li:hover { color: var(--text-main); } 
 
-        /* PROJECTS */
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-        .project-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column; height: 100%; transition: all 0.3s ease; }
+        /* PROJECTS GRID (EQUAL HEIGHT RESTORED) */
+        .projects-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            align-items: stretch; /* Forces equal heights */
+        }
+        .project-card { 
+            background: var(--bg-card); border: 1px solid var(--border-color); 
+            border-radius: 12px; padding: 25px; position: relative; 
+            display: flex; flex-direction: column; 
+            height: 100%; 
+            transition: all 0.3s ease; 
+        }
         .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); background: var(--hover-bg); }
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
         
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .project-title { font-size: 1.05rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         
-        .btn-details { font-size: 0.7rem; color: var(--text-main); background: rgba(129, 140, 248, 0.1); border: 1px solid rgba(129, 140, 248, 0.3); padding: 5px 12px; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; user-select: none;}
+        /* CLICKABLE DETAILS BUTTON */
+        .btn-details { 
+            font-size: 0.7rem; color: var(--text-main); background: rgba(129, 140, 248, 0.1); 
+            border: 1px solid rgba(129, 140, 248, 0.3); padding: 5px 12px; border-radius: 6px; 
+            font-weight: 500; cursor: pointer; transition: all 0.3s ease; user-select: none;
+        }
         .btn-details:hover { background: var(--purple); color: #fff; border-color: var(--purple); transform: scale(1.05); }
-
+        
         .project-period { font-size: 0.8rem; color: var(--text-main); font-weight: 400; margin-bottom: 15px; }
         .project-period span { color: var(--text-muted); }
+        
         .project-desc { color: var(--text-body); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
         .project-desc li { margin-bottom: 8px; list-style-type: disc; }
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto;}
+        
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto; }
         .tech-tags span { background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); transition: 0.3s; font-weight: 300; }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
+        
         .project-links { display: flex; gap: 10px; }
         .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: var(--text-main); font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-main); color: var(--bg-main); }
@@ -206,6 +225,7 @@
         .close-btn:hover { color: var(--pink); transform: scale(1.1); }
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
         
+        /* Updated to Numbered List (<ol>) */
         .modal-body ol { padding-left: 20px; margin-top: 15px; margin-bottom: 25px; list-style-type: decimal;}
         .modal-body li { color: var(--text-body); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6; font-weight: 300;}
         .modal-body li::marker { color: var(--cyan); font-weight: 600;}
@@ -254,9 +274,9 @@
         .skill-box:hover .skill-icon-box i { transform: scale(1.1); }
         .skill-box:hover .skill-icon-box img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
 
-        /* PERFECT INLINE SVG SPLUNK ICON CSS */
-        .splunk-icon { width: 38px !important; height: 38px !important; fill: var(--text-main); transition: all 0.3s ease; }
-        .skill-box:hover .skill-icon-box .splunk-icon { transform: scale(1.1); fill: var(--cyan); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
+        /* PERFECT STABLE SPLUNK IMAGE CSS */
+        .splunk-img { width: 40px; height: 40px; object-fit: contain; transition: all 0.3s ease; }
+        .skill-box:hover .skill-icon-box .splunk-img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
         
         .skill-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-align: center; transition: 0.3s; line-height: 1.2;}
         .skill-box:hover .skill-label { color: var(--text-main); }
@@ -328,7 +348,7 @@
         .f-links a:hover { color: var(--text-main); padding-left: 3px; }
         .f-socials { display: flex; gap: 15px; font-size: 1.1rem; color: var(--text-muted); }
         .f-socials a:hover { color: var(--text-main); transform: translateY(-2px); }
-        .copyright { text-align: left; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
 
         @media (max-width: 900px) {
             .hero, .contact-wrap { flex-direction: column; }
@@ -615,9 +635,7 @@
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box">
-                                <svg class="splunk-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.175 0a3.623 3.623 0 0 0-3.626 3.624c0 2.002 1.624 3.626 3.626 3.626a3.623 3.623 0 0 0 3.624-3.626A3.623 3.623 0 0 0 13.175 0zm-8.83 5.485a3.623 3.623 0 0 0-3.625 3.624c0 2.002 1.623 3.626 3.625 3.626 2.002 0 3.626-1.624 3.626-3.626a3.623 3.623 0 0 0-3.626-3.624zm14.545 1.586a3.623 3.623 0 0 0-3.624 3.626c0 2.002 1.623 3.626 3.624 3.626 2.003 0 3.626-1.624 3.626-3.626a3.623 3.623 0 0 0-3.626-3.626zM5.594 15.545a3.623 3.623 0 0 0-3.625 3.626c0 2.002 1.624 3.626 3.625 3.626a3.623 3.623 0 0 0 3.626-3.626 3.623 3.623 0 0 0-3.626-3.626zm12.396 1.485a3.623 3.623 0 0 0-3.626 3.626c0 2.002 1.624 3.626 3.626 3.626a3.623 3.623 0 0 0 3.624-3.626 3.623 3.623 0 0 0-3.624-3.626z"/>
-                                </svg>
+                                <img src="https://img.icons8.com/color/144/splunk.png" alt="Splunk" class="splunk-img">
                             </div>
                             <div class="skill-label">Splunk</div>
                         </div>
