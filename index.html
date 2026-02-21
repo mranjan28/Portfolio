@@ -71,7 +71,6 @@
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
 
-        /* --- WIDER CONTAINER FOR LEFT ALIGNMENT --- */
         .wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; width: 100%; }
 
         section { padding: 80px 0; }
@@ -147,7 +146,7 @@
         .social-bar a:hover { color: var(--bg-main); background: var(--text-main); border-color: var(--text-main); transform: translateY(-3px); }
 
         /* EXPERIENCE TIMELINE */
-        .timeline-container { position: relative; padding-left: 35px; margin-top: 20px; width: 100%; }
+        .timeline-container { position: relative; padding-left: 35px; margin-top: 40px; width: 100%; }
         .timeline-line { position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--gradient-line); border-radius: 2px; }
         .timeline-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; transition: all 0.3s ease; width: 100%; z-index: 1; }
         .timeline-item::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 12px; padding: 1.5px; background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.4s ease; }
@@ -166,77 +165,41 @@
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
         .timeline-list li:hover { color: var(--text-main); } 
 
-        /* --- PROJECTS GRID (Fixed Height & Dialog integration) --- */
-        .projects-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            align-items: stretch; /* Forces equal height for all cards */
-        }
-        .project-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); 
-            border-radius: 12px; padding: 25px; position: relative; 
-            display: flex; flex-direction: column; height: 100%; /* Makes inner flex stretch */
-            transition: all 0.3s ease; 
-        }
+        /* PROJECTS */
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;}
+        .project-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; position: relative; display: flex; flex-direction: column; transition: all 0.3s ease; }
         .project-card:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px -10px rgba(129, 140, 248, 0.15); background: var(--hover-bg); }
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
         
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .project-title { font-size: 1.05rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         
-        /* Interactive Details Button */
-        .btn-details { 
-            font-size: 0.7rem; color: var(--text-main); background: rgba(129, 140, 248, 0.1); 
-            border: 1px solid rgba(129, 140, 248, 0.3); padding: 5px 12px; border-radius: 6px; 
-            font-weight: 500; cursor: pointer; transition: all 0.3s ease; user-select: none;
-        }
-        .btn-details:hover { background: var(--purple); color: #fff; border-color: var(--purple); transform: scale(1.05); }
+        /* UPDATED DETAILS BUTTON STYLES */
+        .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; user-select: none; }
+        .btn-details:hover { background: var(--teal); color: #000; border-color: var(--teal); }
         
         .project-period { font-size: 0.8rem; color: var(--text-main); font-weight: 400; margin-bottom: 15px; }
         .project-period span { color: var(--text-muted); }
-        
-        /* Flex Grow ensures the tech tags push to bottom */
         .project-desc { color: var(--text-body); font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; flex-grow: 1; padding-left: 15px; }
         .project-desc li { margin-bottom: 8px; list-style-type: disc; }
         
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto; }
+        /* EXPANDED DETAILS SECTION STYLES */
+        .expanded-details { display: none; margin-top: 5px; padding-top: 15px; border-top: 1px dashed var(--border-color); animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .tech-tags span { background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); transition: 0.3s; font-weight: 300; }
         .project-card:hover .tech-tags span { border-color: rgba(129, 140, 248, 0.3); color: var(--cyan); }
         .project-links { display: flex; gap: 10px; }
         .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: var(--text-main); font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-main); color: var(--bg-main); }
 
-        /* --- PROJECT MODAL/DIALOG BOX STYLES --- */
-        .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
-            align-items: center; justify-content: center;
-        }
-        .modal-content {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px;
-            padding: 40px; width: 90%; max-width: 650px; position: relative;
-            animation: modalFadeIn 0.3s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-        }
-        [data-theme="light"] .modal-content { box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: 0.3s; }
-        .close-btn:hover { color: var(--pink); transform: scale(1.1); }
-        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        
-        .modal-body ul { padding-left: 20px; }
-        .modal-body li { color: var(--text-body); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.7; font-weight: 300;}
-        .modal-body li::marker { color: var(--cyan); }
-
-        /* --- SKILLS SECTION (2 Rows x 3 Columns) --- */
-        .skills-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* 3 Columns */
-            gap: 25px; 
-        }
+        /* SKILLS SECTION */
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
         .skill-card:hover { background: var(--hover-bg); }
         .dot-cyan-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-        .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
+        .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); boxshadow: 0 0 10px var(--purple); }
         
         .skill-header { 
             font-size: 1.25rem; 
@@ -250,22 +213,22 @@
         }
         
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 30px; opacity: 0.6; }
-        .skill-items-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; }
-        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 75px; }
+        .skill-items-container { display: flex; flex-wrap: wrap; gap: 25px; justify-content: flex-start; }
+        .skill-box { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 85px; }
         
         .skill-icon-box { 
-            width: 70px; height: 70px; background: var(--bg-icon); border: 1px solid rgba(129, 140, 248, 0.1); 
-            border-radius: 14px; display: flex; justify-content: center; align-items: center; 
-            font-size: 2.2rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 75px; height: 75px; background: var(--bg-icon); border: 1px solid rgba(129, 140, 248, 0.1); 
+            border-radius: 16px; display: flex; justify-content: center; align-items: center; 
+            font-size: 2.5rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: inset 0 1px 2px rgba(129, 140, 248, 0.05);
         }
-        .skill-icon-box img { width: 36px; height: 36px; object-fit: contain; transition: all 0.3s ease; } 
+        .skill-icon-box img { width: 40px; height: 40px; object-fit: contain; transition: all 0.3s ease; } 
         
         .skill-box:hover .skill-icon-box { border-color: var(--cyan); transform: translateY(-5px); background: rgba(34, 211, 238, 0.05); }
         .skill-box:hover .skill-icon-box i { transform: scale(1.1); }
         .skill-box:hover .skill-icon-box img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
 
-        .splunk-icon { width: 34px !important; height: 34px !important; filter: invert(0.85); transition: all 0.3s ease; }
+        .splunk-icon { width: 38px !important; height: 38px !important; filter: invert(0.85); transition: all 0.3s ease; }
         [data-theme="light"] .splunk-icon { filter: invert(0.2); }
         .skill-box:hover .skill-icon-box .splunk-icon { transform: scale(1.1); filter: invert(0.85) drop-shadow(0 0 5px rgba(34, 211, 238, 0.6)); }
         [data-theme="light"] .skill-box:hover .skill-icon-box .splunk-icon { filter: invert(0.2) drop-shadow(0 0 5px rgba(34, 211, 238, 0.6)); }
@@ -435,7 +398,7 @@
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
                         <div class="project-title">IRNSS System</div>
-                        <div class="btn-details" onclick="openModal('IRNSS System', 'Aug 2019 - Jan 2020', 'details-1')">Details</div>
+                        <div class="btn-details" onclick="toggleDetails(this)">Details</div>
                     </div>
                     <div class="project-period">Period: <span>Aug 2019 - Jan 2020</span></div>
                     <ul class="project-desc">
@@ -443,15 +406,14 @@
                         <li><span>Implemented robust data structure algorithms for precise tracking metrics.</span></li>
                     </ul>
                     
-                    <template id="details-1">
-                        <ul>
+                    <div class="expanded-details">
+                        <ul class="project-desc" style="margin-bottom: 0;">
                             <li>Integrated core backend modules using Java to process satellite telemetry data in real-time.</li>
                             <li>Optimized data structure algorithms, reducing spatial data querying time by 30%.</li>
                             <li>Built multi-threaded applications to seamlessly handle high-throughput navigation streams.</li>
                             <li>Implemented strict data validation and error-handling protocols ensuring precise system tracking.</li>
-                            <li>Collaborated closely with scientists and analysts to map functional requirements to robust code.</li>
                         </ul>
-                    </template>
+                    </div>
 
                     <div class="tech-tags">
                         <span>Java</span> <span>Data Structures</span> <span>Algorithms</span>
@@ -465,23 +427,22 @@
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
                         <div class="project-title">Enterprise Microservices</div>
-                        <div class="btn-details" onclick="openModal('Enterprise Microservices', 'Mar 2022 - Present', 'details-2')">Details</div>
+                        <div class="btn-details" onclick="toggleDetails(this)">Details</div>
                     </div>
                     <div class="project-period">Period: <span>Mar 2022 - Present</span></div>
                     <ul class="project-desc">
                         <li><span>Architected scalable microservices using Spring Boot and Hibernate.</span></li>
                         <li><span>Reduced API latency by 20% via optimized REST endpoints.</span></li>
                     </ul>
-                    
-                    <template id="details-2">
-                        <ul>
+
+                    <div class="expanded-details">
+                        <ul class="project-desc" style="margin-bottom: 0;">
                             <li>Architected and deployed 10+ scalable microservices using Spring Boot and Java.</li>
                             <li>Designed efficient relational database schemas and complex queries using Hibernate/JPA.</li>
-                            <li>Reduced overall API latency by 20% by implementing caching and optimizing REST endpoints.</li>
+                            <li>Reduced overall API latency by 20% by implementing caching and optimizing endpoints.</li>
                             <li>Secured service-to-service communication using robust Spring Security and OAuth2 implementations.</li>
-                            <li>Achieved 99.9% uptime by building fault-tolerant services using Resilience4j circuit breakers.</li>
                         </ul>
-                    </template>
+                    </div>
 
                     <div class="tech-tags">
                         <span>Spring Boot</span> <span>Hibernate</span> <span>REST API</span>
@@ -496,7 +457,7 @@
                     <div class="project-corner-dot"></div>
                     <div class="project-header">
                         <div class="project-title">DevOps Pipeline Optimization</div>
-                        <div class="btn-details" onclick="openModal('DevOps Pipeline Optimization', 'Jan 2023 - Present', 'details-3')">Details</div>
+                        <div class="btn-details" onclick="toggleDetails(this)">Details</div>
                     </div>
                     <div class="project-period">Period: <span>Jan 2023 - Present</span></div>
                     <ul class="project-desc">
@@ -504,15 +465,14 @@
                         <li><span>Integrated Splunk for centralized real-time logging and alerting.</span></li>
                     </ul>
 
-                    <template id="details-3">
-                        <ul>
+                    <div class="expanded-details">
+                        <ul class="project-desc" style="margin-bottom: 0;">
                             <li>Automated end-to-end CI/CD pipelines using Azure DevOps, reducing manual deployment time by 40%.</li>
                             <li>Containerized legacy enterprise applications using Docker and orchestrated them securely with Kubernetes.</li>
                             <li>Integrated Splunk for centralized logging, creating interactive dashboards for real-time application monitoring.</li>
                             <li>Implemented infrastructure-as-code (IaC) principles to ensure reliable and repeatable environment provisioning.</li>
-                            <li>Set up automated unit and integration testing workflows triggering on every code commit.</li>
                         </ul>
-                    </template>
+                    </div>
 
                     <div class="tech-tags">
                         <span>Azure DevOps</span> <span>Docker</span> <span>Kubernetes</span> <span>Splunk</span>
@@ -524,15 +484,6 @@
 
             </div>
         </section>
-
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
-                <h3 id="modal-title" style="font-size: 1.4rem; margin-bottom: 5px; color: var(--text-main);"></h3>
-                <div id="modal-period" style="font-size: 0.85rem; color: var(--teal); margin-bottom: 20px;"></div>
-                <div id="modal-body" class="modal-body"></div>
-            </div>
-        </div>
 
         <section id="skills">
             <h2 class="section-title">Technical Skills</h2>
@@ -549,23 +500,23 @@
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box"><i class="devicon-java-plain colored"></i></div>
-                            <div class="skill-label">Java 8</div>
+                            <div class="skill-label">Java 8 Features</div>
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-mug-hot" style="color: #f89820;"></i></div>
                             <div class="skill-label">J2EE</div>
                         </div>
                         <div class="skill-box">
+                            <div class="skill-icon-box"><i class="devicon-mysql-plain colored"></i></div>
+                            <div class="skill-label">SQL</div>
+                        </div>
+                        <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-diagram-project" style="color: #38bdf8;"></i></div>
-                            <div class="skill-label">Data Struct.</div>
+                            <div class="skill-label">Data Structures</div>
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-microchip" style="color: #a78bfa;"></i></div>
                             <div class="skill-label">Algorithms</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="fa-solid fa-object-group" style="color: #f472b6;"></i></div>
-                            <div class="skill-label">OOP</div>
                         </div>
                     </div>
                 </div>
@@ -587,19 +538,19 @@
                             <div class="skill-icon-box">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="Hibernate">
                             </div>
-                            <div class="skill-label">Hibernate</div>
+                            <div class="skill-label">Hibernate / JPA</div>
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-server" style="color: #6db33f;"></i></div>
-                            <div class="skill-label">REST API</div>
+                            <div class="skill-label">RESTful APIs</div>
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-shield-halved" style="color: #3b82f6;"></i></div>
-                            <div class="skill-label">Spring Sec.</div>
+                            <div class="skill-label">Spring Security</div>
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-database" style="color: #f472b6;"></i></div>
-                            <div class="skill-label">Data JPA</div>
+                            <div class="skill-label">Spring Data JPA</div>
                         </div>
                     </div>
                 </div>
@@ -622,16 +573,12 @@
                             <div class="skill-label">Kubernetes</div>
                         </div>
                         <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-amazonwebservices-original colored"></i></div>
-                            <div class="skill-label">AWS</div>
-                        </div>
-                        <div class="skill-box">
                             <div class="skill-icon-box"><i class="fa-solid fa-arrows-spin" style="color: #22d3ee;"></i></div>
-                            <div class="skill-label">CI/CD</div>
+                            <div class="skill-label">CI/CD Pipelines</div>
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box">
-                                <img src="https://logos-world.net/wp-content/uploads/2021/02/Splunk-Symbol.png" alt="Splunk" class="splunk-icon">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/splunk.svg" alt="Splunk" class="splunk-icon">
                             </div>
                             <div class="skill-label">Splunk</div>
                         </div>
@@ -640,41 +587,13 @@
 
                 <div class="skill-card">
                     <div class="dot-purple-corner"></div>
-                    <div class="skill-header">Databases & Web</div>
+                    <div class="skill-header">Tools & Testing</div>
                     <div class="skill-divider"></div>
                     <div class="skill-items-container">
                         <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-mysql-plain colored"></i></div>
-                            <div class="skill-label">MySQL</div>
+                            <div class="skill-icon-box"><i class="devicon-gitlab-plain colored"></i></div>
+                            <div class="skill-label">GitLab</div>
                         </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-postgresql-plain colored"></i></div>
-                            <div class="skill-label">PostgreSQL</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-mongodb-plain colored"></i></div>
-                            <div class="skill-label">MongoDB</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-redis-plain colored"></i></div>
-                            <div class="skill-label">Redis</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-html5-plain colored"></i></div>
-                            <div class="skill-label">HTML/CSS</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-javascript-plain colored"></i></div>
-                            <div class="skill-label">JavaScript</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="dot-cyan-corner"></div>
-                    <div class="skill-header">Testing Tools</div>
-                    <div class="skill-divider"></div>
-                    <div class="skill-items-container">
                         <div class="skill-box">
                             <div class="skill-icon-box">
                                 <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman">
@@ -686,54 +605,18 @@
                             <div class="skill-label">SoapUI</div>
                         </div>
                         <div class="skill-box">
-                            <div class="skill-icon-box"><i class="fa-solid fa-vial" style="color: #22d3ee;"></i></div>
-                            <div class="skill-label">JUnit</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="fa-solid fa-mask" style="color: #f472b6;"></i></div>
-                            <div class="skill-label">Mockito</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="fa-solid fa-robot" style="color: #14b8a6;"></i></div>
-                            <div class="skill-label">Selenium</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="fa-solid fa-leaf" style="color: #4ade80;"></i></div>
-                            <div class="skill-label">Cucumber</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="dot-purple-corner"></div>
-                    <div class="skill-header">VCS & Build Tools</div>
-                    <div class="skill-divider"></div>
-                    <div class="skill-items-container">
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-git-plain colored"></i></div>
-                            <div class="skill-label">Git</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-gitlab-plain colored"></i></div>
-                            <div class="skill-label">GitLab</div>
-                        </div>
-                        <div class="skill-box">
-                            <div class="skill-icon-box"><i class="fa-brands fa-github" style="color: #d1d5db;"></i></div>
-                            <div class="skill-label">GitHub</div>
-                        </div>
-                        <div class="skill-box">
                             <div class="skill-icon-box">
                                 <img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="Maven">
                             </div>
                             <div class="skill-label">Maven</div>
                         </div>
                         <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-gradle-plain colored"></i></div>
-                            <div class="skill-label">Gradle</div>
+                            <div class="skill-icon-box"><i class="devicon-mysql-plain colored"></i></div>
+                            <div class="skill-label">MySQL</div>
                         </div>
                         <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-sonarqube-plain colored"></i></div>
-                            <div class="skill-label">SonarQube</div>
+                            <div class="skill-icon-box"><i class="devicon-git-plain colored"></i></div>
+                            <div class="skill-label">Git</div>
                         </div>
                     </div>
                 </div>
@@ -905,31 +788,31 @@
             setTimeout(type, typeSpeed);
         }
 
-        // --- NEW MODAL DIALOG LOGIC ---
-        function openModal(title, period, contentId) {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-period').innerHTML = 'Period: ' + period;
-            document.getElementById('modal-body').innerHTML = document.getElementById(contentId).innerHTML;
-            document.getElementById('project-modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('project-modal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('project-modal');
-            if (event.target == modal) {
-                modal.style.display = "none";
+        // PROJECT DETAILS TOGGLE LOGIC
+        function toggleDetails(btn) {
+            const detailsDiv = btn.closest('.project-card').querySelector('.expanded-details');
+            if (detailsDiv.style.display === 'none' || detailsDiv.style.display === '') {
+                detailsDiv.style.display = 'block';
+                btn.textContent = 'Hide Details';
+                btn.style.background = 'var(--purple)';
+                btn.style.color = '#fff';
+                btn.style.borderColor = 'var(--purple)';
+            } else {
+                detailsDiv.style.display = 'none';
+                btn.textContent = 'Details';
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.style.borderColor = '';
             }
         }
 
         document.addEventListener("DOMContentLoaded", () => {
+            // Initialize Typewriter
             if(typewriterElement) {
                 setTimeout(type, 1000);
             }
 
-            // PERFECT LIGHT/DARK MODE TOGGLE LOGIC
+            // LIGHT/DARK MODE TOGGLE LOGIC
             const themeBtn = document.getElementById('theme-toggle');
             if(themeBtn) {
                 themeBtn.addEventListener('click', () => {
