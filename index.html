@@ -77,7 +77,7 @@
 
         section { padding: 90px 0; }
         
-        .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
+        .section-title { font-size: 2rem; font-weight: 500; text-align: left; margin-bottom: 50px; color: var(--text-main); letter-spacing: -0.5px; transition: color 0.4s ease;}
 
         /* HEADER & NAVIGATION */
         header { 
@@ -167,12 +167,12 @@
         .timeline-list li::before { content: '▹'; position: absolute; left: -20px; color: var(--purple); font-size: 1.1rem; top: -2px; }
         .timeline-list li:hover { color: var(--text-main); } 
 
-        /* PROJECTS GRID (EQUAL HEIGHT RESTORED) */
+        /* PROJECTS GRID */
         .projects-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 20px; 
-            align-items: stretch; /* Forces equal heights */
+            align-items: stretch;
         }
         .project-card { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
@@ -187,7 +187,6 @@
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .project-title { font-size: 1.05rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         
-        /* CLICKABLE DETAILS BUTTON */
         .btn-details { 
             font-size: 0.7rem; color: var(--text-main); background: rgba(129, 140, 248, 0.1); 
             border: 1px solid rgba(129, 140, 248, 0.3); padding: 5px 12px; border-radius: 6px; 
@@ -225,7 +224,6 @@
         .close-btn:hover { color: var(--pink); transform: scale(1.1); }
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
         
-        /* Updated to Numbered List (<ol>) */
         .modal-body ol { padding-left: 20px; margin-top: 15px; margin-bottom: 25px; list-style-type: decimal;}
         .modal-body li { color: var(--text-body); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6; font-weight: 300;}
         .modal-body li::marker { color: var(--cyan); font-weight: 600;}
@@ -253,10 +251,10 @@
         
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 30px; opacity: 0.6; }
         
-        /* INNER ICONS: 3 COLUMNS x 2 ROWS (2x3 Grid) */
+        /* INNER ICONS: EXACTLY 3 COLUMNS x 2 ROWS */
         .skill-items-container { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 25px 15px; 
             justify-items: center;
         }
@@ -274,9 +272,9 @@
         .skill-box:hover .skill-icon-box i { transform: scale(1.1); }
         .skill-box:hover .skill-icon-box img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
 
-        /* PERFECT STABLE SPLUNK IMAGE CSS */
-        .splunk-img { width: 40px; height: 40px; object-fit: contain; transition: all 0.3s ease; }
-        .skill-box:hover .skill-icon-box .splunk-img { transform: scale(1.1); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
+        /* PERFECT INLINE SVG SPLUNK ICON CSS */
+        .splunk-icon { width: 32px !important; height: 32px !important; color: var(--text-main); transition: all 0.3s ease; }
+        .skill-box:hover .skill-icon-box .splunk-icon { transform: scale(1.1); color: var(--cyan); filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4)); }
         
         .skill-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-align: center; transition: 0.3s; line-height: 1.2;}
         .skill-box:hover .skill-label { color: var(--text-main); }
@@ -289,19 +287,19 @@
         .edu-date { font-size: 0.8rem; color: var(--teal); font-weight: 400; }
 
         /* CERTIFICATIONS */
-        .cert-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 40px; }
+        .cert-subtitle { text-align: left; color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 30px; }
         .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .cert-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 20px; text-align: center; transition: all 0.4s ease; }
+        .cert-card { display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 25px; transition: all 0.4s ease; }
         .cert-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 15px 30px -10px rgba(34, 211, 238, 0.15); background: var(--hover-bg);}
         .cert-card i { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
         .cert-card:hover i { transform: scale(1.05); }
         .cert-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; color: var(--text-main); }
         .cert-issuer { font-size: 0.75rem; color: var(--text-body); font-weight: 300; margin-bottom: 4px; }
         .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 300; }
-        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; }
+        .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; margin-top: auto;}
         .cert-link:hover { background: var(--teal); color: var(--bg-main); }
 
-        /* CONTACT SECTION */
+        /* CONTACT ME SECTION */
         .contact-wrap { display: flex; gap: 40px; align-items: flex-start; }
         
         .contact-info { flex: 1; padding-right: 20px; padding-top: 10px;}
@@ -348,7 +346,7 @@
         .f-links a:hover { color: var(--text-main); padding-left: 3px; }
         .f-socials { display: flex; gap: 15px; font-size: 1.1rem; color: var(--text-muted); }
         .f-socials a:hover { color: var(--text-main); transform: translateY(-2px); }
-        .copyright { text-align: center; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .copyright { text-align: left; margin-top: 40px; font-size: 0.75rem; color: var(--text-darker); font-weight: 300; border-top: 1px solid var(--border-color); padding-top: 20px; }
 
         @media (max-width: 900px) {
             .hero, .contact-wrap { flex-direction: column; }
@@ -635,7 +633,10 @@
                         </div>
                         <div class="skill-box">
                             <div class="skill-icon-box">
-                                <img src="https://img.icons8.com/color/144/splunk.png" alt="Splunk" class="splunk-img">
+                                <svg class="splunk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="6 4 14 12 6 20"></polyline>
+                                    <line x1="14" y1="20" x2="22" y2="20"></line>
+                                </svg>
                             </div>
                             <div class="skill-label">Splunk</div>
                         </div>
