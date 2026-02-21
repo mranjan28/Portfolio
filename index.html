@@ -21,6 +21,7 @@
             
             /* The specific premium grey for all headings and important text */
             --text-main: #cbd5e1;      
+            
             --text-body: #9ca3af;      
             --text-muted: #71717a;     
             --text-bright: #d1d5db;
@@ -157,7 +158,7 @@
         .corner-dot-orange { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
         
         .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
-        .timeline-title { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.3px; }
+        .timeline-title { font-size: 1.1rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         .timeline-company { font-size: 0.9rem; color: var(--teal); margin-top: 4px; font-weight: 400; }
         .timeline-date { font-size: 0.8rem; color: var(--text-muted); background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-weight: 300; }
         
@@ -173,7 +174,7 @@
         .project-corner-dot { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; background: var(--gradient-text); border-radius: 50%; }
         
         .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .project-title { font-size: 1.05rem; font-weight: 500; letter-spacing: -0.3px; }
+        .project-title { font-size: 1.05rem; font-weight: 500; color: var(--text-main); letter-spacing: -0.3px; transition: color 0.4s ease;}
         .btn-details { font-size: 0.7rem; color: var(--text-muted); background: rgba(129, 140, 248, 0.05); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-weight: 400; }
         
         .project-period { font-size: 0.8rem; color: var(--text-main); font-weight: 400; margin-bottom: 15px; }
@@ -227,7 +228,7 @@
         /* EDUCATION */
         .edu-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 15px; transition: all 0.3s ease; }
         .edu-card:hover { border-color: var(--purple); transform: translateX(5px); background: var(--hover-bg); }
-        .edu-title { font-size: 1.05rem; font-weight: 500; margin-bottom: 4px; letter-spacing: -0.3px; }
+        .edu-title { font-weight: 500; font-size: 1.05rem; margin-bottom: 4px; letter-spacing: -0.3px; color: var(--text-main); }
         .edu-school { color: var(--text-body); font-size: 0.85rem; font-weight: 300; margin-bottom: 6px; }
         .edu-date { font-size: 0.8rem; color: var(--teal); font-weight: 400; }
 
@@ -238,29 +239,40 @@
         .cert-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 15px 30px -10px rgba(34, 211, 238, 0.15); background: var(--hover-bg);}
         .cert-card i { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; color: var(--orange); }
         .cert-card:hover i { transform: scale(1.05); }
-        .cert-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; }
+        .cert-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; line-height: 1.4; letter-spacing: -0.3px; color: var(--text-main); }
         .cert-issuer { font-size: 0.75rem; color: var(--text-body); font-weight: 300; margin-bottom: 4px; }
         .cert-date { font-size: 0.75rem; color: var(--text-darker); margin-bottom: 15px; font-weight: 300; }
         .cert-link { display: inline-block; color: var(--teal); font-size: 0.8rem; font-weight: 400; padding: 5px 12px; border: 1px solid rgba(20, 184, 166, 0.2); border-radius: 4px; background: rgba(20, 184, 166, 0.05); transition: 0.3s; }
         .cert-link:hover { background: var(--teal); color: var(--bg-main); }
 
-        /* --- CONTACT SECTION (Redesigned perfectly to match image) --- */
-        .contact-wrap { display: flex; gap: 40px; align-items: center; }
+        /* --- REDESIGNED CONTACT SECTION --- */
+        .contact-wrap { display: flex; gap: 40px; align-items: flex-start; }
         
-        .contact-info { flex: 1; padding-right: 20px; }
-        .contact-info h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.5px; color: var(--text-main); }
-        .contact-info p { color: var(--text-body); font-size: 0.95rem; font-weight: 300; margin-bottom: 30px; line-height: 1.6; }
+        /* Clean Text Details (No Card Background) */
+        .contact-info { flex: 1; padding-right: 20px; padding-top: 10px;}
+        .contact-info h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; letter-spacing: -0.5px; color: var(--text-main); }
+        .contact-info p { color: var(--text-body); font-size: 0.95rem; font-weight: 300; margin-bottom: 35px; line-height: 1.6; }
         
-        .c-item { 
-            display: flex; align-items: center; gap: 12px; margin-bottom: 20px; 
-            color: var(--text-bright); font-size: 0.9rem; font-weight: 400; 
-            transition: all 0.3s ease; cursor: pointer; text-decoration: none; width: fit-content;
+        .contact-links-container { display: flex; flex-direction: column; gap: 20px; }
+        
+        /* Interactive Clickable Links */
+        .contact-link { 
+            display: flex; align-items: center; gap: 15px; 
+            color: var(--text-bright); text-decoration: none; 
+            font-size: 0.95rem; font-weight: 400; 
+            transition: all 0.3s ease;
+            width: fit-content;
         }
-        .c-item i { color: var(--teal); font-size: 1.2rem; width: 24px; text-align: center; transition: all 0.3s ease; }
+        .contact-link i { 
+            color: var(--teal); font-size: 1.25rem; 
+            width: 24px; text-align: center; 
+            transition: all 0.3s ease; 
+        }
         
-        .c-item:hover { color: var(--cyan); transform: translateX(5px); }
-        .c-item:hover i { color: var(--cyan); text-shadow: 0 0 10px rgba(34, 211, 238, 0.4); }
+        .contact-link:hover { color: var(--cyan); transform: translateX(8px); }
+        .contact-link:hover i { color: var(--cyan); text-shadow: 0 0 12px rgba(34, 211, 238, 0.6); transform: scale(1.1); }
         
+        /* Form Card */
         .contact-form { flex: 1.2; background: var(--bg-card); padding: 35px; border-radius: 16px; border: 1px solid var(--border-color); transition: all 0.3s ease;}
         .contact-form:hover { border-color: var(--teal); box-shadow: 0 10px 30px -15px rgba(20, 184, 166, 0.1); }
         
@@ -273,12 +285,12 @@
         .submit-btn:hover { background: var(--cyan); transform: translateY(-3px); box-shadow: 0 10px 20px -10px rgba(34, 211, 238, 0.5); }
 
         /* FOOTER */
-        footer { padding: 40px 0 30px; border-top: 1px solid var(--border-color); margin-top: 50px; }
+        footer { padding: 40px 0 30px; border-top: 1px solid var(--border-color); margin-top: 80px; }
         .footer-content { display: flex; justify-content: space-between; }
         .f-col-1 { max-width: 350px; }
-        .f-col-1 h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; }
+        .f-col-1 h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; color: var(--text-main); }
         .f-col-1 p { color: var(--text-body); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
-        .f-col-2 h4, .f-col-3 h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; }
+        .f-col-2 h4, .f-col-3 h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; color: var(--text-main); }
         .f-links { display: flex; flex-direction: column; gap: 8px; color: var(--text-muted); font-size: 0.85rem; font-weight: 300; }
         .f-links a:hover { color: var(--text-main); padding-left: 3px; }
         .f-socials { display: flex; gap: 15px; font-size: 1.1rem; color: var(--text-muted); }
@@ -292,6 +304,7 @@
             .projects-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
             .timeline-container { padding-left: 20px; }
             nav { display: none; }
+            .contact-info, .contact-form { width: 100%; }
         }
     </style>
 </head>
@@ -526,7 +539,9 @@
                             <div class="skill-label">CI/CD Pipelines</div>
                         </div>
                         <div class="skill-box">
-                            <div class="skill-icon-box"><i class="devicon-splunk-plain"></i></div>
+                            <div class="skill-icon-box">
+                                <img src="https://www.vectorlogo.zone/logos/splunk/splunk-icon.svg" alt="Splunk" style="filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));">
+                            </div>
                             <div class="skill-label">Splunk</div>
                         </div>
                     </div>
@@ -626,17 +641,22 @@
                     <h3>Get In Touch</h3>
                     <p>Feel free to contact me for any work or suggestions below.</p>
                     
-                    <a href="mailto:mrityunjay.ranjan28@gmail.com" class="c-item">
-                        <i class="fa-solid fa-envelope"></i> mrityunjay.ranjan28@gmail.com
-                    </a>
-                    
-                    <a href="https://linkedin.com/in/ranjan-mrityunjay" target="_blank" class="c-item">
-                        <i class="fa-brands fa-linkedin"></i> linkedin.com/in/ranjan-mrityunjay
-                    </a>
-                    
-                    <a href="https://github.com/mranjan28" target="_blank" class="c-item">
-                        <i class="fa-brands fa-github"></i> github.com/mranjan28
-                    </a>
+                    <div class="contact-links-container">
+                        <a href="mailto:mrityunjay.ranjan28@gmail.com" class="contact-link">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>mrityunjay.ranjan28@gmail.com</span>
+                        </a>
+                        
+                        <a href="https://linkedin.com/in/ranjan-mrityunjay" target="_blank" class="contact-link">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>linkedin.com/in/ranjan-mrityunjay</span>
+                        </a>
+                        
+                        <a href="https://github.com/mranjan28" target="_blank" class="contact-link">
+                            <i class="fa-brands fa-github"></i>
+                            <span>github.com/mranjan28</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="contact-form">
