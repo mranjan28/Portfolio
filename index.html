@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrityunjay Ranjan | Software Engineer</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
@@ -21,6 +21,7 @@
             --text-muted: #a1a1aa;
             --text-darker: #71717a;
             
+            /* Signature Gradients & Accents */
             --teal: #14b8a6;
             --cyan: #22d3ee;
             --pink: #f472b6;
@@ -52,7 +53,7 @@
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
 
-        /* --- THE FIX: BOTH HEADER AND BODY CONTAINER NOW HAVE THE EXACT SAME WIDTH AND PADDING --- */
+        /* --- CONTAINER & HEADER ALIGNMENT FIX --- */
         .container, .header-content { 
             max-width: 1280px; 
             margin: 0 auto; 
@@ -98,7 +99,6 @@
         /* HERO SECTION */
         .hero { display: flex; justify-content: space-between; align-items: center; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; gap: 50px; }
         
-        /* Removed extra padding so it perfectly aligns with the logo's red line */
         .hero-text { flex: 1.2; }
         
         .hero-title { 
@@ -263,7 +263,8 @@
             justify-content: center; align-items: center; font-size: 2.2rem; 
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
-        .skill-icon img { width: 30px; height: 30px; object-fit: contain; transition: all 0.3s ease; } 
+        /* Updated img styles for new SVGs */
+        .skill-icon img { width: 32px; height: 32px; object-fit: contain; transition: all 0.3s ease; } 
         
         .skill-item:hover .skill-icon { 
             border-color: var(--cyan); 
@@ -533,7 +534,9 @@
                             <div class="skill-label">Spring Boot</div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><i class="devicon-hibernate-plain colored"></i></div>
+                            <div class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="Hibernate">
+                            </div>
                             <div class="skill-label">Hibernate</div>
                         </div>
                         <div class="skill-item">
@@ -569,7 +572,9 @@
                             <div class="skill-label">Kubernetes</div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/splunk/splunk-icon.svg" alt="Splunk"></div>
+                            <div class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/splunk/splunk-original-wordmark.svg" alt="Splunk">
+                            </div>
                             <div class="skill-label">Splunk</div>
                         </div>
                     </div>
@@ -593,11 +598,15 @@
                             <div class="skill-label">GitLab</div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="Maven"></div>
+                            <div class="skill-icon">
+                                <img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="Maven">
+                            </div>
                             <div class="skill-label">Maven</div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman"></div>
+                            <div class="skill-icon">
+                                <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman">
+                            </div>
                             <div class="skill-label">Postman</div>
                         </div>
                         <div class="skill-item">
