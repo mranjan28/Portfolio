@@ -21,7 +21,6 @@
             --text-muted: #a1a1aa;
             --text-darker: #71717a;
             
-            /* Signature Gradients & Accents */
             --teal: #14b8a6;
             --cyan: #22d3ee;
             --pink: #f472b6;
@@ -53,10 +52,15 @@
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; }
 
-        /* FIXED LEFT INDENTATION */
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        /* --- THE FIX: BOTH HEADER AND BODY CONTAINER NOW HAVE THE EXACT SAME WIDTH AND PADDING --- */
+        .container, .header-content { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 0 40px; 
+            width: 100%;
+        }
+
         section { padding: 90px 0; }
-        
         .section-title { font-size: 2rem; font-weight: 500; text-align: center; margin-bottom: 50px; color: #fff; letter-spacing: -0.5px; }
 
         /* HEADER & NAVIGATION */
@@ -66,7 +70,9 @@
             border-bottom: 1px solid var(--border-color); padding: 18px 0;
             transition: all 0.3s ease;
         }
-        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        
         .logo { font-weight: 500; font-size: 1.15rem; color: #fff; letter-spacing: -0.5px; cursor: pointer; }
         .logo:hover { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
@@ -91,7 +97,9 @@
 
         /* HERO SECTION */
         .hero { display: flex; justify-content: space-between; align-items: center; min-height: 100vh; padding-top: 100px; padding-bottom: 60px; gap: 50px; }
-        .hero-text { flex: 1.2; padding-right: 20px; }
+        
+        /* Removed extra padding so it perfectly aligns with the logo's red line */
+        .hero-text { flex: 1.2; }
         
         .hero-title { 
             font-size: clamp(2.6rem, 5vw, 3.5rem); 
@@ -112,14 +120,13 @@
         
         .hero-img-container { flex: 0.8; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* NEW: WRAPPER FOR EXACT VIDEO HOVER GLOW EFFECT */
+        /* HOVER GLOW EFFECT FOR EMPTY BOX */
         .hero-img-wrapper {
             position: relative;
             width: 320px; height: 320px;
             z-index: 1;
         }
 
-        /* The Multi-Colored Glow Behind Box */
         .hero-img-wrapper::before {
             content: '';
             position: absolute;
@@ -133,24 +140,21 @@
         }
 
         .hero-img-wrapper:hover::before {
-            opacity: 0.65; /* Glowing aura active */
+            opacity: 0.65; 
             transform: translateY(-8px) scale(1.02);
         }
 
-        /* The Actual Box */
         .hero-img { 
             width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; 
             border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2;
         }
 
-        /* Hover Physics for the Box */
         .hero-img-wrapper:hover .hero-img {
             transform: translateY(-8px) scale(1.02);
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Corner Dots attached precisely to the border edges */
         .hero-img::before { content:''; position:absolute; top:-6px; right:-6px; width:12px; height:12px; background:var(--purple); border-radius:50%; box-shadow: 0 0 10px var(--purple); transition: 0.5s; }
         .hero-img::after { content:''; position:absolute; bottom:-6px; left:-6px; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444; transition: 0.5s; }
         
@@ -172,9 +176,19 @@
         .timeline-item { 
             background: var(--bg-card); border: 1px solid var(--border-color); 
             border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; width: 100%; z-index: 1;
         }
-        .timeline-item:hover { border-color: var(--border-hover); transform: translateX(8px); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        
+        .timeline-item::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 12px; padding: 1.5px; 
+            background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink), var(--orange));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.4s ease;
+        }
+
+        .timeline-item:hover { transform: translateY(-5px); background: #1c1c1f; }
+        .timeline-item:hover::after { opacity: 1; }
         
         .dot-1 { position: absolute; left: -41px; top: 35px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); border: 2px solid var(--bg-main); z-index: 2; box-shadow: 0 0 10px var(--cyan); }
         .corner-dot-orange { position: absolute; right: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
@@ -321,7 +335,7 @@
 
         /* FOOTER */
         footer { padding: 40px 0 30px; border-top: 1px solid var(--border-color); margin-top: 50px; }
-        .footer-content { display: flex; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        .footer-content { display: flex; justify-content: space-between; }
         .f-col-1 { max-width: 350px; }
         .f-col-1 h4 { color: #fff; font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; }
         .f-col-1 p { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
@@ -337,7 +351,6 @@
 
         @media (max-width: 900px) {
             .hero, .contact-wrap { flex-direction: column; }
-            .hero-text { padding-right: 0; }
             .hero-img-container { order: -1; margin-bottom: 40px; }
             .projects-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
             .timeline-container { padding-left: 20px; }
@@ -377,6 +390,7 @@
                 <p class="hero-desc">From crafting enterprise integrations to designing resilient backend APIs and automated CI/CD workflows, I deliver quality code that drives real impact.</p>
                 <p class="hero-desc">Passionate about solving complex challenges in fast-paced, collaborative environments. Ready to build something exceptional together.</p>
             </div>
+            
             <div class="hero-img-container">
                 
                 <div class="hero-img-wrapper">
@@ -686,7 +700,7 @@
     </div>
 
     <footer>
-        <div class="footer-content">
+        <div class="container footer-content">
             
             <div class="f-col-1">
                 <h4>Mrityunjay Ranjan</h4>
