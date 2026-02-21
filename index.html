@@ -16,9 +16,8 @@
             --border-color: #27272a;
             --border-hover: #3f3f46;
             
-            /* General Text - Soft Grey */
+            /* Text Colors */
             --text-bright: #d1d5db; 
-            /* Pure White for Specific Areas (like Skills now) */
             --text-white: #ffffff;
             --text-muted: #9ca3af;
             --text-darker: #71717a;
@@ -106,7 +105,7 @@
         .hero-img-wrapper:hover::before { opacity: 0.65; transform: translateY(-8px) scale(1.02); }
         .hero-img { width: 100%; height: 100%; background: #1c1c1f; border-radius: 20px; border: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 2; overflow: hidden; }
         
-        /* FIXED DP IMAGE STYLES */
+        /* DP IMAGE STYLES */
         .hero-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 19px; pointer-events: none; transition: 0.5s; }
 
         .hero-img-wrapper:hover .hero-img { transform: translateY(-8px) scale(1.02); border-color: rgba(255, 255, 255, 0.2); }
@@ -156,16 +155,24 @@
         .btn-link { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; color: var(--text-bright); font-weight: 400; transition: 0.3s; }
         .btn-link:hover { background: var(--text-white); color: #000; }
 
-        /* --- SKILLS SECTION UPDATED (Pure White Text + Larger Boxes) --- */
+        /* --- SKILLS SECTION UPDATED --- */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
         .skill-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; position: relative; transition: all 0.3s ease; }
         .dot-cyan-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
         .dot-purple-corner { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 10px var(--purple); }
         
-        /* PURE WHITE HEADER */
-        .skill-header { font-size: 1.15rem; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.3px; color: var(--text-white); }
-        .c-cyan { color: var(--cyan); }
-        .c-pink { color: var(--pink); }
+        /* THE NEW GRADIENT SKILL HEADER (Cyan to Purple to Pink) */
+        .skill-header { 
+            font-size: 1.25rem; 
+            font-weight: 500; 
+            margin-bottom: 15px; 
+            letter-spacing: -0.3px; 
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block; /* Required for the gradient text effect to show properly */
+        }
+        
         .skill-divider { height: 1px; width: 100%; background: var(--gradient-divider); margin-bottom: 30px; opacity: 0.6; }
         
         .skill-items-container { display: flex; flex-wrap: wrap; gap: 25px; justify-content: flex-start; }
@@ -286,7 +293,7 @@
             <div class="hero-img-container">
                 <div class="hero-img-wrapper">
                     <div class="hero-img">
-                        <img src="https://i.pinimg.com/736x/7f/7b/0c/7f7b0c9bf14ae9b769705a071dfb6dd0.jpg" alt="Developer DP">
+                        <img src="profile.jpg" alt="Developer DP">
                     </div>
                 </div>
                 <div class="social-bar">
@@ -396,7 +403,7 @@
                 <div class="skill-card">
                     <div class="dot-cyan-corner"></div>
                     <div class="skill-header">
-                        <span class="c-cyan">Core</span> <span class="c-pink">Programming</span>
+                        Core Programming
                     </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items-container">
@@ -430,7 +437,7 @@
                 <div class="skill-card">
                     <div class="dot-purple-corner"></div>
                     <div class="skill-header">
-                        <span class="c-cyan">Spring</span> <span class="c-pink">Ecosystem</span>
+                        Spring Ecosystem
                     </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items-container">
@@ -466,7 +473,7 @@
                 <div class="skill-card">
                     <div class="dot-cyan-corner"></div>
                     <div class="skill-header">
-                        <span class="c-cyan">Cloud</span> <span class="c-pink">& DevOps</span>
+                        Cloud & DevOps
                     </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items-container">
@@ -498,7 +505,7 @@
                 <div class="skill-card">
                     <div class="dot-purple-corner"></div>
                     <div class="skill-header">
-                        <span class="c-cyan">Developer</span> <span class="c-pink">Tools</span>
+                        Tools & Testing
                     </div>
                     <div class="skill-divider"></div>
                     <div class="skill-items-container">
